@@ -16,10 +16,14 @@
       <a class="active" href="index.html">Home</a>
       <a href="features.html">Features</a>
       <a href="integrations.html">Integrations</a>
+      <a href="pricing.html">Pricing</a>
       <a href="docs.html">Docs</a>
       <a href="contact.html">Contact</a>
     </nav>
-    <a class="btn btn-secondary" href="docs.html#startup">Run Locally</a>
+    <div style="display:flex;gap:8px;">
+      <a class="btn btn-secondary" href="docs.html#startup">Run Locally</a>
+      <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Login →</a>
+    </div>
   </div>
 </header>
 
@@ -33,8 +37,8 @@
         Integrate with GitHub, automate through Jenkins, and enforce policies with developer-friendly speed.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="docs.html#startup">Start in Minutes</a>
-        <a class="btn btn-secondary" href="integrations.html#jenkins">See Pipeline Flow</a>
+        <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Start Free — SaaS</a>
+        <a class="btn btn-secondary" href="docs.html#startup">Self-Host</a>
       </div>
     </div>
     <aside class="hero-panel" aria-label="Security Operations Snapshot">
@@ -43,10 +47,10 @@
         <li>✅ Full repo, branch, PR, and commit-level scanning</li>
         <li>✅ Scan Agent with secure tokenized registration</li>
         <li>✅ Jenkins integration with policy-driven gate control</li>
-        <li>✅ Unified results for SAST, SCA, Secrets, and DAST</li>
+        <li>✅ Unified results for SAST, SCA, Secrets, DAST, and Pen Testing</li>
       </ul>
       <div class="metric-grid">
-        <div class="metric"><strong>4</strong><span>Security scan types</span></div>
+        <div class="metric"><strong>5</strong><span>Security scan types</span></div>
         <div class="metric"><strong>1</strong><span>Central dashboard</span></div>
         <div class="metric"><strong>∞</strong><span>Scalable scan agents</span></div>
       </div>
@@ -187,6 +191,7 @@
       <div class="card"><h3>SCA</h3><p>Software Composition Analysis for dependency and package risk.</p></div>
       <div class="card"><h3>Secrets Detection</h3><p>Credential and token exposure detection before release.</p></div>
       <div class="card"><h3>DAST</h3><p>Dynamic Application Security Testing for runtime behavior issues.</p></div>
+      <div class="card"><h3>Pen Test Request</h3><p>Submit a managed penetration testing request directly from the SecureOne platform.</p></div>
     </div>
   </section>
 
@@ -202,8 +207,39 @@
         automate security gates, and deliver software with confidence.
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="docs.html#startup">Launch SecureOne</a>
-        <a class="btn btn-secondary" href="features.html">Explore Capabilities</a>
+        <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Launch SecureOne (SaaS)</a>
+        <a class="btn btn-secondary" href="docs.html#startup">Download &amp; Self-Host</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <h2>Two Ways to Get Started</h2>
+    <p class="section-subtitle">Use SecureOne as a cloud SaaS service or run it on your own infrastructure.</p>
+    <div class="grid">
+      <div class="plan-card plan-saas">
+        <div class="plan-badge">SaaS</div>
+        <h3>Cloud Platform</h3>
+        <p>No installation. Start scanning immediately using our hosted platform.</p>
+        <ul>
+          <li>Instant access — no setup required</li>
+          <li>SAST, SCA, Secrets, DAST, and Pen Test Request</li>
+          <li>Managed updates and infrastructure</li>
+          <li>Secure multi-tenant environment</li>
+        </ul>
+        <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank" style="margin-top:14px;display:inline-block">Log In / Sign Up →</a>
+      </div>
+      <div class="plan-card plan-selfhost">
+        <div class="plan-badge badge-muted">Self-Hosted</div>
+        <h3>On-Premise Download</h3>
+        <p>Download the binary, run it locally, and stay in full control of your data and agents.</p>
+        <ul>
+          <li>Run inside your own environment</li>
+          <li>Full scan agent control and configuration</li>
+          <li>Integrates with Jenkins and GitHub</li>
+          <li>Air-gapped deployment supported</li>
+        </ul>
+        <a class="btn btn-secondary" href="docs.html#startup" style="margin-top:14px;display:inline-block">View Setup Docs →</a>
       </div>
     </div>
   </section>
