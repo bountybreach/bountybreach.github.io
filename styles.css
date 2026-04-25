@@ -41,7 +41,7 @@ header {
 .topbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   padding: 14px 0;
   gap: 20px;
 }
@@ -52,11 +52,15 @@ header {
   align-items: center;
   gap: 6px;
   text-decoration: none;
+  flex: 0 0 auto;
 }
 
 .logo img {
-  width: 999px;
-  height: 999px;
+  width: 140px !important;
+  height: 140px !important;
+  min-width: 140px;
+  min-height: 140px;
+  max-width: none;
   object-fit: cover;
   border-radius: 10px;
   border: 1px solid #335a9f;
@@ -67,7 +71,7 @@ header {
   font-weight: 800;
   letter-spacing: 0.4px;
   color: var(--heading);
-  font-size: 0.86rem;
+  font-size: 1rem;
   line-height: 1;
 }
 
