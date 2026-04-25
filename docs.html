@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SecureOne Docs | Installation and Startup</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="container topbar">
+    <a class="logo" href="index.html"><span class="logo-dot"></span>SecureOne</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="integrations.html">Integrations</a>
+      <a class="active" href="docs.html">Docs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn btn-secondary" href="#startup">Run Locally</a>
+  </div>
+</header>
+
+<main class="container">
+  <section class="page-hero">
+    <span class="tag">Documentation</span>
+    <h1>Install and launch SecureOne in a few simple steps.</h1>
+    <p>
+      Use this quick guide to run SecureOne Control Panel locally, complete first-time login,
+      and begin scanning repositories and pipelines.
+    </p>
+  </section>
+
+  <section id="startup">
+    <h2>Installation & Startup</h2>
+    <div class="two-col">
+      <div class="card steps">
+        <h3>Steps to Run</h3>
+        <p>Download the SecureOne Control Panel ZIP binary package and unzip it.</p>
+        <code>cd /secureone</code>
+        <code>chmod +x run-local.sh</code>
+        <code>./run-local.sh</code>
+        <p>The application automatically starts and opens in your default web browser.</p>
+      </div>
+      <div class="card">
+        <h3>Initial Access</h3>
+        <ul>
+          <li>Login page opens with default credentials.</li>
+          <li>On first login, password reset is mandatory.</li>
+          <li>After password update, user is redirected to SecureOne Dashboard.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Quick Operations Checklist</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Task</th>
+          <th>Action</th>
+          <th>Result</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Connect Source</td>
+          <td>Configure GitHub App or credentials</td>
+          <td>Repository and PR scans available</td>
+        </tr>
+        <tr>
+          <td>Configure Agent</td>
+          <td>Set tool image and registration/upload/heartbeat tokens</td>
+          <td>Agent is ready for queued jobs</td>
+        </tr>
+        <tr>
+          <td>Enable CI/CD</td>
+          <td>Add SecureOne script in Jenkins pipeline</td>
+          <td>Automated security gate in build process</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>What to Secure</h2>
+    <div class="grid">
+      <div class="card"><h3>Tokens</h3><p>Store registration, upload, and heartbeat tokens in a secure secret store.</p></div>
+      <div class="card"><h3>Agent UUIDs</h3><p>Treat UUID mappings as sensitive operational metadata and control access.</p></div>
+      <div class="card"><h3>Credentials</h3><p>Rotate default and integration credentials as part of onboarding.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="highlight">
+      <h2>Need Help?</h2>
+      <p>
+        If you want implementation help for enterprise rollout, custom policies, or multi-agent architecture,
+        contact the SecureOne team for deployment guidance.
+      </p>
+      <a class="btn btn-primary" href="contact.html">Contact SecureOne</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  SecureOne Docs · Fast Local Startup and Secure Operations
+</footer>
+</body>
+</html>

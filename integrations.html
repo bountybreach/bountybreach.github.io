@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SecureOne Integrations | GitHub and Jenkins</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="container topbar">
+    <a class="logo" href="index.html"><span class="logo-dot"></span>SecureOne</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a class="active" href="integrations.html">Integrations</a>
+      <a href="docs.html">Docs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn btn-secondary" href="docs.html#startup">Run Locally</a>
+  </div>
+</header>
+
+<main class="container">
+  <section class="page-hero">
+    <span class="tag">Integrations</span>
+    <h1>Connect application security to your existing delivery workflow.</h1>
+    <p>
+      SecureOne integrates directly with GitHub and Jenkins, enabling automated scans,
+      policy gating, and centralized visibility from commit to deployment.
+    </p>
+  </section>
+
+  <section>
+    <h2>GitHub Integration</h2>
+    <p class="section-subtitle">Connect through GitHub App or repository credentials.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Supported Scan Targets</h3>
+        <ul>
+          <li>Full repository scans</li>
+          <li>Branch-level scans</li>
+          <li>Fast pull request scans</li>
+          <li>Commit-level scans</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Developer Workflow Benefits</h3>
+        <ul>
+          <li>Security findings discovered before merge.</li>
+          <li>Scan context linked to branch or commit history.</li>
+          <li>Earlier remediation reduces production risk and rework.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="jenkins">
+    <h2>CI/CD Integration (Jenkins)</h2>
+    <p class="section-subtitle">Automate security checks in your build pipeline.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Jenkins Setup</h3>
+        <ul>
+          <li>Configure Jenkins job, workspace, and artifacts.</li>
+          <li>Add SecureOne pipeline script into job definition.</li>
+          <li>Define policy behavior for fail or allow conditions.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Policy Outcomes</h3>
+        <ul>
+          <li>Fail build automatically on critical findings.</li>
+          <li>Allow build continuation based on your configured policy.</li>
+          <li>Deliver a security summary back to Jenkins after execution.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Jenkins Execution Flow</h2>
+    <div class="card">
+      <ol class="flow">
+        <li>Jenkins job starts.</li>
+        <li>SecureOne creates scan execution entry.</li>
+        <li>Scan agent picks up queued job.</li>
+        <li>Agent pulls required images and runs scans.</li>
+        <li>Results are uploaded back to SecureOne dashboard.</li>
+        <li>Jenkins receives scan summary and applies policy outcome.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section>
+    <div class="highlight">
+      <h2>Unified Security Operations</h2>
+      <p>
+        Whether scans start from GitHub or Jenkins, SecureOne centralizes output into one dashboard,
+        helping teams prioritize risk and track security posture across the entire SDLC.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="features.html">Explore Feature Set</a>
+        <a class="btn btn-secondary" href="contact.html">Request a Demo</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  SecureOne · Integrated AppSec for GitHub and Jenkins
+</footer>
+</body>
+</html>

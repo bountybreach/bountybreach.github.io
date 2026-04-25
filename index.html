@@ -1,30 +1,213 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BountyBreach</title>
+  <title>SecureOne | Modern Application Security Platform</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body { font-family: Arial; margin: 0; }
-    header { background: #111; color: white; padding: 40px; text-align: center; }
-    section { padding: 40px; }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-
 <header>
-  <h1>BountyBreach</h1>
-  <p>Your cybersecurity tagline</p>
+  <div class="container topbar">
+    <a class="logo" href="index.html"><span class="logo-dot"></span>SecureOne</a>
+    <nav>
+      <a class="active" href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="integrations.html">Integrations</a>
+      <a href="docs.html">Docs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn btn-secondary" href="docs.html#startup">Run Locally</a>
+  </div>
 </header>
 
-<section>
-  <h2>About</h2>
-  <p>Write your content here</p>
-</section>
+<main class="container">
+  <section class="hero" id="overview">
+    <div class="hero-copy">
+      <span class="tag">Application Security Platform</span>
+      <h1>Secure your code before it ships — across repos, pipelines, and agents.</h1>
+      <p>
+        SecureOne brings SAST, SCA, secrets detection, and DAST into one control plane.
+        Integrate with GitHub, automate through Jenkins, and enforce policies with developer-friendly speed.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="docs.html#startup">Start in Minutes</a>
+        <a class="btn btn-secondary" href="integrations.html#jenkins">See Pipeline Flow</a>
+      </div>
+    </div>
+    <aside class="hero-panel" aria-label="Security Operations Snapshot">
+      <h3>Platform Snapshot</h3>
+      <ul class="mini-list">
+        <li>✅ Full repo, branch, PR, and commit-level scanning</li>
+        <li>✅ Scan Agent with secure tokenized registration</li>
+        <li>✅ Jenkins integration with policy-driven gate control</li>
+        <li>✅ Unified results for SAST, SCA, Secrets, and DAST</li>
+      </ul>
+      <div class="metric-grid">
+        <div class="metric"><strong>4</strong><span>Security scan types</span></div>
+        <div class="metric"><strong>1</strong><span>Central dashboard</span></div>
+        <div class="metric"><strong>∞</strong><span>Scalable scan agents</span></div>
+      </div>
+    </aside>
+  </section>
 
-<section>
-  <h2>Services</h2>
-  <p>Describe your offerings</p>
-</section>
+  <section>
+    <p class="section-subtitle">Built for product security, DevSecOps, and engineering teams.</p>
+    <div class="trusted" aria-label="Supported Ecosystem">
+      <div>GitHub</div>
+      <div>Jenkins</div>
+      <div>Semgrep</div>
+      <div>Snyk</div>
+      <div>Gitleaks</div>
+    </div>
+  </section>
 
+  <section id="platform">
+    <h2>Why Teams Choose SecureOne</h2>
+    <p class="section-subtitle">A single platform to reduce risk without slowing down releases.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Centralized Visibility</h3>
+        <p>Track vulnerabilities, dependency risk, leaked secrets, and runtime findings from one dashboard.</p>
+      </div>
+      <div class="card">
+        <h3>Developer-Friendly Speed</h3>
+        <p>Fast pull request and commit-level scanning helps teams fix issues early in the SDLC.</p>
+      </div>
+      <div class="card">
+        <h3>Flexible Deployment</h3>
+        <p>Launch quickly with a local binary package and scale securely using dedicated scan agents.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="startup">
+    <h2>Installation & Startup</h2>
+    <p class="section-subtitle">Get SecureOne running locally in minutes.</p>
+    <div class="grid">
+      <div class="card steps">
+        <h3>Steps to Run</h3>
+        <p>Download the SecureOne Control Panel ZIP binary package and unzip it, then run:</p>
+        <code>cd /secureone</code>
+        <code>chmod +x run-local.sh</code>
+        <code>./run-local.sh</code>
+        <p>The application starts automatically and opens in your default browser.</p>
+      </div>
+      <div class="card">
+        <h3>Initial Access</h3>
+        <ul>
+          <li>Login page loads with default credentials.</li>
+          <li>First login requires a password change.</li>
+          <li>After update, users are redirected to the SecureOne Dashboard.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="capabilities">
+    <h2>Key Capabilities</h2>
+    <p class="section-subtitle">Flexible scanning options for modern development workflows.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>GitHub Integration</h3>
+        <ul>
+          <li>Connect via GitHub App or credentials.</li>
+          <li>Scan full repositories and branches.</li>
+          <li>Perform fast pull request scans.</li>
+          <li>Run commit-level security scans.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Scan Modes</h3>
+        <ul>
+          <li>Self-managed scanning with Semgrep (SAST).</li>
+          <li>Self-managed scanning with Snyk (SCA).</li>
+          <li>Self-managed scanning with Gitleaks (Secrets).</li>
+          <li>SecureOne Scan Agent-based scanning.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Scan Agent Management</h3>
+        <ul>
+          <li>Configure tool image plus registration, upload, and heartbeat tokens.</li>
+          <li>Each agent has a unique UUID.</li>
+          <li>Use “View Config” to inspect full agent configuration.</li>
+          <li>Store tokens and UUID securely, then register the agent with dashboard.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="workflow">
+    <h2>CI/CD Integration (Jenkins)</h2>
+    <p class="section-subtitle">Automated policy-driven security in your delivery pipeline.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Pipeline Configuration</h3>
+        <ul>
+          <li>Configure Jenkins job, workspace, and artifacts.</li>
+          <li>Add the SecureOne pipeline script to the job.</li>
+          <li>Set policy thresholds to fail on critical findings or allow build continuation.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Execution Flow</h3>
+        <ol class="flow">
+          <li>Jenkins job starts.</li>
+          <li>SecureOne creates a scan execution entry.</li>
+          <li>Scan agent picks up the queued job.</li>
+          <li>Agent pulls required images and runs scans.</li>
+          <li>Results are uploaded back to SecureOne.</li>
+          <li>Jenkins receives scan summary and applies policy.</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>What Security Leaders Say</h2>
+    <div class="grid">
+      <div class="testimonial">
+        <p>“SecureOne gave us one clear view across GitHub and Jenkins. We reduced release risk without slowing engineering.”</p>
+        <div class="person">Head of AppSec · FinTech Team</div>
+      </div>
+      <div class="testimonial">
+        <p>“PR scans are fast, actionable, and easy to enforce through policy. Developers adopted it quickly.”</p>
+        <div class="person">DevSecOps Lead · SaaS Organization</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Supported Security Scans</h2>
+    <div class="grid">
+      <div class="card"><h3>SAST</h3><p>Static Application Security Testing for source code vulnerabilities.</p></div>
+      <div class="card"><h3>SCA</h3><p>Software Composition Analysis for dependency and package risk.</p></div>
+      <div class="card"><h3>Secrets Detection</h3><p>Credential and token exposure detection before release.</p></div>
+      <div class="card"><h3>DAST</h3><p>Dynamic Application Security Testing for runtime behavior issues.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="highlight">
+      <h2>Summary</h2>
+      <p>
+        SecureOne enables centralized security scanning across GitHub, CI/CD pipelines, and standalone
+        scan agents with flexible deployment via a simple local binary startup process.
+      </p>
+      <p>
+        Built for modern engineering teams, SecureOne helps organizations detect and prioritize risk earlier,
+        automate security gates, and deliver software with confidence.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="docs.html#startup">Launch SecureOne</a>
+        <a class="btn btn-secondary" href="features.html">Explore Capabilities</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  SecureOne · Application Security Simplified · GitHub + CI/CD + Agent Scanning
+</footer>
 </body>
 </html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SecureOne Features | Application Security</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="container topbar">
+    <a class="logo" href="index.html"><span class="logo-dot"></span>SecureOne</a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a class="active" href="features.html">Features</a>
+      <a href="integrations.html">Integrations</a>
+      <a href="docs.html">Docs</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <a class="btn btn-secondary" href="docs.html#startup">Run Locally</a>
+  </div>
+</header>
+
+<main class="container">
+  <section class="page-hero">
+    <span class="tag">Platform Features</span>
+    <h1>Security coverage designed for modern software delivery.</h1>
+    <p>
+      SecureOne unifies code scanning, dependency risk analysis, secrets detection, and runtime testing
+      in one dashboard so engineering and security teams can ship faster with confidence.
+    </p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="docs.html">See Setup Guide</a>
+      <a class="btn btn-secondary" href="integrations.html">View Integrations</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Core Security Capabilities</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>SAST with Semgrep</h3>
+        <p>Identify insecure coding patterns and language-specific vulnerabilities before code reaches production.</p>
+      </div>
+      <div class="card">
+        <h3>SCA with Snyk</h3>
+        <p>Detect known vulnerable dependencies, prioritize fix paths, and reduce open-source supply chain risk.</p>
+      </div>
+      <div class="card">
+        <h3>Secrets Detection with Gitleaks</h3>
+        <p>Continuously detect exposed API keys, tokens, and credentials across repositories and commits.</p>
+      </div>
+      <div class="card">
+        <h3>DAST for Runtime Testing</h3>
+        <p>Validate live application behavior and identify exploitable vulnerabilities beyond static analysis.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Flexible Scan Modes</h2>
+    <p class="section-subtitle">Run scanning where your team works best.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Repository Scans</h3>
+        <ul>
+          <li>Full repository scans for baseline security posture.</li>
+          <li>Branch-specific scans for release readiness.</li>
+          <li>Commit-level scans for precise detection windows.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Pull Request Scans</h3>
+        <ul>
+          <li>Fast, targeted PR scans for developer feedback.</li>
+          <li>Immediate policy enforcement before merge.</li>
+          <li>Security findings surfaced earlier in SDLC.</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Scan Agent Mode</h3>
+        <ul>
+          <li>Run scanning in your environment using SecureOne agents.</li>
+          <li>Register agents with secure tokens and unique UUID.</li>
+          <li>Scale across teams and workloads without dashboard changes.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Agent Configuration at a Glance</h2>
+    <div class="two-col">
+      <div class="card">
+        <h3>Required Agent Configuration</h3>
+        <ul>
+          <li>Tool image configuration</li>
+          <li>Registration token</li>
+          <li>Upload token</li>
+          <li>Heartbeat token</li>
+          <li>Unique agent UUID</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Best Practices</h3>
+        <ul>
+          <li>Store all tokens and UUIDs in secure secret managers.</li>
+          <li>Use “View Config” to verify agent configuration details.</li>
+          <li>Register every agent with SecureOne dashboard before execution.</li>
+          <li>Rotate credentials regularly to reduce exposure risk.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  SecureOne · Features for End-to-End Application Security
+</footer>
+</body>
+</html>
