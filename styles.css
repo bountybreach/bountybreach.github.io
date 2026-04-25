@@ -55,8 +55,8 @@ header {
 }
 
 .logo img {
-  width: 99px;
-  height: 99px;
+  width: 999px;
+  height: 999px;
   object-fit: cover;
   border-radius: 10px;
   border: 1px solid #335a9f;
