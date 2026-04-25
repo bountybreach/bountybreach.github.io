@@ -56,10 +56,10 @@ header {
 }
 
 .logo img {
-  width: 140px !important;
-  height: 140px !important;
-  min-width: 140px;
-  min-height: 140px;
+  width: 99px !important;
+  height: 99px !important;
+  min-width: 99px;
+  min-height: 99px;
   max-width: none;
   object-fit: cover;
   border-radius: 10px;
