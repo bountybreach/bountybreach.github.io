@@ -125,4 +125,45 @@
   .guide-nav-wrap {
     position: static;
   }
+
+  .guide-shot-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+.guide-shot-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.guide-shot-card {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(8, 14, 36, 0.88);
+}
+
+.guide-shot-card img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.guide-shot-card figcaption {
+  padding: 8px 10px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+
+@media (max-width: 960px) {
+  .guide-shot-grid {
+    grid-template-columns: 1fr;
+  }
 }
