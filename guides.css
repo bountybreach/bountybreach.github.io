@@ -1,0 +1,128 @@
+.guide-layout {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 30px;
+  padding: 34px 0 56px;
+}
+
+.guide-nav-wrap {
+  position: sticky;
+  top: 86px;
+  align-self: start;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(8, 14, 36, 0.72);
+  padding: 16px;
+}
+
+.guide-nav-wrap h2 {
+  margin: 0 0 10px;
+  font-size: 0.9rem;
+  color: var(--heading);
+}
+
+.guide-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.guide-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.88rem;
+  line-height: 1.4;
+  border-radius: 8px;
+  padding: 8px 10px;
+}
+
+.guide-nav a:hover {
+  background: rgba(78, 201, 255, 0.1);
+  color: var(--accent);
+}
+
+.guide-content {
+  min-width: 0;
+}
+
+.guide-hero {
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: rgba(8, 14, 36, 0.68);
+  padding: 24px;
+  margin-bottom: 20px;
+}
+
+.guide-hero h1 {
+  margin: 8px 0 10px;
+  font-size: 2rem;
+  line-height: 1.2;
+  color: var(--heading);
+}
+
+.guide-hero p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.guide-note {
+  margin-top: 14px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(78, 201, 255, 0.08);
+  padding: 10px 12px;
+  color: var(--text);
+  font-size: 0.92rem;
+}
+
+.guide-section {
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: rgba(8, 14, 36, 0.64);
+  padding: 20px;
+  margin-bottom: 16px;
+  scroll-margin-top: 92px;
+}
+
+.guide-section h2 {
+  margin: 0 0 10px;
+  font-size: 1.25rem;
+  color: var(--heading);
+}
+
+.guide-section ul,
+.guide-section ol {
+  margin: 0;
+  padding-left: 20px;
+  color: var(--text);
+}
+
+.guide-section li {
+  margin: 8px 0;
+}
+
+.guide-tip {
+  margin-top: 14px;
+  border-left: 3px solid var(--accent);
+  padding: 8px 10px;
+  color: var(--muted);
+  background: rgba(78, 201, 255, 0.08);
+  border-radius: 8px;
+}
+
+.guide-actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 960px) {
+  .guide-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .guide-nav-wrap {
+    position: static;
+  }
+}
