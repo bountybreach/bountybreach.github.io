@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SecureOne User Guides | BountyBreach</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="guides.css">
+</head>
+<body>
+<header>
+  <div class="container topbar">
+    <a class="logo" href="index.html">
+      <img src="Bounty.jpg" alt="Bounty logo">
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="integrations.html">Integrations</a>
+      <a href="pricing.html">Pricing</a>
+      <a class="active" href="docs.html">Docs</a>
+      <a href="contact.html">Contact</a>
+      <a href="downloads.html">Downloads</a>
+    </nav>
+    <div style="display:flex;gap:8px;">
+      <a class="btn btn-secondary" href="docs.html#startup">Run Locally</a>
+      <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Login →</a>
+    </div>
+  </div>
+</header>
+
+<main class="container guide-layout">
+  <aside class="guide-nav-wrap">
+    <h2>Guide Steps</h2>
+    <nav class="guide-nav">
+      <a href="#overview">1. Overview</a>
+      <a href="#prerequisites">2. Prerequisites</a>
+      <a href="#workspace">3. Create Workspace</a>
+      <a href="#integrations">4. Connect Integrations</a>
+      <a href="#agent">5. Register Scan Agent</a>
+      <a href="#scan-config">6. Configure Scan</a>
+      <a href="#run-scan">7. Run First Scan</a>
+      <a href="#review-results">8. Review Findings</a>
+      <a href="#actions">9. Triage & Actions</a>
+      <a href="#next-steps">10. Next Steps</a>
+    </nav>
+  </aside>
+
+  <section class="guide-content">
+    <div class="guide-hero" id="overview">
+      <span class="tag">User Guide</span>
+      <h1>Set up your first SecureOne scan in guided steps</h1>
+      <p>
+        Follow this click-through guide from left navigation to complete setup, execute your first scan,
+        and understand how to review and act on findings.
+      </p>
+      <div class="guide-note">
+        This guide is structured for product onboarding and can be refined to exactly match your walkthrough video once you share an accessible link or transcript.
+      </div>
+    </div>
+
+    <article class="guide-section" id="prerequisites">
+      <h2>2) Prerequisites</h2>
+      <ul>
+        <li>SecureOne panel is running and you can sign in as admin.</li>
+        <li>At least one repository or CI/CD pipeline is available to scan.</li>
+        <li>Scan agent host has Docker installed (if using agent-based scans).</li>
+        <li>Tokens/credentials for Git provider and agent registration are ready.</li>
+      </ul>
+    </article>
+
+    <article class="guide-section" id="workspace">
+      <h2>3) Create Workspace</h2>
+      <ol>
+        <li>Sign in to SecureOne and open the dashboard.</li>
+        <li>Create (or select) your organization/workspace.</li>
+        <li>Set environment details (project name, deployment mode).</li>
+        <li>Confirm workspace appears in your left navigation/project switcher.</li>
+      </ol>
+    </article>
+
+    <article class="guide-section" id="integrations">
+      <h2>4) Connect Integrations</h2>
+      <ol>
+        <li>Go to <strong>Settings → Integrations</strong>.</li>
+        <li>Connect GitHub/Git provider app or token.</li>
+        <li>Verify repository access and choose target repositories.</li>
+        <li>Optionally connect CI/CD (for Jenkins or pipeline-triggered scans).</li>
+      </ol>
+    </article>
+
+    <article class="guide-section" id="agent">
+      <h2>5) Register Scan Agent</h2>
+      <ol>
+        <li>Open <strong>Agents</strong> and generate registration/upload/heartbeat tokens.</li>
+        <li>Start the agent with your config and tokens.</li>
+        <li>Confirm agent status changes to <strong>Online</strong>.</li>
+        <li>Validate tool image settings (SAST/SCA/Secrets/DAST) if required.</li>
+      </ol>
+      <div class="guide-tip">Tip: Start with one agent for onboarding, then scale per team/workspace.</div>
+    </article>
+
+    <article class="guide-section" id="scan-config">
+      <h2>6) Configure Scan</h2>
+      <ol>
+        <li>Open <strong>Scans → New Scan</strong>.</li>
+        <li>Select repository, branch, and scan types (SAST/SCA/Secrets/DAST).</li>
+        <li>Choose policy thresholds (e.g., fail on critical findings).</li>
+        <li>Save as a reusable template if your team runs similar scans.</li>
+      </ol>
+    </article>
+
+    <article class="guide-section" id="run-scan">
+      <h2>7) Run First Scan</h2>
+      <ol>
+        <li>Trigger a manual scan from UI (or via pipeline if integrated).</li>
+        <li>Monitor queue, agent assignment, and execution status.</li>
+        <li>Wait until scan status shows <strong>Completed</strong>.</li>
+      </ol>
+    </article>
+
+    <article class="guide-section" id="review-results">
+      <h2>8) Review Findings</h2>
+      <ol>
+        <li>Open scan results summary (critical/high/medium/low counts).</li>
+        <li>Filter by severity, tool, file, and category.</li>
+        <li>Open individual findings to inspect evidence and remediation guidance.</li>
+      </ol>
+    </article>
+
+    <article class="guide-section" id="actions">
+      <h2>9) Triage & Actions</h2>
+      <ol>
+        <li>Mark false positives where appropriate.</li>
+        <li>Create tickets/tasks for true positives.</li>
+        <li>Re-run scans after fixes and confirm issue closure.</li>
+        <li>Enable policy gates in CI/CD to prevent regressions.</li>
+      </ol>
+    </article>
+
+    <article class="guide-section" id="next-steps">
+      <h2>10) Next Steps</h2>
+      <ul>
+        <li>Add additional repositories and environments.</li>
+        <li>Configure scheduled scans and notifications.</li>
+        <li>Roll out role-based access for security and engineering teams.</li>
+        <li>Track security posture trends in dashboard reports.</li>
+      </ul>
+      <div class="guide-actions">
+        <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Open SecureOne</a>
+        <a class="btn btn-secondary" href="downloads.html">Download Releases</a>
+      </div>
+    </article>
+  </section>
+</main>
+
+<footer>
+  SecureOne User Guides · Step-by-Step Onboarding
+</footer>
+</body>
+</html>
