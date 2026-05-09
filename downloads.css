@@ -1,0 +1,233 @@
+/* ── Downloads page layout ── */
+.dl-page-wrap {
+  display: flex;
+  flex: 1;
+  padding: 48px 0 64px;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ── Sidebar ── */
+.dl-sidebar {
+  width: 200px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 90px;
+}
+
+.dl-sidebar-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+  margin-bottom: 10px;
+  padding-left: 4px;
+}
+
+.dl-filter-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dl-filter-list li a {
+  display: block;
+  padding: 7px 12px;
+  border-radius: 6px;
+  font-size: 0.875rem;
+  color: var(--muted);
+  transition: background 0.15s, color 0.15s;
+}
+
+.dl-filter-list li a:hover,
+.dl-filter-list li a.active {
+  background: rgba(78, 201, 255, 0.1);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+/* ── Main content ── */
+.dl-releases-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.dl-releases-main h1 {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--heading);
+  margin-bottom: 6px;
+}
+
+.dl-subtitle {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 32px;
+}
+
+/* ── Release card ── */
+.dl-release-card {
+  background: rgba(15, 27, 53, 0.6);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.35);
+  backdrop-filter: blur(4px);
+}
+
+.dl-release-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  flex-wrap: wrap;
+}
+
+.dl-release-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+  flex: 1;
+  min-width: 200px;
+}
+
+.dl-release-title:hover { text-decoration: underline; }
+
+/* ── Badges ── */
+.badge {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+}
+.badge-stable   { background: #dcfce7; color: #15803d; }
+.badge-early    { background: #fef9c3; color: #854d0e; }
+.badge-platform { background: #ede9fe; color: #6d28d9; }
+.badge-agents   { background: #dbeafe; color: #1e40af; }
+
+.dl-release-meta {
+  font-size: 0.8rem;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.dl-release-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.dl-btn-download {
+  background: #16a34a;
+  color: #fff !important;
+  padding: 7px 18px;
+  font-size: 0.8rem;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+}
+.dl-btn-download:hover { opacity: 0.88; }
+
+.dl-checksum-link {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-decoration: underline;
+  cursor: pointer;
+}
+.dl-checksum-link:hover { color: var(--accent); }
+
+/* ── Release body ── */
+.dl-release-body {
+  padding: 20px 24px;
+}
+
+.dl-release-body p {
+  font-size: 0.9rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+
+.dl-release-body h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--heading);
+  margin: 18px 0 8px;
+}
+
+.dl-release-body ul,
+.dl-release-body ol {
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.dl-release-body li {
+  font-size: 0.875rem;
+  color: var(--text);
+  line-height: 1.7;
+  margin-bottom: 4px;
+}
+
+.dl-release-body code {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.8em;
+  background: rgba(78, 201, 255, 0.1);
+  color: var(--accent);
+  padding: 1px 5px;
+  border-radius: 4px;
+}
+
+/* ── Collapsible details ── */
+details summary {
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.82rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin-top: 6px;
+  user-select: none;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before { content: "▶  "; font-size: 0.65rem; }
+details[open] summary::before { content: "▼  "; }
+.dl-detail-body { margin-top: 14px; }
+
+/* ── EULA note ── */
+.dl-eula-note {
+  font-size: 0.75rem;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+  padding-top: 12px;
+  margin-top: 16px;
+}
+.dl-eula-note a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* ── Archive link ── */
+.dl-archive-link {
+  text-align: center;
+  padding: 24px;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.dl-archive-link a {
+  color: var(--accent);
+  text-decoration: underline;
+}
+.dl-archive-link a:hover { color: var(--accent-2); }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .dl-page-wrap { flex-direction: column; padding: 24px 0; gap: 24px; }
+  .dl-sidebar { width: 100%; position: static; }
+  .dl-filter-list { flex-direction: row; flex-wrap: wrap; }
+}
