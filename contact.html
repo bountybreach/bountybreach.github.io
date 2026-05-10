@@ -39,25 +39,35 @@
   </section>
 
   <section>
+    <div id="contact-success" class="highlight" style="display:none; margin-bottom:16px; border-color:#2f7a53; background:linear-gradient(160deg, rgba(56, 181, 120, 0.18), rgba(132, 242, 191, 0.1));">
+      <h2 style="margin-bottom:8px;">Thanks — your request was sent.</h2>
+      <p style="margin:0; color:#d9ffe9;">
+        We received your message and will contact you shortly at the email address you provided.
+      </p>
+    </div>
     <div class="two-col">
       <div class="card">
         <h3>Contact Form</h3>
-        <form>
+        <form action="https://formsubmit.co/support@bountybreach.com" method="POST">
+          <input type="hidden" name="_subject" value="New Contact Request from bountybreach.com">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://bountybreach.com/contact.html?submitted=true">
+          <input type="text" name="_honey" style="display:none">
           <div class="form-row">
             <label for="name">Full Name</label>
-            <input id="name" name="name" type="text" placeholder="Your name">
+            <input id="name" name="name" type="text" placeholder="Your name" required>
           </div>
           <div class="form-row">
             <label for="email">Work Email</label>
-            <input id="email" name="email" type="email" placeholder="you@company.com">
+            <input id="email" name="email" type="email" placeholder="you@company.com" required>
           </div>
           <div class="form-row">
             <label for="company">Company</label>
-            <input id="company" name="company" type="text" placeholder="Company name">
+            <input id="company" name="company" type="text" placeholder="Company name" required>
           </div>
           <div class="form-row">
             <label for="topic">Request Type</label>
-            <select id="topic" name="topic">
+            <select id="topic" name="topic" required>
               <option>Product Demo</option>
               <option>Technical Support</option>
               <option>Enterprise Rollout</option>
@@ -66,7 +76,7 @@
           </div>
           <div class="form-row">
             <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Tell us about your environment and security objectives."></textarea>
+            <textarea id="message" name="message" placeholder="Tell us about your environment and security objectives." required></textarea>
           </div>
           <button class="btn btn-primary" type="submit">Send Request</button>
         </form>
@@ -111,5 +121,17 @@
 <footer>
   BountyBreach · Contact Sales, Security, and Support Teams
 </footer>
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('submitted') === 'true') {
+      var successBanner = document.getElementById('contact-success');
+      if (successBanner) {
+        successBanner.style.display = 'block';
+        successBanner.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  })();
+</script>
 </body>
 </html>
