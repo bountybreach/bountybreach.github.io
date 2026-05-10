@@ -52,14 +52,48 @@
         <h3>Status</h3>
         <p>Initial Release (Stable)</p>
 
-        <h3>Docker Installation</h3>
-        <p>Pull the image:</p>
-        <pre><code>docker pull ghcr.io/bountybreach/secureone:v3.0.4</code></pre>
-        <p>Run the container:</p>
-        <pre><code>docker run -d \
-  --name secureone \
-  -p 8080:8080 \
-  ghcr.io/bountybreach/secureone:v3.0.4</code></pre>
+        <h3>Docker Setup and Run: SecureOne</h3>
+        <p>Use the scripts below for a fast local setup on Docker.</p>
+        <p>
+          Download scripts:
+          <a href="secureone/docker-run-local.sh" download>docker-run-local.sh</a> ·
+          <a href="secureone/docker-start.sh" download>docker-start.sh</a>
+        </p>
+
+        <h4>Windows</h4>
+        <ol>
+          <li>Click the Windows Start icon.</li>
+          <li>Type <code>Windows PowerShell</code> and open it.</li>
+          <li>Go to your downloads folder and run <code>docker-run-local.sh v3.0.4</code>.</li>
+        </ol>
+
+        <h4>macOS / Linux</h4>
+        <ol>
+          <li>Go to downloads and get <a href="secureone/docker-run-local.sh" download><code>docker-run-local.sh</code></a>.</li>
+          <li>Run: <code>./docker-run-local.sh v3.0.4</code></li>
+          <li>If Docker images are not present locally, run: <code>./docker-start.sh v3.0.4</code></li>
+        </ol>
+
+        <h3>Docker Setup and Run: SecureOne Scan Agents</h3>
+        <p>
+          Download scripts:
+          <a href="secureone_scan_agents/docker-run-local.sh" download>docker-run-local.sh</a> ·
+          <a href="secureone_scan_agents/docker-start.sh" download>docker-start.sh</a>
+        </p>
+
+        <h4>Windows</h4>
+        <ol>
+          <li>Click the Windows Start icon.</li>
+          <li>Type <code>Windows PowerShell</code> and open it.</li>
+          <li>Go to your downloads folder and run <code>docker-run-local.sh v3.0.4</code>.</li>
+        </ol>
+
+        <h4>macOS / Linux</h4>
+        <ol>
+          <li>Go to downloads and get <a href="secureone_scan_agents/docker-run-local.sh" download><code>docker-run-local.sh</code></a>.</li>
+          <li>Run: <code>./docker-run-local.sh v3.0.4</code></li>
+          <li>If Docker images are not present locally, run: <code>./docker-start.sh v3.0.4</code></li>
+        </ol>
 
         <h3>What’s Included in v3.0.4</h3>
         <ul>
