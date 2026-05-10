@@ -466,6 +466,15 @@ textarea {
   color: var(--muted);
 }
 
+.privacy-note {
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.6;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+}
+
 footer {
   border-top: 1px solid var(--border);
   margin-top: 34px;
