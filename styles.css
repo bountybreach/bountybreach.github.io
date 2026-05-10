@@ -57,7 +57,7 @@ header {
 
 .logo img {
   width: auto;
-  height: 180px;
+  height: 220px;
   object-fit: cover;
   border-radius: 10px;
   border: 1px solid #335a9f;
@@ -65,7 +65,7 @@ header {
 }
 
 .logo-text {
-  font-weight: 800;
+  font-weight: 900;
   letter-spacing: 0.4px;
   color: var(--heading);
   font-size: 1rem;
