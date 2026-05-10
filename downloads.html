@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SecureOne Downloads | BountyBreach</title>
+  <title>Download &amp; Release | SecureOne</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="downloads.css">
 </head>
@@ -32,84 +32,80 @@
 
 <!-- ── Page Wrap ── -->
 <div class="dl-page-wrap container">
-
-  <!-- Sidebar filters -->
-  <aside class="dl-sidebar">
-    <h2 class="dl-sidebar-title">Filter by product</h2>
-    <ul class="dl-filter-list">
-      <li><a href="#" class="active" onclick="filterCards('all',this)">All Releases</a></li>
-      <li><a href="#" onclick="filterCards('platform',this)">SecureOne Platform</a></li>
-    </ul>
-  </aside>
-
-  <!-- Main releases -->
   <main class="dl-releases-main">
-    <h1>SecureOne Releases</h1>
-    <p class="dl-subtitle">Docker container releases. Binary downloads coming soon.</p>
+    <h1>Download &amp; Release</h1>
+    <p class="dl-subtitle">Latest SecureOne release, Docker install steps, and quick reference details.</p>
 
-    <!-- ═══════════════════════════════════════════
-         RELEASE 1 — Platform v1.2.0
-    ════════════════════════════════════════════ -->
     <article class="dl-release-card" data-product="platform">
       <div class="dl-release-header">
-        <span class="dl-release-title">SecureOne Platform v1.2.0</span>
+        <span class="dl-release-title">Latest Release</span>
         <span class="badge badge-stable">Stable</span>
         <span class="badge badge-platform">Platform</span>
-        <span class="dl-release-meta">Released Monday, 5 May 2026</span>
+        <span class="dl-release-meta">Version: v3.0.4 · Release Date: May 2026</span>
         <div class="dl-release-actions">
-          <a class="btn dl-btn-download" href="#">DOWNLOAD</a>
-          <span class="dl-checksum-link">view checksums</span>
+          <a class="btn dl-btn-download" href="https://ghcr.io/bountybreach/secureone" target="_blank" rel="noreferrer">PULL IMAGE</a>
+          <a class="dl-checksum-link" href="docs.html">Read docs</a>
         </div>
       </div>
+
       <div class="dl-release-body">
+        <h3>Status</h3>
+        <p>Initial Release (Stable)</p>
+
+        <h3>Docker Installation</h3>
+        <p>Pull the image:</p>
+        <pre><code>docker pull ghcr.io/bountybreach/secureone:v3.0.4</code></pre>
+        <p>Run the container:</p>
+        <pre><code>docker run -d \
+  --name secureone \
+  -p 8080:8080 \
+  ghcr.io/bountybreach/secureone:v3.0.4</code></pre>
+
+        <h3>What’s Included in v3.0.4</h3>
+        <ul>
+          <li>Initial production-ready release</li>
+          <li>Core application features enabled</li>
+          <li>Basic configuration support</li>
+          <li>Docker container support</li>
+          <li>Standard logging and monitoring hooks</li>
+        </ul>
+
+        <h3>Requirements</h3>
+        <ul>
+          <li>Docker Engine ≥ 24.x</li>
+          <li>Linux, macOS, or Windows with Docker Desktop</li>
+          <li>2 GB RAM minimum recommended</li>
+        </ul>
+
+        <h3>Image Information</h3>
+        <ul>
+          <li>Image tag: <code>v3.0.4</code></li>
+          <li>Base image: Alpine / Debian</li>
+          <li>Architecture: amd64</li>
+          <li>Image size: ~XXX MB</li>
+        </ul>
+
+        <h3>Documentation</h3>
         <p>
-          This release delivers license onboarding UI, browser-aware license enforcement, and a dual-action
-          Request License + Activate Token flow — along with important bug fixes to auth redirects and
-          deployment type validation.
+          For setup, configuration, and feature details, see the full documentation:
+          <a href="docs.html">User Manual</a> and <a href="features.html">Product Overview</a>.
         </p>
 
-        <details>
-          <summary>Show full release notes</summary>
-          <div class="dl-detail-body">
-            <h3>New Features</h3>
-            <ul>
-              <li>Public license onboarding page at <code>/license/admin/license_lead_info.html</code> — accessible before any license is activated.</li>
-              <li>Dual-action license UI: <strong>Request License</strong> and <strong>Activate Token</strong> forms on a single page, consistent with scan-agent UX patterns.</li>
-              <li>Browser-aware middleware: HTML <code>Accept</code> header requests from unlicensed browsers now receive a 307 redirect to the onboarding page instead of a JSON 403.</li>
-              <li>License-aware auth: <code>/login</code> routes now pre-check license status and redirect to onboarding when no license exists.</li>
-            </ul>
+        <h3>Notes</h3>
+        <ul>
+          <li>This is the first stable release</li>
+          <li>Future updates will follow semantic versioning, such as <code>v3.0.5</code> and <code>v3.1.0</code></li>
+          <li>Breaking changes will be clearly documented in future releases</li>
+        </ul>
 
-            <h3>Bug Fixes</h3>
-            <ul>
-              <li>Fixed <code>SECUREONE_LICENSE_SERVER_URL is not configured</code> error — added <code>DEFAULT_LICENSE_SERVER_URL</code> fallback with env-var priority chain.</li>
-              <li>Fixed <code>deployment_type</code> 422 enum validation error — added normalization to map free-text values (<code>Host Binary</code>, <code>self-hosted</code>, <code>cloud</code>) to valid <code>onprem</code> / <code>saas</code> enum values.</li>
-              <li>Fixed env-var public path override silently replacing defaults — <code>_public_paths()</code> now merges env paths with <code>DEFAULT_PUBLIC_PATHS</code>.</li>
-              <li>Fixed <code>/license/admin/license_lead_info.html</code> returning 403 — route added to public path allowlist and permission bypass list.</li>
-            </ul>
-
-            <h3>Configuration</h3>
-            <ul>
-              <li>New <code>.env</code> license block: <code>SECUREONE_LICENSE_ENFORCE</code>, <code>SECUREONE_LICENSE_FILE</code>, <code>SECUREONE_LICENSE_PUBLIC_KEY_PATH</code>, <code>SECUREONE_LICENSE_ALGORITHMS</code>, <code>SECUREONE_LICENSE_SERVER_URL</code>, all endpoint paths, and <code>SECUREONE_LICENSE_SYNC_INTERVAL_SECONDS</code>.</li>
-            </ul>
-
-            <h3>Internal / Architecture</h3>
-            <ul>
-              <li>New <code>app/routers/license_lead_info.py</code> with <code>_render_page()</code> helper, <code>action</code>-based POST dispatch, dual protected + public router registration.</li>
-              <li>New RBAC resources: <code>ADMIN_SETTINGS_LICENSE_LEAD_INFO</code> and <code>ADMIN_SETTINGS_LICENSE_LEAD_INFO_SUBMIT</code>.</li>
-              <li><code>app/core/licensing.py</code>: Added <code>_normalize_license_request_payload()</code>, <code>_normalize_deployment_type()</code>, default URL fallback chain.</li>
-            </ul>
-          </div>
-        </details>
+        <h3>Support</h3>
+        <p>For issues or questions, email <a href="mailto:support@bountybreach.com">support@bountybreach.com</a>.</p>
 
         <p class="dl-eula-note">
           Usage of this software is subject to the <a href="https://bountybreach.github.io/legal.html">license agreement</a>.
         </p>
       </div>
     </article>
-
-    <div class="dl-archive-link">
-      <a href="#">View older releases in the archive →</a>
-    </div>
   </main>
 </div>
 
@@ -119,15 +115,5 @@
   </div>
 </footer>
 
-<script>
-  function filterCards(product, el) {
-    document.querySelectorAll('.dl-filter-list a').forEach(a => a.classList.remove('active'));
-    el.classList.add('active');
-    document.querySelectorAll('.dl-release-card').forEach(card => {
-      card.style.display = (product === 'all' || card.dataset.product === product) ? '' : 'none';
-    });
-    return false;
-  }
-</script>
 </body>
 </html>
