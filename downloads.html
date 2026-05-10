@@ -38,6 +38,16 @@
       font-size: 0.8rem;
       color: var(--muted);
     }
+
+    .script-toggle {
+      margin: 10px 0;
+    }
+
+    .script-toggle summary {
+      cursor: pointer;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
   </style>
 </head>
 <body>
@@ -91,6 +101,10 @@
           Script names used: <code>docker-start.sh</code> and <code>docker-run-local.sh</code>.
         </p>
 
+        <h3>Docker Installation</h3>
+        <p>Pull the image:</p>
+        <pre><code>docker pull ghcr.io/bountybreach/secureone:v3.0.4</code></pre>
+        <p>Run the container:</p>
         <h4>Windows (PowerShell + Git Bash)</h4>
         <ol>
           <li>Click the Windows Start icon.</li>
@@ -111,29 +125,38 @@ bash ./docker-run-local.sh v3.0.4</code></pre>
         <p>If local images already exist, you can run only <code>./docker-run-local.sh v3.0.4</code>.</p>
 
         <h4>View Script Content</h4>
-        <div class="script-viewer" data-script-path="secureone/docker-start.sh">
-          <div class="script-viewer-header">
-            <code>secureone/docker-start.sh</code>
-            <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+        <details class="script-toggle">
+          <summary><code>Open secureone/docker-start.sh</code></summary>
+          <div class="script-viewer" data-script-path="secureone/docker-start.sh">
+            <div class="script-viewer-header">
+              <code>secureone/docker-start.sh</code>
+              <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+            </div>
+            <pre><code class="script-content">Loading script...</code></pre>
+            <p class="script-status" aria-live="polite"></p>
           </div>
-          <pre><code class="script-content">Loading script...</code></pre>
-          <p class="script-status" aria-live="polite"></p>
-        </div>
-        <div class="script-viewer" data-script-path="secureone/docker-run-local.sh">
-          <div class="script-viewer-header">
-            <code>secureone/docker-run-local.sh</code>
-            <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+        </details>
+        <details class="script-toggle">
+          <summary><code>Open secureone/docker-run-local.sh</code></summary>
+          <div class="script-viewer" data-script-path="secureone/docker-run-local.sh">
+            <div class="script-viewer-header">
+              <code>secureone/docker-run-local.sh</code>
+              <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+            </div>
+            <pre><code class="script-content">Loading script...</code></pre>
+            <p class="script-status" aria-live="polite"></p>
           </div>
-          <pre><code class="script-content">Loading script...</code></pre>
-          <p class="script-status" aria-live="polite"></p>
-        </div>
+        </details>
 
         <h3>Docker Setup and Run: SecureOne Scan Agents</h3>
         <p>
           Copy and paste the commands below directly in your terminal.
           Script names used: <code>docker-start.sh</code> and <code>docker-run-local.sh</code>.
         </p>
-
+        <h3>Docker Installation</h3>
+        <p>Pull the image:</p>
+        <pre><code>docker pull ghcr.io/bountybreach/secureone_scan_agent:v3.0.4</code></pre>
+        <p>Run the container:</p>
         <h4>Windows (PowerShell + Git Bash)</h4>
         <ol>
           <li>Click the Windows Start icon.</li>
@@ -154,22 +177,28 @@ bash ./docker-run-local.sh v3.0.4</code></pre>
         <p>If local images already exist, you can run only <code>./docker-run-local.sh v3.0.4</code>.</p>
 
         <h4>View Script Content</h4>
-        <div class="script-viewer" data-script-path="secureone_scan_agents/docker-start.sh">
-          <div class="script-viewer-header">
-            <code>secureone_scan_agents/docker-start.sh</code>
-            <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+        <details class="script-toggle">
+          <summary><code>Open secureone_scan_agents/docker-start.sh</code></summary>
+          <div class="script-viewer" data-script-path="secureone_scan_agents/docker-start.sh">
+            <div class="script-viewer-header">
+              <code>secureone_scan_agents/docker-start.sh</code>
+              <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+            </div>
+            <pre><code class="script-content">Loading script...</code></pre>
+            <p class="script-status" aria-live="polite"></p>
           </div>
-          <pre><code class="script-content">Loading script...</code></pre>
-          <p class="script-status" aria-live="polite"></p>
-        </div>
-        <div class="script-viewer" data-script-path="secureone_scan_agents/docker-run-local.sh">
-          <div class="script-viewer-header">
-            <code>secureone_scan_agents/docker-run-local.sh</code>
-            <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+        </details>
+        <details class="script-toggle">
+          <summary><code>Open secureone_scan_agents/docker-run-local.sh</code></summary>
+          <div class="script-viewer" data-script-path="secureone_scan_agents/docker-run-local.sh">
+            <div class="script-viewer-header">
+              <code>secureone_scan_agents/docker-run-local.sh</code>
+              <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+            </div>
+            <pre><code class="script-content">Loading script...</code></pre>
+            <p class="script-status" aria-live="polite"></p>
           </div>
-          <pre><code class="script-content">Loading script...</code></pre>
-          <p class="script-status" aria-live="polite"></p>
-        </div>
+        </details>
 
         <h3>What’s Included in v3.0.4</h3>
         <ul>
