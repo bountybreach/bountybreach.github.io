@@ -43,7 +43,7 @@ if [[ -n "${1:-}" ]]; then
 elif [[ -n "${IMAGE_TAG:-}" ]]; then
   : # already set in environment
 else
-  read -rp "🏷️  Image tag (e.g. latest, v3.0.1, v3.0.2): " IMAGE_TAG
+  read -rp "Image tag (e.g. latest, v3.0.1, v3.0.2): " IMAGE_TAG
   IMAGE_TAG="${IMAGE_TAG:-latest}"
 fi
 
@@ -59,27 +59,27 @@ for m in "${VALID_MODES[@]}"; do
 done
 
 if [[ "$valid_mode" != "true" ]]; then
-  echo "❌ Unknown SECUREONE_AGENT_MODE: '$SECUREONE_AGENT_MODE'"
+  echo "Unknown SECUREONE_AGENT_MODE: '$SECUREONE_AGENT_MODE'"
   echo "   Valid options: ${VALID_MODES[*]}"
   exit 1
 fi
 
 # ── Check if container is already running ────────────
 if docker inspect --format '{{.State.Running}}' "$CONTAINER_NAME" 2>/dev/null | grep -q "^true$"; then
-  echo "⚠️  Container '$CONTAINER_NAME' is already running."
+  echo "Container '$CONTAINER_NAME' is already running."
   echo "   Use ./docker-stop.sh to stop it first, or set CONTAINER_NAME to a different name."
   exit 1
 fi
 
 # ── Remove stopped container with same name if present
 if docker inspect "$CONTAINER_NAME" >/dev/null 2>&1; then
-  echo "🗑️  Removing stopped container '$CONTAINER_NAME'..."
+  echo "Removing stopped container '$CONTAINER_NAME'..."
   docker rm "$CONTAINER_NAME"
 fi
 
 # ── Pull latest image from GHCR ──────────────────────
 if [[ "${SKIP_PULL:-0}" != "1" ]]; then
-  echo "📥 Pulling image: $FULL_IMAGE ..."
+  echo "Pulling image: $FULL_IMAGE ..."
   if [[ -n "$IMAGE_PLATFORM" ]]; then
     echo "   Platform: $IMAGE_PLATFORM"
   fi
@@ -95,7 +95,7 @@ if [[ "${SKIP_PULL:-0}" != "1" ]]; then
 
   if [[ $pull_rc -ne 0 ]]; then
     echo ""
-    echo "❌ Unable to pull image: $FULL_IMAGE"
+    echo "Unable to pull image: $FULL_IMAGE"
     echo "   This usually means the tag is missing your platform manifest."
     echo "   Publish multi-arch from source: ./docker-image-create.sh $IMAGE_TAG"
     echo "   Or try explicit platform (if available):"
@@ -104,7 +104,7 @@ if [[ "${SKIP_PULL:-0}" != "1" ]]; then
     exit $pull_rc
   fi
 else
-  echo "✔️  Skipping pull (SKIP_PULL=1) — using locally cached image: $FULL_IMAGE"
+  echo "Skipping pull (SKIP_PULL=1). Using locally cached image: $FULL_IMAGE"
 fi
 
 # ── Detect Windows (Git Bash) and handle path conversion ─
@@ -118,13 +118,13 @@ fi
 
 # ── Start container ───────────────────────────────────
 echo ""
-echo "🚀 Starting container '$CONTAINER_NAME'"
+echo "Starting container '$CONTAINER_NAME'"
 echo "   Mode  : $SECUREONE_AGENT_MODE"
 echo "   Image : $FULL_IMAGE"
 echo "   Ports : 9001 → 9001 | 9100 → 9100 | 9101 → 9101"
 echo "   Network mapping: host.docker.internal → host-gateway"
 if [[ "$IS_WINDOWS" == "true" ]]; then
-  echo "   ℹ️  Windows detected: skipping docker.sock mount (not available on Docker Desktop)"
+  echo "   Windows detected: skipping docker.sock mount (not available on Docker Desktop)"
 fi
 echo ""
 
@@ -161,7 +161,7 @@ DOCKER_ARGS+=( "$FULL_IMAGE" )
 
 docker "${DOCKER_ARGS[@]}"
 
-echo "✅ Container started: $CONTAINER_NAME"
+echo "Container started: $CONTAINER_NAME"
 echo ""
 echo "   Shared workspace volume: ${SECUREONE_WORKSPACE_VOLUME} -> ${WORKSPACE_DIR_IN_CONTAINER}"
 echo "   License data dir: ${LICENSE_DATA_DIR} -> /app/data/license"
