@@ -53,47 +53,56 @@
         <p>Initial Release (Stable)</p>
 
         <h3>Docker Setup and Run: SecureOne</h3>
-        <p>Use the scripts below for a fast local setup on Docker.</p>
-        <p>
-          Download scripts:
-          <a href="secureone/docker-run-local.sh" download>docker-run-local.sh</a> ·
-          <a href="secureone/docker-start.sh" download>docker-start.sh</a>
-        </p>
+        <p>Use the script links below to view the file contents and copy/paste directly into your terminal.</p>
+        <ul>
+          <li><a href="secureone/docker-start.sh">View <code>secureone/docker-start.sh</code></a></li>
+          <li><a href="secureone/docker-run-local.sh">View <code>secureone/docker-run-local.sh</code></a></li>
+        </ul>
 
-        <h4>Windows</h4>
+        <h4>Windows (PowerShell + Git Bash)</h4>
         <ol>
           <li>Click the Windows Start icon.</li>
           <li>Type <code>Windows PowerShell</code> and open it.</li>
-          <li>Go to your downloads folder and run <code>docker-run-local.sh v3.0.4</code>.</li>
+          <li>From the folder that contains the scripts, run:</li>
         </ol>
+        <pre><code>bash ./docker-start.sh v3.0.4
+bash ./docker-run-local.sh v3.0.4</code></pre>
 
         <h4>macOS / Linux</h4>
         <ol>
-          <li>Go to downloads and get <a href="secureone/docker-run-local.sh" download><code>docker-run-local.sh</code></a>.</li>
-          <li>Run: <code>./docker-run-local.sh v3.0.4</code></li>
-          <li>If Docker images are not present locally, run: <code>./docker-start.sh v3.0.4</code></li>
+          <li>Open Terminal and go to the folder containing the scripts.</li>
+          <li>Make scripts executable and run:</li>
         </ol>
+        <pre><code>chmod +x docker-start.sh docker-run-local.sh
+./docker-start.sh v3.0.4
+./docker-run-local.sh v3.0.4</code></pre>
+        <p>If local images already exist, you can run only <code>./docker-run-local.sh v3.0.4</code>.</p>
 
         <h3>Docker Setup and Run: SecureOne Scan Agents</h3>
-        <p>
-          Download scripts:
-          <a href="secureone_scan_agents/docker-run-local.sh" download>docker-run-local.sh</a> ·
-          <a href="secureone_scan_agents/docker-start.sh" download>docker-start.sh</a>
-        </p>
+        <p>Use the links below to view and copy the exact script content.</p>
+        <ul>
+          <li><a href="secureone_scan_agents/docker-start.sh">View <code>secureone_scan_agents/docker-start.sh</code></a></li>
+          <li><a href="secureone_scan_agents/docker-run-local.sh">View <code>secureone_scan_agents/docker-run-local.sh</code></a></li>
+        </ul>
 
-        <h4>Windows</h4>
+        <h4>Windows (PowerShell + Git Bash)</h4>
         <ol>
           <li>Click the Windows Start icon.</li>
           <li>Type <code>Windows PowerShell</code> and open it.</li>
-          <li>Go to your downloads folder and run <code>docker-run-local.sh v3.0.4</code>.</li>
+          <li>From the folder that contains the scripts, run:</li>
         </ol>
+        <pre><code>bash ./docker-start.sh v3.0.4
+bash ./docker-run-local.sh v3.0.4</code></pre>
 
         <h4>macOS / Linux</h4>
         <ol>
-          <li>Go to downloads and get <a href="secureone_scan_agents/docker-run-local.sh" download><code>docker-run-local.sh</code></a>.</li>
-          <li>Run: <code>./docker-run-local.sh v3.0.4</code></li>
-          <li>If Docker images are not present locally, run: <code>./docker-start.sh v3.0.4</code></li>
+          <li>Open Terminal and go to the folder containing the scripts.</li>
+          <li>Make scripts executable and run:</li>
         </ol>
+        <pre><code>chmod +x docker-start.sh docker-run-local.sh
+./docker-start.sh v3.0.4
+./docker-run-local.sh v3.0.4</code></pre>
+        <p>If local images already exist, you can run only <code>./docker-run-local.sh v3.0.4</code>.</p>
 
         <h3>What’s Included in v3.0.4</h3>
         <ul>
