@@ -35,14 +35,14 @@ if [[ -n "${1:-}" ]]; then
 elif [[ -n "${IMAGE_TAG:-}" ]]; then
   :
 else
-  read -rp "🏷️  Local image tag to run (default: latest): " IMAGE_TAG
+  read -rp "Local image tag to run (default: latest): " IMAGE_TAG
   IMAGE_TAG="${IMAGE_TAG:-latest}"
 fi
 
 FULL_IMAGE="${IMAGE_REGISTRY}/${IMAGE_OWNER}/${IMAGE_NAME}:${IMAGE_TAG}"
 
 if ! docker image inspect "$FULL_IMAGE" >/dev/null 2>&1; then
-  echo "❌ Local image not found: $FULL_IMAGE"
+  echo "Local image not found: $FULL_IMAGE"
   echo "   Build first: ./docker-build-local.sh $IMAGE_TAG"
   exit 1
 fi
@@ -50,11 +50,11 @@ fi
 if docker inspect "$CONTAINER_NAME" >/dev/null 2>&1; then
   RUNNING="$(docker inspect --format '{{.State.Running}}' "$CONTAINER_NAME" 2>/dev/null || echo false)"
   if [[ "$RUNNING" == "true" ]]; then
-    echo "⚠️  Container '$CONTAINER_NAME' is already running."
+    echo "Container '$CONTAINER_NAME' is already running."
     echo "   Stop first: ./docker-stop-local.sh"
     exit 1
   fi
-  echo "🗑️  Removing stopped container '$CONTAINER_NAME'"
+  echo "Removing stopped container '$CONTAINER_NAME'"
   docker rm "$CONTAINER_NAME" >/dev/null
 fi
 
@@ -79,13 +79,13 @@ fi
 
 DOCKER_ARGS+=( "$FULL_IMAGE" )
 
-echo "🚀 Starting local container '$CONTAINER_NAME' from $FULL_IMAGE"
+echo "Starting local container '$CONTAINER_NAME' from $FULL_IMAGE"
 echo "   License state dir: $LICENSE_DATA_DIR"
 echo "   License server URL: $LICENSE_SERVER_URL"
 if [[ "$IS_WINDOWS" == "true" ]]; then
-  echo "   ℹ️  Windows detected: Git Bash path conversion disabled for mounts"
+  echo "   Windows detected: Git Bash path conversion disabled for mounts"
 fi
 docker "${DOCKER_ARGS[@]}"
-echo "✅ Container started: $CONTAINER_NAME"
+echo "Container started: $CONTAINER_NAME"
 echo "   UI: http://localhost:9000"
 echo "   Logs: docker logs -f $CONTAINER_NAME"

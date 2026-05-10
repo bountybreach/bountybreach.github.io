@@ -35,25 +35,25 @@ if [[ -n "${1:-}" ]]; then
 elif [[ -n "${IMAGE_TAG:-}" ]]; then
   :
 else
-  read -rp "🏷️  Image tag (e.g. latest, v3.0.1, v3.0.2): " IMAGE_TAG
+  read -rp "Image tag (e.g. latest, v3.0.1, v3.0.2): " IMAGE_TAG
   IMAGE_TAG="${IMAGE_TAG:-latest}"
 fi
 
 FULL_IMAGE="${IMAGE_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}"
 
 if docker inspect --format '{{.State.Running}}' "$CONTAINER_NAME" 2>/dev/null | grep -q '^true$'; then
-  echo "⚠️  Container '$CONTAINER_NAME' is already running."
+  echo "Container '$CONTAINER_NAME' is already running."
   echo "   Use ./docker-stop.sh to stop it first."
   exit 1
 fi
 
 if docker inspect "$CONTAINER_NAME" >/dev/null 2>&1; then
-  echo "🗑️  Removing stopped container '$CONTAINER_NAME'..."
+  echo "Removing stopped container '$CONTAINER_NAME'..."
   docker rm "$CONTAINER_NAME"
 fi
 
 if [[ "${SKIP_PULL:-0}" != "1" ]]; then
-  echo "📥 Pulling image: $FULL_IMAGE ..."
+  echo "Pulling image: $FULL_IMAGE ..."
   if [[ -n "$IMAGE_PLATFORM" ]]; then
     echo "   Platform: $IMAGE_PLATFORM"
   fi
@@ -69,7 +69,7 @@ if [[ "${SKIP_PULL:-0}" != "1" ]]; then
 
   if [[ $pull_rc -ne 0 ]]; then
     echo ""
-    echo "❌ Unable to pull image: $FULL_IMAGE"
+    echo "Unable to pull image: $FULL_IMAGE"
     echo "   This usually means the tag is missing your platform manifest."
     echo "   Publish multi-arch from source: ./docker-image-create.sh $IMAGE_TAG"
     echo "   Or try explicit platform (if available):"
@@ -78,11 +78,11 @@ if [[ "${SKIP_PULL:-0}" != "1" ]]; then
     exit $pull_rc
   fi
 else
-  echo "✔️  Skipping pull (SKIP_PULL=1) — using cached image: $FULL_IMAGE"
+  echo "Skipping pull (SKIP_PULL=1). Using cached image: $FULL_IMAGE"
 fi
 
 echo ""
-echo "🚀 Starting container '$CONTAINER_NAME'"
+echo "Starting container '$CONTAINER_NAME'"
 echo "   Image : $FULL_IMAGE"
 echo "   Port  : 9000 → 9000"
 echo ""

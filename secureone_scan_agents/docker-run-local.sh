@@ -31,7 +31,7 @@ if [[ -n "${1:-}" ]]; then
 elif [[ -n "${IMAGE_TAG:-}" ]]; then
   :
 else
-  read -rp "🏷️  Local image tag to run (default: latest): " IMAGE_TAG
+  read -rp "Local image tag to run (default: latest): " IMAGE_TAG
   IMAGE_TAG="${IMAGE_TAG:-latest}"
 fi
 
@@ -46,7 +46,7 @@ for mode in "${VALID_MODES[@]}"; do
   fi
 done
 if [[ "$valid_mode" != "true" ]]; then
-  echo "❌ Invalid SECUREONE_AGENT_MODE: $SECUREONE_AGENT_MODE"
+  echo "Invalid SECUREONE_AGENT_MODE: $SECUREONE_AGENT_MODE"
   echo "   Valid modes: ${VALID_MODES[*]}"
   exit 1
 fi
@@ -59,7 +59,7 @@ if uname -s 2>/dev/null | grep -iq "MINGW\|CYGWIN\|MSYS"; then
 fi
 
 if ! docker image inspect "$FULL_IMAGE" >/dev/null 2>&1; then
-  echo "❌ Local image not found: $FULL_IMAGE"
+  echo "Local image not found: $FULL_IMAGE"
   echo "   Build first: ./docker-build-local.sh $IMAGE_TAG"
   exit 1
 fi
@@ -67,15 +67,15 @@ fi
 if docker inspect "$CONTAINER_NAME" >/dev/null 2>&1; then
   RUNNING="$(docker inspect --format '{{.State.Running}}' "$CONTAINER_NAME" 2>/dev/null || echo false)"
   if [[ "$RUNNING" == "true" ]]; then
-    echo "⚠️  Container '$CONTAINER_NAME' is already running."
+    echo "Container '$CONTAINER_NAME' is already running."
     echo "   Stop first: ./docker-stop-local.sh"
     exit 1
   fi
-  echo "🗑️  Removing stopped container '$CONTAINER_NAME'"
+  echo "Removing stopped container '$CONTAINER_NAME'"
   docker rm "$CONTAINER_NAME" >/dev/null
 fi
 
-echo "🚀 Starting local container '$CONTAINER_NAME' from $FULL_IMAGE"
+echo "Starting local container '$CONTAINER_NAME' from $FULL_IMAGE"
 DOCKER_ARGS=(
   run -d
   --name "$CONTAINER_NAME"
@@ -105,7 +105,7 @@ DOCKER_ARGS+=( "$FULL_IMAGE" )
 
 docker "${DOCKER_ARGS[@]}"
 
-echo "✅ Container started: $CONTAINER_NAME"
+echo "Container started: $CONTAINER_NAME"
 echo "   Mode: $SECUREONE_AGENT_MODE"
 echo "   Shared workspace volume: ${SECUREONE_WORKSPACE_VOLUME} -> ${WORKSPACE_DIR_IN_CONTAINER}"
 echo "   License data dir: ${LICENSE_DATA_DIR} -> /app/data/license"

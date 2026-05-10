@@ -6,6 +6,39 @@
   <title>Download &amp; Release | SecureOne</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="downloads.css">
+  <style>
+    .script-viewer {
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      background: rgba(8, 12, 28, 0.55);
+      margin: 12px 0;
+      overflow: hidden;
+    }
+
+    .script-viewer-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--border);
+      background: rgba(0, 0, 0, 0.18);
+    }
+
+    .script-viewer pre {
+      margin: 0;
+      max-height: 320px;
+      overflow: auto;
+      padding: 12px;
+    }
+
+    .script-status {
+      margin: 0;
+      padding: 0 12px 12px;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+  </style>
 </head>
 <body>
 
@@ -77,215 +110,23 @@ bash ./docker-run-local.sh v3.0.4</code></pre>
 ./docker-run-local.sh v3.0.4</code></pre>
         <p>If local images already exist, you can run only <code>./docker-run-local.sh v3.0.4</code>.</p>
 
-        <h4>View Script Content (Copy/Paste)</h4>
-        <details>
-          <summary><code>secureone/docker-start.sh</code></summary>
-          <pre><code>#!/usr/bin/env bash
-# ====================================================
-# docker-start.sh – Pull and start the SecureOne panel
-# container from GHCR.
-#
-# Usage:
-#   ./docker-start.sh
-#   ./docker-start.sh v3.0.1
-#   ./docker-start.sh latest
-#   IMAGE_TAG=v3.0.2 ./docker-start.sh
-#
-# Optional env vars:
-#   DATABASE_URL   - override runtime database URL
-#   CONFIG_PATH    - override runtime config path inside container
-# ====================================================
-set -euo pipefail
-
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$ROOT_DIR"
-
-IMAGE_REGISTRY="${IMAGE_REGISTRY:-ghcr.io/bountybreach}"
-IMAGE_NAME="${IMAGE_NAME:-secureone}"
-CONTAINER_NAME="${CONTAINER_NAME:-secureone-panel}"
-IMAGE_PLATFORM="${IMAGE_PLATFORM:-}"
-
-# ── Detect Windows (Git Bash) and handle path conversion ─
-IS_WINDOWS=false
-if uname -s 2&gt;/dev/null | grep -iq "MINGW\|CYGWIN\|MSYS"; then
-  IS_WINDOWS=true
-  export MSYS_NO_PATHCONV=1
-fi
-
-if [[ -n "${1:-}" ]]; then
-  IMAGE_TAG="$1"
-elif [[ -n "${IMAGE_TAG:-}" ]]; then
-  :
-else
-  read -rp "🏷️  Image tag (e.g. latest, v3.0.1, v3.0.2): " IMAGE_TAG
-  IMAGE_TAG="${IMAGE_TAG:-latest}"
-fi
-
-FULL_IMAGE="${IMAGE_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}"
-
-if docker inspect --format '{{.State.Running}}' "$CONTAINER_NAME" 2&gt;/dev/null | grep -q '^true$'; then
-  echo "⚠️  Container '$CONTAINER_NAME' is already running."
-  echo "   Use ./docker-stop.sh to stop it first."
-  exit 1
-fi
-
-if docker inspect "$CONTAINER_NAME" &gt;/dev/null 2&gt;&amp;1; then
-  echo "🗑️  Removing stopped container '$CONTAINER_NAME'..."
-  docker rm "$CONTAINER_NAME"
-fi
-
-if [[ "${SKIP_PULL:-0}" != "1" ]]; then
-  echo "📥 Pulling image: $FULL_IMAGE ..."
-  if [[ -n "$IMAGE_PLATFORM" ]]; then
-    echo "   Platform: $IMAGE_PLATFORM"
-  fi
-
-  set +e
-  if [[ -n "$IMAGE_PLATFORM" ]]; then
-    docker pull --platform "$IMAGE_PLATFORM" "$FULL_IMAGE"
-  else
-    docker pull "$FULL_IMAGE"
-  fi
-  pull_rc=$?
-  set -e
-
-  if [[ $pull_rc -ne 0 ]]; then
-    echo ""
-    echo "❌ Unable to pull image: $FULL_IMAGE"
-    echo "   This usually means the tag is missing your platform manifest."
-    echo "   Publish multi-arch from source: ./docker-image-create.sh $IMAGE_TAG"
-    echo "   Or try explicit platform (if available):"
-    echo "   IMAGE_PLATFORM=linux/amd64 ./docker-start.sh $IMAGE_TAG"
-    echo "   IMAGE_PLATFORM=linux/arm64 ./docker-start.sh $IMAGE_TAG"
-    exit $pull_rc
-  fi
-else
-  echo "✔️  Skipping pull (SKIP_PULL=1) — using cached image: $FULL_IMAGE"
-fi
-
-echo ""
-echo "🚀 Starting container '$CONTAINER_NAME'"
-echo "   Image : $FULL_IMAGE"
-echo "   Port  : 9000 → 9000"
-echo ""
-
-DOCKER_ARGS=(
-  run --rm -it
-  --name "$CONTAINER_NAME"
-  --add-host host.docker.internal:host-gateway
-  -p 9000:9000
-)
-
-if [[ -n "$IMAGE_PLATFORM" ]]; then
-  DOCKER_ARGS+=( --platform "$IMAGE_PLATFORM" )
-fi
-
-if [[ -n "${DATABASE_URL:-}" ]]; then
-  DOCKER_ARGS+=( -e "DATABASE_URL=$DATABASE_URL" )
-fi
-
-if [[ -n "${CONFIG_PATH:-}" ]]; then
-  DOCKER_ARGS+=( -e "CONFIG_PATH=$CONFIG_PATH" )
-fi
-
-DOCKER_ARGS+=( "$FULL_IMAGE" )
-
-docker "${DOCKER_ARGS[@]}"</code></pre>
-        </details>
-        <details>
-          <summary><code>secureone/docker-run-local.sh</code></summary>
-          <pre><code>#!/usr/bin/env bash
-set -euo pipefail
-
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$ROOT_DIR"
-
-IMAGE_REGISTRY="${IMAGE_REGISTRY:-ghcr.io}"
-IMAGE_OWNER="${IMAGE_OWNER:-bountybreach}"
-IMAGE_NAME="${IMAGE_NAME:-secureone}"
-CONTAINER_NAME="${CONTAINER_NAME:-secureone-panel}"
-
-LICENSE_DATA_DIR="${SECUREONE_LICENSE_DATA_DIR:-$ROOT_DIR/data/license}"
-mkdir -p "$LICENSE_DATA_DIR"
-
-LICENSE_FILE_PATH="${SECUREONE_LICENSE_FILE:-/app/data/license/license.json}"
-PUBLIC_KEY_PATH="${SECUREONE_LICENSE_PUBLIC_KEY_PATH:-/app/data/license/license_public.pem}"
-LICENSE_SERVER_URL="${SECUREONE_LICENSE_SERVER_URL:-https://secureone-licensing.bountybreach.com}"
-
-if [[ "$LICENSE_SERVER_URL" == http://127.0.0.1* || "$LICENSE_SERVER_URL" == https://127.0.0.1* ]]; then
-  LICENSE_SERVER_URL="${LICENSE_SERVER_URL/127.0.0.1/host.docker.internal}"
-fi
-if [[ "$LICENSE_SERVER_URL" == http://localhost* || "$LICENSE_SERVER_URL" == https://localhost* ]]; then
-  LICENSE_SERVER_URL="${LICENSE_SERVER_URL/localhost/host.docker.internal}"
-fi
-
-# ── Detect Windows (Git Bash) and handle path conversion ─
-IS_WINDOWS=false
-if uname -s 2&gt;/dev/null | grep -iq "MINGW\|CYGWIN\|MSYS"; then
-  IS_WINDOWS=true
-  export MSYS_NO_PATHCONV=1
-fi
-
-if [[ -n "${1:-}" ]]; then
-  IMAGE_TAG="$1"
-elif [[ -n "${IMAGE_TAG:-}" ]]; then
-  :
-else
-  read -rp "🏷️  Local image tag to run (default: latest): " IMAGE_TAG
-  IMAGE_TAG="${IMAGE_TAG:-latest}"
-fi
-
-FULL_IMAGE="${IMAGE_REGISTRY}/${IMAGE_OWNER}/${IMAGE_NAME}:${IMAGE_TAG}"
-
-if ! docker image inspect "$FULL_IMAGE" &gt;/dev/null 2&gt;&amp;1; then
-  echo "❌ Local image not found: $FULL_IMAGE"
-  echo "   Build first: ./docker-build-local.sh $IMAGE_TAG"
-  exit 1
-fi
-
-if docker inspect "$CONTAINER_NAME" &gt;/dev/null 2&gt;&amp;1; then
-  RUNNING="$(docker inspect --format '{{.State.Running}}' "$CONTAINER_NAME" 2&gt;/dev/null || echo false)"
-  if [[ "$RUNNING" == "true" ]]; then
-    echo "⚠️  Container '$CONTAINER_NAME' is already running."
-    echo "   Stop first: ./docker-stop-local.sh"
-    exit 1
-  fi
-  echo "🗑️  Removing stopped container '$CONTAINER_NAME'"
-  docker rm "$CONTAINER_NAME" &gt;/dev/null
-fi
-
-DOCKER_ARGS=(
-  run -d
-  --name "$CONTAINER_NAME"
-  --add-host host.docker.internal:host-gateway
-  -v "$LICENSE_DATA_DIR:/app/data/license"
-  -p 9000:9000
-  -e "SECUREONE_LICENSE_FILE=$LICENSE_FILE_PATH"
-  -e "SECUREONE_LICENSE_PUBLIC_KEY_PATH=$PUBLIC_KEY_PATH"
-  -e "SECUREONE_LICENSE_SERVER_URL=$LICENSE_SERVER_URL"
-)
-
-if [[ -n "${DATABASE_URL:-}" ]]; then
-  DOCKER_ARGS+=( -e "DATABASE_URL=$DATABASE_URL" )
-fi
-
-if [[ -n "${CONFIG_PATH:-}" ]]; then
-  DOCKER_ARGS+=( -e "CONFIG_PATH=$CONFIG_PATH" )
-fi
-
-DOCKER_ARGS+=( "$FULL_IMAGE" )
-
-echo "🚀 Starting local container '$CONTAINER_NAME' from $FULL_IMAGE"
-echo "   License state dir: $LICENSE_DATA_DIR"
-echo "   License server URL: $LICENSE_SERVER_URL"
-if [[ "$IS_WINDOWS" == "true" ]]; then
-  echo "   ℹ️  Windows detected: Git Bash path conversion disabled for mounts"
-fi
-docker "${DOCKER_ARGS[@]}"
-echo "✅ Container started: $CONTAINER_NAME"
-echo "   UI: http://localhost:9000"
-echo "   Logs: docker logs -f $CONTAINER_NAME"</code></pre>
-        </details>
+        <h4>View Script Content</h4>
+        <div class="script-viewer" data-script-path="secureone/docker-start.sh">
+          <div class="script-viewer-header">
+            <code>secureone/docker-start.sh</code>
+            <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+          </div>
+          <pre><code class="script-content">Loading script...</code></pre>
+          <p class="script-status" aria-live="polite"></p>
+        </div>
+        <div class="script-viewer" data-script-path="secureone/docker-run-local.sh">
+          <div class="script-viewer-header">
+            <code>secureone/docker-run-local.sh</code>
+            <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+          </div>
+          <pre><code class="script-content">Loading script...</code></pre>
+          <p class="script-status" aria-live="polite"></p>
+        </div>
 
         <h3>Docker Setup and Run: SecureOne Scan Agents</h3>
         <p>
@@ -312,310 +153,23 @@ bash ./docker-run-local.sh v3.0.4</code></pre>
 ./docker-run-local.sh v3.0.4</code></pre>
         <p>If local images already exist, you can run only <code>./docker-run-local.sh v3.0.4</code>.</p>
 
-        <h4>View Script Content (Copy/Paste)</h4>
-        <details>
-          <summary><code>secureone_scan_agents/docker-start.sh</code></summary>
-          <pre><code>#!/usr/bin/env bash
-# ====================================================
-# docker-start.sh – Pull and start the SecureOne Scan
-# Agent Docker container from GHCR in config-manager mode.
-#
-# Usage:
-#   ./docker-start.sh             # prompts for image tag
-#   ./docker-start.sh v3.0.1     # tag as argument
-#   ./docker-start.sh latest
-#   IMAGE_TAG=v3.0.2 ./docker-start.sh
-# ====================================================
-set -euo pipefail
-
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$ROOT_DIR"
-
-# ── Configurable defaults ────────────────────────────
-IMAGE_REGISTRY="${IMAGE_REGISTRY:-ghcr.io/bountybreach}"
-IMAGE_NAME="${IMAGE_NAME:-secureone_scan_agent}"
-CONTAINER_NAME="${CONTAINER_NAME:-secureone-scan-agent}"
-SECUREONE_AGENT_MODE="${SECUREONE_AGENT_MODE:-config-manager}"
-IMAGE_PLATFORM="${IMAGE_PLATFORM:-}"
-SECUREONE_WORKSPACE_VOLUME="${SECUREONE_WORKSPACE_VOLUME:-secureone_scans}"
-WORKSPACE_DIR_IN_CONTAINER="${WORKSPACE_DIR_IN_CONTAINER:-/tmp/secureone_scans}"
-
-LICENSE_DATA_DIR="${SECUREONE_LICENSE_DATA_DIR:-$ROOT_DIR/data/license}"
-mkdir -p "$LICENSE_DATA_DIR"
-
-LICENSE_FILE_PATH="${SECUREONE_LICENSE_FILE:-/app/data/license/license.json}"
-PUBLIC_KEY_PATH="${SECUREONE_LICENSE_PUBLIC_KEY_PATH:-/app/data/license/license_public.pem}"
-LICENSE_SERVER_URL="${SECUREONE_LICENSE_SERVER_URL:-https://secureone-licensing.bountybreach.com}"
-
-if [[ "$LICENSE_SERVER_URL" == http://127.0.0.1* || "$LICENSE_SERVER_URL" == https://127.0.0.1* ]]; then
-  LICENSE_SERVER_URL="${LICENSE_SERVER_URL/127.0.0.1/host.docker.internal}"
-fi
-if [[ "$LICENSE_SERVER_URL" == http://localhost* || "$LICENSE_SERVER_URL" == https://localhost* ]]; then
-  LICENSE_SERVER_URL="${LICENSE_SERVER_URL/localhost/host.docker.internal}"
-fi
-
-# ── Resolve image tag (arg &gt; env &gt; interactive prompt) ─
-if [[ -n "${1:-}" ]]; then
-  IMAGE_TAG="$1"
-elif [[ -n "${IMAGE_TAG:-}" ]]; then
-  : # already set in environment
-else
-  read -rp "🏷️  Image tag (e.g. latest, v3.0.1, v3.0.2): " IMAGE_TAG
-  IMAGE_TAG="${IMAGE_TAG:-latest}"
-fi
-
-FULL_IMAGE="${IMAGE_REGISTRY}/${IMAGE_NAME}:${IMAGE_TAG}"
-
-VALID_MODES=("agent" "factory" "cicd" "cicd-workspace" "config-manager")
-valid_mode=false
-for m in "${VALID_MODES[@]}"; do
-  if [[ "$SECUREONE_AGENT_MODE" == "$m" ]]; then
-    valid_mode=true
-    break
-  fi
-done
-
-if [[ "$valid_mode" != "true" ]]; then
-  echo "❌ Unknown SECUREONE_AGENT_MODE: '$SECUREONE_AGENT_MODE'"
-  echo "   Valid options: ${VALID_MODES[*]}"
-  exit 1
-fi
-
-# ── Check if container is already running ────────────
-if docker inspect --format '{{.State.Running}}' "$CONTAINER_NAME" 2&gt;/dev/null | grep -q "^true$"; then
-  echo "⚠️  Container '$CONTAINER_NAME' is already running."
-  echo "   Use ./docker-stop.sh to stop it first, or set CONTAINER_NAME to a different name."
-  exit 1
-fi
-
-# ── Remove stopped container with same name if present
-if docker inspect "$CONTAINER_NAME" &gt;/dev/null 2&gt;&amp;1; then
-  echo "🗑️  Removing stopped container '$CONTAINER_NAME'..."
-  docker rm "$CONTAINER_NAME"
-fi
-
-# ── Pull latest image from GHCR ──────────────────────
-if [[ "${SKIP_PULL:-0}" != "1" ]]; then
-  echo "📥 Pulling image: $FULL_IMAGE ..."
-  if [[ -n "$IMAGE_PLATFORM" ]]; then
-    echo "   Platform: $IMAGE_PLATFORM"
-  fi
-
-  set +e
-  if [[ -n "$IMAGE_PLATFORM" ]]; then
-    docker pull --platform "$IMAGE_PLATFORM" "$FULL_IMAGE"
-  else
-    docker pull "$FULL_IMAGE"
-  fi
-  pull_rc=$?
-  set -e
-
-  if [[ $pull_rc -ne 0 ]]; then
-    echo ""
-    echo "❌ Unable to pull image: $FULL_IMAGE"
-    echo "   This usually means the tag is missing your platform manifest."
-    echo "   Publish multi-arch from source: ./docker-image-create.sh $IMAGE_TAG"
-    echo "   Or try explicit platform (if available):"
-    echo "   IMAGE_PLATFORM=linux/amd64 ./docker-start.sh $IMAGE_TAG"
-    echo "   IMAGE_PLATFORM=linux/arm64 ./docker-start.sh $IMAGE_TAG"
-    exit $pull_rc
-  fi
-else
-  echo "✔️  Skipping pull (SKIP_PULL=1) — using locally cached image: $FULL_IMAGE"
-fi
-
-# ── Detect Windows (Git Bash) and handle path conversion ─
-# On Windows with Git Bash, MSYS auto-converts /var/run to Windows paths, which breaks mounts.
-# The docker.sock mount is only needed on native Linux anyway.
-IS_WINDOWS=false
-if uname -s 2&gt;/dev/null | grep -iq "MINGW\|CYGWIN\|MSYS"; then
-  IS_WINDOWS=true
-  export MSYS_NO_PATHCONV=1
-fi
-
-# ── Start container ───────────────────────────────────
-echo ""
-echo "🚀 Starting container '$CONTAINER_NAME'"
-echo "   Mode  : $SECUREONE_AGENT_MODE"
-echo "   Image : $FULL_IMAGE"
-echo "   Ports : 9001 → 9001 | 9100 → 9100 | 9101 → 9101"
-echo "   Network mapping: host.docker.internal → host-gateway"
-if [[ "$IS_WINDOWS" == "true" ]]; then
-  echo "   ℹ️  Windows detected: skipping docker.sock mount (not available on Docker Desktop)"
-fi
-echo ""
-
-DOCKER_ARGS=(
-  run --rm -it
-  --name "$CONTAINER_NAME"
-  --add-host host.docker.internal:host-gateway
-  -v "${SECUREONE_WORKSPACE_VOLUME}:${WORKSPACE_DIR_IN_CONTAINER}"
-  -v "${LICENSE_DATA_DIR}:/app/data/license"
-  -e "SECUREONE_WORKSPACE_VOLUME=$SECUREONE_WORKSPACE_VOLUME"
-  -e SECUREONE_AGENT_MODE="$SECUREONE_AGENT_MODE"
-  -e "SECUREONE_LICENSE_FILE=$LICENSE_FILE_PATH"
-  -e "SECUREONE_LICENSE_PUBLIC_KEY_PATH=$PUBLIC_KEY_PATH"
-  -e "SECUREONE_LICENSE_SERVER_URL=$LICENSE_SERVER_URL"
-  -p 9101:9101
-  -p 9100:9100
-  -p 9001:9001
-)
-
-# Only mount docker.sock on Linux (not available on Windows Docker Desktop)
-if [[ "$IS_WINDOWS" != "true" ]] && [[ -e /var/run/docker.sock ]]; then
-  DOCKER_ARGS+=( -v /var/run/docker.sock:/var/run/docker.sock )
-fi
-
-if [[ -n "$IMAGE_PLATFORM" ]]; then
-  DOCKER_ARGS+=( --platform "$IMAGE_PLATFORM" )
-fi
-
-if [[ -n "${FASTAPI_URL:-}" ]]; then
-  DOCKER_ARGS+=( -e "FASTAPI_URL=$FASTAPI_URL" )
-fi
-
-DOCKER_ARGS+=( "$FULL_IMAGE" )
-
-docker "${DOCKER_ARGS[@]}"
-
-echo "✅ Container started: $CONTAINER_NAME"
-echo ""
-echo "   Shared workspace volume: ${SECUREONE_WORKSPACE_VOLUME} -&gt; ${WORKSPACE_DIR_IN_CONTAINER}"
-echo "   License data dir: ${LICENSE_DATA_DIR} -&gt; /app/data/license"
-echo "   License server URL: $LICENSE_SERVER_URL"
-if [[ "$SECUREONE_AGENT_MODE" == "config-manager" ]]; then
-  echo "   Config Manager UI: http://localhost:9101"
-fi
-echo "   docker logs -f $CONTAINER_NAME"
-echo ""
-
-if [[ -n "${FASTAPI_URL:-}" ]]; then
-  echo "   Agent API target override: $FASTAPI_URL"
-fi
-echo ""</code></pre>
-        </details>
-        <details>
-          <summary><code>secureone_scan_agents/docker-run-local.sh</code></summary>
-          <pre><code>#!/usr/bin/env bash
-set -euo pipefail
-
-ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$ROOT_DIR"
-
-IMAGE_REGISTRY="${IMAGE_REGISTRY:-ghcr.io}"
-IMAGE_OWNER="${IMAGE_OWNER:-bountybreach}"
-IMAGE_NAME="${IMAGE_NAME:-secureone_scan_agent}"
-CONTAINER_NAME="${CONTAINER_NAME:-secureone-scan-agent}"
-SECUREONE_AGENT_MODE="${SECUREONE_AGENT_MODE:-config-manager}"
-SECUREONE_WORKSPACE_VOLUME="${SECUREONE_WORKSPACE_VOLUME:-secureone_scans}"
-WORKSPACE_DIR_IN_CONTAINER="${WORKSPACE_DIR_IN_CONTAINER:-/tmp/secureone_scans}"
-
-LICENSE_DATA_DIR="${SECUREONE_LICENSE_DATA_DIR:-$ROOT_DIR/data/license}"
-mkdir -p "$LICENSE_DATA_DIR"
-
-LICENSE_FILE_PATH="${SECUREONE_LICENSE_FILE:-/app/data/license/license.json}"
-PUBLIC_KEY_PATH="${SECUREONE_LICENSE_PUBLIC_KEY_PATH:-/app/data/license/license_public.pem}"
-LICENSE_SERVER_URL="${SECUREONE_LICENSE_SERVER_URL:-https://secureone-licensing.bountybreach.com}"
-
-if [[ "$LICENSE_SERVER_URL" == http://127.0.0.1* || "$LICENSE_SERVER_URL" == https://127.0.0.1* ]]; then
-  LICENSE_SERVER_URL="${LICENSE_SERVER_URL/127.0.0.1/host.docker.internal}"
-fi
-if [[ "$LICENSE_SERVER_URL" == http://localhost* || "$LICENSE_SERVER_URL" == https://localhost* ]]; then
-  LICENSE_SERVER_URL="${LICENSE_SERVER_URL/localhost/host.docker.internal}"
-fi
-
-if [[ -n "${1:-}" ]]; then
-  IMAGE_TAG="$1"
-elif [[ -n "${IMAGE_TAG:-}" ]]; then
-  :
-else
-  read -rp "🏷️  Local image tag to run (default: latest): " IMAGE_TAG
-  IMAGE_TAG="${IMAGE_TAG:-latest}"
-fi
-
-FULL_IMAGE="${IMAGE_REGISTRY}/${IMAGE_OWNER}/${IMAGE_NAME}:${IMAGE_TAG}"
-
-VALID_MODES=("agent" "factory" "cicd" "cicd-workspace" "config-manager")
-valid_mode=false
-for mode in "${VALID_MODES[@]}"; do
-  if [[ "$SECUREONE_AGENT_MODE" == "$mode" ]]; then
-    valid_mode=true
-    break
-  fi
-done
-if [[ "$valid_mode" != "true" ]]; then
-  echo "❌ Invalid SECUREONE_AGENT_MODE: $SECUREONE_AGENT_MODE"
-  echo "   Valid modes: ${VALID_MODES[*]}"
-  exit 1
-fi
-
-# ── Detect Windows (Git Bash) and handle path conversion ─
-IS_WINDOWS=false
-if uname -s 2&gt;/dev/null | grep -iq "MINGW\|CYGWIN\|MSYS"; then
-  IS_WINDOWS=true
-  export MSYS_NO_PATHCONV=1
-fi
-
-if ! docker image inspect "$FULL_IMAGE" &gt;/dev/null 2&gt;&amp;1; then
-  echo "❌ Local image not found: $FULL_IMAGE"
-  echo "   Build first: ./docker-build-local.sh $IMAGE_TAG"
-  exit 1
-fi
-
-if docker inspect "$CONTAINER_NAME" &gt;/dev/null 2&gt;&amp;1; then
-  RUNNING="$(docker inspect --format '{{.State.Running}}' "$CONTAINER_NAME" 2&gt;/dev/null || echo false)"
-  if [[ "$RUNNING" == "true" ]]; then
-    echo "⚠️  Container '$CONTAINER_NAME' is already running."
-    echo "   Stop first: ./docker-stop-local.sh"
-    exit 1
-  fi
-  echo "🗑️  Removing stopped container '$CONTAINER_NAME'"
-  docker rm "$CONTAINER_NAME" &gt;/dev/null
-fi
-
-echo "🚀 Starting local container '$CONTAINER_NAME' from $FULL_IMAGE"
-DOCKER_ARGS=(
-  run -d
-  --name "$CONTAINER_NAME"
-  --add-host host.docker.internal:host-gateway
-  -v "${SECUREONE_WORKSPACE_VOLUME}:${WORKSPACE_DIR_IN_CONTAINER}"
-  -v "${LICENSE_DATA_DIR}:/app/data/license"
-  -e "SECUREONE_WORKSPACE_VOLUME=$SECUREONE_WORKSPACE_VOLUME"
-  -e SECUREONE_AGENT_MODE="$SECUREONE_AGENT_MODE"
-  -e "SECUREONE_LICENSE_FILE=$LICENSE_FILE_PATH"
-  -e "SECUREONE_LICENSE_PUBLIC_KEY_PATH=$PUBLIC_KEY_PATH"
-  -e "SECUREONE_LICENSE_SERVER_URL=$LICENSE_SERVER_URL"
-  -p 9101:9101
-  -p 9100:9100
-  -p 9001:9001
-)
-
-# Only mount docker.sock on Linux (not available on Windows Docker Desktop)
-if [[ "$IS_WINDOWS" != "true" ]] && [[ -e /var/run/docker.sock ]]; then
-  DOCKER_ARGS+=( -v /var/run/docker.sock:/var/run/docker.sock )
-fi
-
-if [[ -n "${FASTAPI_URL:-}" ]]; then
-  DOCKER_ARGS+=( -e "FASTAPI_URL=$FASTAPI_URL" )
-fi
-
-DOCKER_ARGS+=( "$FULL_IMAGE" )
-
-docker "${DOCKER_ARGS[@]}"
-
-echo "✅ Container started: $CONTAINER_NAME"
-echo "   Mode: $SECUREONE_AGENT_MODE"
-echo "   Shared workspace volume: ${SECUREONE_WORKSPACE_VOLUME} -&gt; ${WORKSPACE_DIR_IN_CONTAINER}"
-echo "   License data dir: ${LICENSE_DATA_DIR} -&gt; /app/data/license"
-echo "   License server URL: $LICENSE_SERVER_URL"
-echo "   Logs: docker logs -f $CONTAINER_NAME"
-if [[ "$SECUREONE_AGENT_MODE" == "config-manager" ]]; then
-  echo "   UI: http://localhost:9101"
-fi
-if [[ -n "${FASTAPI_URL:-}" ]]; then
-  echo "   Agent API target override: $FASTAPI_URL"
-fi</code></pre>
-        </details>
+        <h4>View Script Content</h4>
+        <div class="script-viewer" data-script-path="secureone_scan_agents/docker-start.sh">
+          <div class="script-viewer-header">
+            <code>secureone_scan_agents/docker-start.sh</code>
+            <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+          </div>
+          <pre><code class="script-content">Loading script...</code></pre>
+          <p class="script-status" aria-live="polite"></p>
+        </div>
+        <div class="script-viewer" data-script-path="secureone_scan_agents/docker-run-local.sh">
+          <div class="script-viewer-header">
+            <code>secureone_scan_agents/docker-run-local.sh</code>
+            <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+          </div>
+          <pre><code class="script-content">Loading script...</code></pre>
+          <p class="script-status" aria-live="polite"></p>
+        </div>
 
         <h3>What’s Included in v3.0.4</h3>
         <ul>
@@ -670,6 +224,53 @@ fi</code></pre>
     SecureOne · Application Security Simplified · © 2026 BountyBreach
   </div>
 </footer>
+
+<script>
+  (function () {
+    var viewers = document.querySelectorAll('.script-viewer');
+
+    function setStatus(viewer, message) {
+      var status = viewer.querySelector('.script-status');
+      if (status) status.textContent = message;
+    }
+
+    viewers.forEach(function (viewer) {
+      var scriptPath = viewer.getAttribute('data-script-path');
+      var codeEl = viewer.querySelector('.script-content');
+      var copyBtn = viewer.querySelector('.script-copy-btn');
+
+      fetch(scriptPath, { cache: 'no-store' })
+        .then(function (response) {
+          if (!response.ok) {
+            throw new Error('Unable to load script');
+          }
+          return response.text();
+        })
+        .then(function (text) {
+          codeEl.textContent = text;
+          setStatus(viewer, 'Ready to copy.');
+        })
+        .catch(function () {
+          codeEl.textContent = 'Unable to load this script right now.';
+          setStatus(viewer, 'Load failed.');
+          if (copyBtn) copyBtn.disabled = true;
+        });
+
+      if (copyBtn) {
+        copyBtn.addEventListener('click', function () {
+          var textToCopy = codeEl.textContent || '';
+          navigator.clipboard.writeText(textToCopy)
+            .then(function () {
+              setStatus(viewer, 'Copied to clipboard.');
+            })
+            .catch(function () {
+              setStatus(viewer, 'Clipboard copy failed.');
+            });
+        });
+      }
+    });
+  })();
+</script>
 
 </body>
 </html>
