@@ -100,6 +100,57 @@
   </section>
 
   <section>
+    <div class="highlight">
+      <h2>First Step: Docker Setup</h2>
+      <p>
+        Before execution-mode demos, complete Docker setup for both <code>secureone</code> and
+        <code>secureone_scan_agents</code> in this order: download, prepare run scripts, then bring both services up.
+      </p>
+    </div>
+    <div class="demo-grid">
+      <article class="demo-card">
+        <span class="demo-step">Setup 1</span>
+        <h3>Download SecureOne and Scan Agent Docker Assets</h3>
+        <p>Download the Docker images and base setup assets for both services.</p>
+        <video class="demo-video" controls preload="metadata">
+          <source src="secureone/demo/dockers_setup/secureone_and_scan_agent_docker_download.mov" type="video/mp4">
+        </video>
+        <div class="demo-filename"><code>secureone_and_scan_agent_docker_download.mov</code></div>
+      </article>
+
+      <article class="demo-card">
+        <span class="demo-step">Setup 2</span>
+        <h3>Create and Prepare Docker Run Scripts</h3>
+        <p>Prepare the Docker run shell scripts and make them ready for execution.</p>
+        <video class="demo-video" controls preload="metadata">
+          <source src="secureone/demo/dockers_setup/download_docker_run_sh.mov" type="video/mp4">
+        </video>
+        <div class="demo-filename"><code>download_docker_run_sh.mov</code></div>
+      </article>
+
+      <article class="demo-card">
+        <span class="demo-step">Setup 3</span>
+        <h3>Run and Bring Up <code>secureone</code></h3>
+        <p>Start the SecureOne service container and verify the control panel startup.</p>
+        <video class="demo-video" controls preload="metadata">
+          <source src="secureone/demo/dockers_setup/secureone_docker_run.mov" type="video/mp4">
+        </video>
+        <div class="demo-filename"><code>secureone_docker_run.mov</code></div>
+      </article>
+
+      <article class="demo-card">
+        <span class="demo-step">Setup 4</span>
+        <h3>Run and Bring Up <code>secureone_scan_agents</code></h3>
+        <p>Start the scan agents container workflow and confirm it is up and connected.</p>
+        <video class="demo-video" controls preload="metadata">
+          <source src="secureone/demo/dockers_setup/secureone_scan_agent_docker_run.mov" type="video/mp4">
+        </video>
+        <div class="demo-filename"><code>secureone_scan_agent_docker_run.mov</code></div>
+      </article>
+    </div>
+  </section>
+
+  <section>
     <div class="scan-mode-tabs">
       <button class="scan-mode-tab active" onclick="showMode('self-managed', this)">
         Self-Managed <span class="scan-mode-badge">21 videos</span>
