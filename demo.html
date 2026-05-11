@@ -4,6 +4,66 @@
   <title>SecureOne Demo Library | Guided Product Setup Videos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
+  <style>
+    .scan-mode-tabs {
+      display: flex;
+      gap: 12px;
+      margin: 32px 0 24px;
+      flex-wrap: wrap;
+    }
+    .scan-mode-tab {
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      border: 2px solid #335a9f;
+      background: transparent;
+      color: #335a9f;
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+    }
+    .scan-mode-tab.active,
+    .scan-mode-tab:hover {
+      background: #335a9f;
+      color: #fff;
+    }
+    .scan-mode-badge {
+      display: inline-block;
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 99px;
+      margin-left: 8px;
+      vertical-align: middle;
+      background: #e8eef8;
+      color: #335a9f;
+      letter-spacing: 0.04em;
+    }
+    .scan-mode-tab.active .scan-mode-badge {
+      background: rgba(255,255,255,0.25);
+      color: #fff;
+    }
+    .scan-mode-section {
+      display: none;
+    }
+    .scan-mode-section.active {
+      display: block;
+    }
+    .coming-soon-card {
+      background: #f7f9fc;
+      border: 2px dashed #c5d3ea;
+      border-radius: 12px;
+      padding: 48px 32px;
+      text-align: center;
+      color: #6b7a96;
+      margin: 24px 0;
+    }
+    .coming-soon-card h3 {
+      color: #335a9f;
+      margin-bottom: 8px;
+    }
+  </style>
 </head>
 <body>
 <header>
@@ -32,236 +92,333 @@
 <main class="container">
   <section class="page-hero">
     <span class="tag">Product Demo</span>
-    <h1>Watch the SecureOne setup and onboarding flow in order.</h1>
+    <h1>SecureOne Demo Library by Scan Execution Mode</h1>
     <p>
-      This library walks users through license activation, first-time setup, role-based access,
-      integration setup, scan execution, and review workflows for a self-managed deployment.
+      Explore guided walkthroughs organized by how scans are executed — Self-Managed, Agent-based, or CI/CD pipeline.
+      Select your deployment mode below to see the relevant setup, role, and scan review demos.
     </p>
   </section>
 
   <section>
+    <div class="scan-mode-tabs">
+      <button class="scan-mode-tab active" onclick="showMode('self-managed', this)">
+        Self-Managed <span class="scan-mode-badge">21 videos</span>
+      </button>
+      <button class="scan-mode-tab" onclick="showMode('agent-scan', this)">
+        Agent Scan <span class="scan-mode-badge">Coming Soon</span>
+      </button>
+      <button class="scan-mode-tab" onclick="showMode('ci-cd-scan', this)">
+        CI/CD Scan <span class="scan-mode-badge">Coming Soon</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- ===== SELF-MANAGED ===== -->
+  <section class="scan-mode-section active" id="self-managed">
     <div class="highlight">
-      <h2>Recommended Viewing Order</h2>
+      <h2>Self-Managed Scan Mode</h2>
       <p>
-        Start with licensing and account setup, continue with role-specific product views,
-        then move into GitHub integration, scan setup, scan review, and the overall self-managed overview.
+        In self-managed mode you install and run the scan tooling directly on your own infrastructure.
+        Follow these videos in order: start with licensing and account setup, then explore role-based views,
+        connect GitHub, run scans with Semgrep, Gitleaks, and Snyk, and finish with the all-scan overview.
       </p>
     </div>
+
+    <div class="demo-sections">
+
+      <div class="demo-section">
+        <h2>License and Account Setup</h2>
+        <p class="section-subtitle">Get access, create the licensing account, activate the license, and sign in to the panel.</p>
+        <div class="demo-grid">
+
+          <article class="demo-card">
+            <span class="demo-step">Step 1</span>
+            <h3>Request and Activate SecureOne License</h3>
+            <p>Begin with the license request and activation process required before product setup.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Request_and_Activate_SecureOne_License.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Request_and_Activate_SecureOne_License.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 2</span>
+            <h3>Create Customer Licensing Account</h3>
+            <p>Create the SecureOne licensing account for the customer or client organization.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Create_SecureOne_Licensing_Account_for_Customer_Client_Organization.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Create_SecureOne_Licensing_Account_for_Customer_Client_Organization.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 3</span>
+            <h3>Create the Default SecureOne Account</h3>
+            <p>Configure the initial account and complete the first setup steps for the environment.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/SecureOne_SetUp_Create_Account_Default_Account.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>SecureOne_SetUp_Create_Account_Default_Account.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 4</span>
+            <h3>Login Overview: SecureOne Panel (Part 1)</h3>
+            <p>Review the login experience and the first panel view after account access is ready.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Login_Overview_SecureOne_Panel_001.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Login_Overview_SecureOne_Panel_001.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 5</span>
+            <h3>Login Overview: SecureOne Panel (Part 2)</h3>
+            <p>Continue the panel walkthrough covering additional views and navigation context.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Login_Overview_SecureOne_Panel_002.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Login_Overview_SecureOne_Panel_002.mov</code></div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Role-Based Product Views</h2>
+        <p class="section-subtitle">Understand what each team role sees in the platform after initial setup.</p>
+        <div class="demo-grid">
+
+          <article class="demo-card">
+            <span class="demo-step">Step 6</span>
+            <h3>Security Admin View</h3>
+            <p>See the product from the security administrator perspective.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/security_admin_Vew.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>security_admin_Vew.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 7</span>
+            <h3>Engineering Lead View</h3>
+            <p>Review dashboards and controls relevant to engineering leadership.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/engineering_lead_view.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>engineering_lead_view.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 8</span>
+            <h3>Developer View</h3>
+            <p>Understand the workflow and findings experience from a developer's perspective.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/developer_view.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>developer_view.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 9</span>
+            <h3>Auditor View</h3>
+            <p>Review the audit-oriented experience for reporting and oversight needs.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/auditor_view.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>auditor_view.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 10</span>
+            <h3>CI Bot View</h3>
+            <p>See the automation-focused view used during pipeline and CI/CD operations.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/ci_bot_view.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>ci_bot_view.mov</code></div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Integration, Scans, and Review</h2>
+        <p class="section-subtitle">Connect GitHub, configure scanning tools, run scans, and review findings.</p>
+        <div class="demo-grid">
+
+          <article class="demo-card">
+            <span class="demo-step">Step 11</span>
+            <h3>GitHub Token Integration</h3>
+            <p>Set up the GitHub token required for repository integration and automated workflows.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/System_Integration_GitHub_Token.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>System_Integration_GitHub_Token.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 12</span>
+            <h3>Start a Self-Managed Scan</h3>
+            <p>Launch the baseline self-managed scan workflow.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Self_manage_scan.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Self_manage_scan.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 13</span>
+            <h3>Install Semgrep</h3>
+            <p>Install and prepare Semgrep for SAST scanning in the self-managed environment.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Self_manage_Semgrep_Installation.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Self_manage_Semgrep_Installation.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 14</span>
+            <h3>Run Semgrep SAST on WebGoat</h3>
+            <p>Execute a Semgrep SAST scan against the WebGoat target application.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Self_manage_Semgrep_SAST_Semgrep_WebGoat.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Self_manage_Semgrep_SAST_Semgrep_WebGoat.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 15</span>
+            <h3>Review Semgrep SAST Results</h3>
+            <p>Inspect the Semgrep findings generated from the WebGoat scan.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Self_manage_Semgrep_SAST_Semgrep_WebGoat_Scan_Review.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Self_manage_Semgrep_SAST_Semgrep_WebGoat_Scan_Review.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 16</span>
+            <h3>Run Gitleaks Secret Scan</h3>
+            <p>Launch a secrets detection scan against the WebGoat sample using Gitleaks.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Self_manage_scan_GitLeaks_Secret_WebGoat.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Self_manage_scan_GitLeaks_Secret_WebGoat.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 17</span>
+            <h3>Review Gitleaks Secret Findings</h3>
+            <p>Review the detected secret findings and scan details from the Gitleaks run.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Self_manage_GitLeaks_Secret_WebGoat_Scan_Review.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Self_manage_GitLeaks_Secret_WebGoat_Scan_Review.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 18</span>
+            <h3>Run Snyk SCA on WebGoat</h3>
+            <p>Run a software composition analysis workflow using Snyk against WebGoat.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Self_manage_Snyk_SCA_WebGoat.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Self_manage_Snyk_SCA_WebGoat.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 19</span>
+            <h3>Review Snyk SCA Findings</h3>
+            <p>Inspect dependency findings and review scan output from the Snyk workflow.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Self_manage_Snyk_Sca_Sample_Scan_Review.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Self_manage_Snyk_Sca_Sample_Scan_Review.mov</code></div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Overview and Account Access</h2>
+        <p class="section-subtitle">Wrap up with the complete scan overview and licensing account access walkthrough.</p>
+        <div class="demo-grid">
+
+          <article class="demo-card">
+            <span class="demo-step">Step 20</span>
+            <h3>All Scan Overview</h3>
+            <p>Review the combined self-managed scan overview after individual scan workflows are complete.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Self_Managed_ALL_Scan_OverView.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Self_Managed_ALL_Scan_OverView.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 21</span>
+            <h3>Access Customer Licensing Account</h3>
+            <p>Finish with a walkthrough of the customer licensing account access experience.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/self_managed/Access_Customer_SecureOne_Licensing_Account.mov" type="video/quicktime">
+            </video>
+            <div class="demo-filename"><code>Access_Customer_SecureOne_Licensing_Account.mov</code></div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
   </section>
 
-  <section class="demo-sections">
-    <div class="demo-section">
-      <h2>License and Account Setup</h2>
-      <p class="section-subtitle">Get access, create the licensing account, activate the license, and sign in to the panel.</p>
-      <div class="demo-grid">
-        <article class="demo-card">
-          <span class="demo-step">Step 1</span>
-          <h3>Request and Activate SecureOne License</h3>
-          <p>Begin with the license request and activation process required before product setup.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Request_and_Activate_SecureOne_License.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Request_and_Activate_SecureOne_License.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 2</span>
-          <h3>Create Customer Licensing Account</h3>
-          <p>Create the SecureOne licensing account for the customer or client organization.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Create_SecureOne_Licensing_Account_for_Customer_Client_Organization.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Create_SecureOne_Licensing_Account_for_Customer_Client_Organization.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 3</span>
-          <h3>Create the Default SecureOne Account</h3>
-          <p>Configure the initial account and complete the first setup steps for the environment.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/SecureOne_SetUp_Create_Account_Default_Account.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>SecureOne_SetUp_Create_Account_Default_Account.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 4</span>
-          <h3>Login Overview: SecureOne Panel</h3>
-          <p>Review the login experience and the first panel view after account access is ready.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Login_Overview_SecureOne_Panel.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Login_Overview_SecureOne_Panel.mov</code></div>
-        </article>
-      </div>
+  <!-- ===== AGENT SCAN ===== -->
+  <section class="scan-mode-section" id="agent-scan">
+    <div class="highlight">
+      <h2>Agent Scan Mode</h2>
+      <p>
+        In agent scan mode, SecureOne deploys lightweight scan agents to your environment.
+        Demos for this execution mode are in progress and will be published here once available.
+      </p>
     </div>
-
-    <div class="demo-section">
-      <h2>Role-Based Product Views</h2>
-      <p class="section-subtitle">Understand what each team role sees in the platform after initial setup.</p>
-      <div class="demo-grid">
-        <article class="demo-card">
-          <span class="demo-step">Step 5</span>
-          <h3>Security Admin View</h3>
-          <p>See the product from the security administrator perspective.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/security_admin_Vew.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>security_admin_Vew.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 6</span>
-          <h3>Engineering Lead View</h3>
-          <p>Review dashboards and controls relevant to engineering leadership.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/engineering_lead_view.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>engineering_lead_view.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 7</span>
-          <h3>Developer View</h3>
-          <p>Understand the workflow and findings experience from a developer’s perspective.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/developer_view.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>developer_view.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 8</span>
-          <h3>Auditor View</h3>
-          <p>Review the audit-oriented experience for reporting and oversight needs.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/auditor_view.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>auditor_view.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 9</span>
-          <h3>CI Bot View</h3>
-          <p>See the automation-focused view used during pipeline and CI/CD operations.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/ci_bot_view.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>ci_bot_view.mov</code></div>
-        </article>
-      </div>
-    </div>
-
-    <div class="demo-section">
-      <h2>Integration, Scans, and Review</h2>
-      <p class="section-subtitle">Connect GitHub, configure scanning tools, run scans, and review findings.</p>
-      <div class="demo-grid">
-        <article class="demo-card">
-          <span class="demo-step">Step 10</span>
-          <h3>GitHub Token Integration</h3>
-          <p>Set up the GitHub token required for repository integration and automated workflows.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/System_Integration_GitHub_Token.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>System_Integration_GitHub_Token.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 11</span>
-          <h3>Start a Self-Managed Scan</h3>
-          <p>Launch the baseline self-managed scan workflow.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Self_manage_scan.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Self_manage_scan.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 12</span>
-          <h3>Install Semgrep</h3>
-          <p>Install and prepare Semgrep for SAST scanning in the self-managed environment.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Self_manage_Semgrep_Installation.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Self_manage_Semgrep_Installation.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 13</span>
-          <h3>Run Semgrep SAST on WebGoat</h3>
-          <p>Execute a Semgrep SAST scan against the WebGoat target application.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Self_manage_Semgrep_SAST_Semgrep_WebGoat.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Self_manage_Semgrep_SAST_Semgrep_WebGoat.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 14</span>
-          <h3>Review Semgrep SAST Results</h3>
-          <p>Inspect the Semgrep findings generated from the WebGoat scan.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Self_manage_Semgrep_SAST_Semgrep_WebGoat_Scan_Review.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Self_manage_Semgrep_SAST_Semgrep_WebGoat_Scan_Review.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 15</span>
-          <h3>Run Gitleaks Secret Scan</h3>
-          <p>Launch a secrets detection scan against the WebGoat sample using Gitleaks.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Self_manage_scan_GitLeaks_Secret_WebGoat.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Self_manage_scan_GitLeaks_Secret_WebGoat.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 16</span>
-          <h3>Review Gitleaks Secret Findings</h3>
-          <p>Review the detected secret findings and scan details from the Gitleaks run.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Self_manage_GitLeaks_Secret_WebGoat_Scan_Review.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Self_manage_GitLeaks_Secret_WebGoat_Scan_Review.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 17</span>
-          <h3>Run Snyk SCA on WebGoat</h3>
-          <p>Run a software composition analysis workflow using Snyk against WebGoat.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Self_manage_Snyk_SCA_WebGoat.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Self_manage_Snyk_SCA_WebGoat.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 18</span>
-          <h3>Review Snyk SCA Findings</h3>
-          <p>Inspect dependency findings and review scan output from the Snyk workflow.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Self_manage_Snyk_Sca_Sample_Scan_Review.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Self_manage_Snyk_Sca_Sample_Scan_Review.mov</code></div>
-        </article>
-      </div>
-    </div>
-
-    <div class="demo-section">
-      <h2>Overview and Account Access</h2>
-      <p class="section-subtitle">Wrap up with the complete scan overview and licensing account access walkthrough.</p>
-      <div class="demo-grid">
-        <article class="demo-card">
-          <span class="demo-step">Step 19</span>
-          <h3>All Scan Overview</h3>
-          <p>Review the combined self-managed scan overview after individual scan workflows are complete.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Self_Managed_ALL_Scan_OverView.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Self_Managed_ALL_Scan_OverView.mov</code></div>
-        </article>
-        <article class="demo-card">
-          <span class="demo-step">Step 20</span>
-          <h3>Access Customer Licensing Account</h3>
-          <p>Finish with a walkthrough of the customer licensing account access experience.</p>
-          <video class="demo-video" controls preload="metadata">
-            <source src="secureone/demo/Access_Customer_SecureOne_Licensing_Account.mov" type="video/quicktime">
-          </video>
-          <div class="demo-filename"><code>Access_Customer_SecureOne_Licensing_Account.mov</code></div>
-        </article>
-      </div>
+    <div class="coming-soon-card">
+      <h3>Agent Scan Demos Coming Soon</h3>
+      <p>Videos covering agent-based scan setup, execution, and review will appear here.</p>
     </div>
   </section>
+
+  <!-- ===== CI/CD SCAN ===== -->
+  <section class="scan-mode-section" id="ci-cd-scan">
+    <div class="highlight">
+      <h2>CI/CD Scan Mode</h2>
+      <p>
+        In CI/CD scan mode, SecureOne integrates directly into your pipeline — GitHub Actions, GitLab CI, Jenkins, and more.
+        Demos for this execution mode are in progress and will be published here once available.
+      </p>
+    </div>
+    <div class="coming-soon-card">
+      <h3>CI/CD Scan Demos Coming Soon</h3>
+      <p>Videos covering pipeline-based scan setup, execution, and findings review will appear here.</p>
+    </div>
+  </section>
+
 </main>
 
 <footer>
-  SecureOne · Guided Demo Library for Setup, Integration, and Scan Review
+  SecureOne · Demo Library organized by Scan Execution Mode
 </footer>
+
+<script>
+  function showMode(mode, btn) {
+    document.querySelectorAll('.scan-mode-section').forEach(function(s) {
+      s.classList.remove('active');
+    });
+    document.querySelectorAll('.scan-mode-tab').forEach(function(t) {
+      t.classList.remove('active');
+    });
+    document.getElementById(mode).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
 </body>
 </html>
