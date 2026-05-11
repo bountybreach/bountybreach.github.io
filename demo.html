@@ -156,7 +156,7 @@
         Self-Managed <span class="scan-mode-badge">21 videos</span>
       </button>
       <button class="scan-mode-tab" onclick="showMode('agent-scan', this)">
-        Agent Scan <span class="scan-mode-badge">Coming Soon</span>
+        Agent Scan <span class="scan-mode-badge">11 videos</span>
       </button>
       <button class="scan-mode-tab" onclick="showMode('ci-cd-scan', this)">
         CI/CD Scan <span class="scan-mode-badge">Coming Soon</span>
@@ -428,12 +428,133 @@
       <h2>Agent Scan Mode</h2>
       <p>
         In agent scan mode, SecureOne deploys lightweight scan agents to your environment.
-        Demos for this execution mode are in progress and will be published here once available.
+        Follow this sequence to activate licensing, configure registration, connect GitHub App,
+        and run branch and PR scanning workflows.
       </p>
     </div>
-    <div class="coming-soon-card">
-      <h3>Agent Scan Demos Coming Soon</h3>
-      <p>Videos covering agent-based scan setup, execution, and review will appear here.</p>
+
+    <div class="demo-sections">
+      <div class="demo-section">
+        <h2>Agent Setup and Activation</h2>
+        <p class="section-subtitle">Start with license activation and complete agent registration configuration.</p>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <span class="demo-step">Step 1</span>
+            <h3>Activate Scan Agent License</h3>
+            <p>Activate the SecureOne Scan Agent license before agent onboarding.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/agent_scan/SecureOne_Scan_Agent_Activate_License.mov" type="video/mp4">
+            </video>
+            <div class="demo-filename"><code>SecureOne_Scan_Agent_Activate_License.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 2</span>
+            <h3>Register Agent Setup</h3>
+            <p>Configure the base registration setup for SecureOne scan agents.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/agent_scan/SecureOne_Scan_Agent_Register_SetUp.mov" type="video/mp4">
+            </video>
+            <div class="demo-filename"><code>SecureOne_Scan_Agent_Register_SetUp.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 3</span>
+            <h3>Configure Register Token</h3>
+            <p>Set up the register token required for agent registration workflows.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/agent_scan/SecureOne_Scan_Agent_Register_Token_SetUp.mov" type="video/mp4">
+            </video>
+            <div class="demo-filename"><code>SecureOne_Scan_Agent_Register_Token_SetUp.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 4</span>
+            <h3>Configure Tool Image</h3>
+            <p>Set up the tool image used by scan agent execution.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/agent_scan/SecureOne_Scan_Agent_Register_Tool_Image_SetUp.mov" type="video/mp4">
+            </video>
+            <div class="demo-filename"><code>SecureOne_Scan_Agent_Register_Tool_Image_SetUp.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 5</span>
+            <h3>Offline Registration Check</h3>
+            <p>Validate registration behavior in offline mode.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/agent_scan/SecureOne_Scan_Agent_Register_Offline_Check.mov" type="video/mp4">
+            </video>
+            <div class="demo-filename"><code>SecureOne_Scan_Agent_Register_Offline_Check.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 6</span>
+            <h3>Agent Health Check</h3>
+            <p>Run the scan agent validation check to confirm setup status.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/agent_scan/SecureOne_Scan_Agent_check.mov" type="video/mp4">
+            </video>
+            <div class="demo-filename"><code>SecureOne_Scan_Agent_check.mov</code></div>
+          </article>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>GitHub App and Scan Execution</h2>
+        <p class="section-subtitle">Complete token activation and run full-branch and fast PR scans.</p>
+        <div class="demo-grid">
+          <article class="demo-card">
+            <span class="demo-step">Step 7</span>
+            <h3>Activation With Tokens</h3>
+            <p>Activate scan agent workflows using token-based configuration.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/agent_scan/SecureOne_Scan_Agent_Activation_With_Tokens.mov" type="video/mp4">
+            </video>
+            <div class="demo-filename"><code>SecureOne_Scan_Agent_Activation_With_Tokens.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 8</span>
+            <h3>Activation With Tokens (Online)</h3>
+            <p>Run online activation flow with token configuration.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/agent_scan/SecureOne_Scan_Agent_Activation_With_Tokens_Online.mov" type="video/mp4">
+            </video>
+            <div class="demo-filename"><code>SecureOne_Scan_Agent_Activation_With_Tokens_Online.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 9</span>
+            <h3>Set Up GitHub App for Agent Scan</h3>
+            <p>Configure GitHub App integration for scan-agent based execution.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/agent_scan/SecureOne_Set-up-GitHubApp-Scan-Agent.mov" type="video/mp4">
+            </video>
+            <div class="demo-filename"><code>SecureOne_Set-up-GitHubApp-Scan-Agent.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 10</span>
+            <h3>GitHub App Full Branch Scan</h3>
+            <p>Execute a full branch scan through GitHub App integration.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/agent_scan/SecureOne_Scan_Agent_GitHubApp_Full_Branch_Scan.mov" type="video/mp4">
+            </video>
+            <div class="demo-filename"><code>SecureOne_Scan_Agent_GitHubApp_Full_Branch_Scan.mov</code></div>
+          </article>
+
+          <article class="demo-card">
+            <span class="demo-step">Step 11</span>
+            <h3>GitHub App FAST PR Scan</h3>
+            <p>Run a fast PR-focused scan through the GitHub App workflow.</p>
+            <video class="demo-video" controls preload="metadata">
+              <source src="secureone/demo/executions_scan_mode/agent_scan/SecureOne_Scan_Agent_GitHubApp_FAST_PR_Scan.mov" type="video/mp4">
+            </video>
+            <div class="demo-filename"><code>SecureOne_Scan_Agent_GitHubApp_FAST_PR_Scan.mov</code></div>
+          </article>
+        </div>
+      </div>
     </div>
   </section>
 
