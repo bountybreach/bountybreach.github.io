@@ -672,6 +672,31 @@ textarea {
   margin-top: 20px;
 }
 
+.diagram-overview-card {
+  padding: 22px;
+}
+
+.diagram-overview-grid {
+  margin-top: 14px;
+}
+
+.deployment-image {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  border: 1px solid #2e5ea9;
+  border-radius: 12px;
+  background: #0a1634;
+  box-shadow: var(--shadow);
+}
+
+.deployment-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
 .privacy-note {
   margin-top: 14px;
   font-size: 0.8rem;

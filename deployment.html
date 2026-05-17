@@ -41,6 +41,33 @@
     </p>
   </section>
 
+  <section id="diagram-overview">
+    <div class="highlight diagram-overview-card">
+      <h2>At-a-Glance Deployment Diagram</h2>
+      <p class="section-subtitle">Start here: this visual shows how control plane and scan execution can be separated when needed.</p>
+      <img class="deployment-image" src="deployment-diagram.svg" alt="SecureOne distributed deployment diagram showing secureone.com and secureone_agent.com architecture">
+      <div class="deployment-diagram distributed diagram-overview-grid">
+        <div class="node-group">
+          <div class="group-title">secureone.com</div>
+          <div class="node primary"><strong>SecureOne UI/API</strong><span>Control Plane</span></div>
+          <div class="node"><strong>PostgreSQL</strong><span>Findings + Metadata</span></div>
+        </div>
+        <div class="connector vertical">↔</div>
+        <div class="node-group">
+          <div class="group-title">secureone_agent.com</div>
+          <div class="node primary"><strong>Scan Agent</strong><span>Job Worker</span></div>
+          <div class="node"><strong>Jenkins</strong><span>CI/CD Triggers</span></div>
+          <div class="node"><strong>Tool Images</strong><span>Semgrep / Snyk / Gitleaks</span></div>
+        </div>
+      </div>
+      <div class="deployment-legend">
+        <span class="deployment-badge">SaaS</span>
+        <span class="deployment-badge badge-self">All-in-One</span>
+        <span class="deployment-badge badge-distributed">Distributed</span>
+      </div>
+    </div>
+  </section>
+
   <section id="models">
     <h2>Deployment Models</h2>
     <p class="section-subtitle">Compare the three most common ways teams deploy SecureOne.</p>
