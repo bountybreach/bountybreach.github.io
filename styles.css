@@ -538,6 +538,140 @@ textarea {
   word-break: break-word;
 }
 
+.deployment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+  gap: 18px;
+  margin-top: 18px;
+}
+
+.deployment-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 20px;
+  background: linear-gradient(180deg, rgba(24, 42, 86, 0.48) 0%, rgba(14, 25, 54, 0.96) 100%);
+  box-shadow: var(--shadow);
+}
+
+.featured-model {
+  border-color: var(--accent);
+  box-shadow: 0 0 28px rgba(78, 201, 255, 0.12);
+}
+
+.deployment-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(78, 201, 255, 0.12);
+  color: var(--accent);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  margin-bottom: 12px;
+}
+
+.badge-self {
+  background: rgba(132, 242, 191, 0.12);
+  color: var(--accent-2);
+}
+
+.badge-distributed {
+  background: rgba(255, 208, 122, 0.12);
+  color: #ffd07a;
+}
+
+.deployment-card h3 {
+  margin: 0 0 8px;
+}
+
+.deployment-card p {
+  color: var(--muted);
+  margin: 0 0 14px;
+}
+
+.deployment-card ul {
+  display: grid;
+  gap: 7px;
+  color: #cfddff;
+}
+
+.deployment-diagram {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 14px 0 16px;
+}
+
+.deployment-diagram.stack {
+  display: grid;
+  gap: 10px;
+}
+
+.deployment-diagram.distributed {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 12px;
+}
+
+.node-group {
+  border: 1px solid #2a4b86;
+  border-radius: 12px;
+  padding: 12px;
+  background: rgba(8, 18, 42, 0.86);
+  display: grid;
+  gap: 10px;
+}
+
+.group-title {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #bfe5ff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.node {
+  min-width: 110px;
+  border: 1px solid #28477f;
+  border-radius: 10px;
+  padding: 10px 12px;
+  background: rgba(10, 22, 48, 0.9);
+}
+
+.node strong {
+  display: block;
+  color: #f5f9ff;
+  font-size: 0.95rem;
+}
+
+.node span {
+  display: block;
+  color: #b7c8eb;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.node.primary {
+  border-color: #3e7cd6;
+  background: rgba(17, 38, 81, 0.95);
+}
+
+.connector {
+  color: var(--accent);
+  font-weight: 800;
+  font-size: 1.1rem;
+}
+
+.connector.vertical {
+  justify-self: center;
+}
+
+.deployment-note {
+  margin-top: 20px;
+}
+
 .privacy-note {
   margin-top: 14px;
   font-size: 0.8rem;
@@ -570,6 +704,14 @@ footer {
 
   .trusted {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .deployment-diagram.distributed {
+    grid-template-columns: 1fr;
+  }
+
+  .connector.vertical {
+    transform: rotate(90deg);
   }
 }
 
