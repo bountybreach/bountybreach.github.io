@@ -680,6 +680,16 @@ textarea {
   margin-top: 14px;
 }
 
+.deployment-image {
+  display: block;
+  width: 100%;
+  margin-top: 14px;
+  border: 1px solid #2e5ea9;
+  border-radius: 12px;
+  background: #0a1634;
+  box-shadow: var(--shadow);
+}
+
 .deployment-legend {
   display: flex;
   flex-wrap: wrap;
