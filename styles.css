@@ -672,6 +672,21 @@ textarea {
   margin-top: 20px;
 }
 
+.diagram-overview-card {
+  padding: 22px;
+}
+
+.diagram-overview-grid {
+  margin-top: 14px;
+}
+
+.deployment-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
 .privacy-note {
   margin-top: 14px;
   font-size: 0.8rem;
