@@ -16,6 +16,7 @@
       <a href="features.html">Features</a>
       <a href="compare.html">Compare</a>
       <a href="integrations.html">Integrations</a>
+      <a href="deployment.html">Deployment</a>
       <a href="pricing.html">Pricing</a>
       <a href="docs.html">Docs</a>
       <a href="demo.html">Demo</a>
@@ -85,80 +86,6 @@
       <div class="card">
         <h3>Flexible Deployment</h3>
         <p>Launch quickly with a local binary package and scale securely using dedicated scan agents.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="deployment-models">
-    <h2>Choose Your Deployment Model</h2>
-    <p class="section-subtitle">Pick the architecture that best matches your security, scale, and infrastructure requirements.</p>
-    <div class="deployment-grid">
-      <article class="deployment-card">
-        <div class="deployment-badge">Fastest Start</div>
-        <h3>SaaS Deployment</h3>
-        <p>Best for teams that want immediate access with minimal setup and fully managed operations.</p>
-        <div class="deployment-diagram">
-          <div class="node"><strong>Users</strong><span>Browser / Teams</span></div>
-          <div class="connector">→</div>
-          <div class="node primary"><strong>SecureOne Cloud</strong><span>SaaS Platform</span></div>
-          <div class="connector">→</div>
-          <div class="node"><strong>GitHub + CI</strong><span>Integrations</span></div>
-        </div>
-        <ul>
-          <li>No infrastructure to manage</li>
-          <li>Fast onboarding for engineering teams</li>
-          <li>Managed updates and operations</li>
-        </ul>
-      </article>
-
-      <article class="deployment-card">
-        <div class="deployment-badge badge-self">Single Host</div>
-        <h3>Self-Hosted All-in-One</h3>
-        <p>Best for smaller teams or internal environments that want one machine for the platform, database, and local operations.</p>
-        <div class="deployment-diagram stack">
-          <div class="node primary"><strong>SecureOne</strong><span>App + UI</span></div>
-          <div class="node"><strong>Database</strong><span>PostgreSQL</span></div>
-          <div class="node"><strong>Jenkins + Agent</strong><span>CI / Scan Execution</span></div>
-          <div class="node"><strong>Tool Images</strong><span>Semgrep / Snyk / Gitleaks</span></div>
-        </div>
-        <ul>
-          <li>Simple local or on-prem setup</li>
-          <li>Good for evaluation and smaller deployments</li>
-          <li>Fewer moving parts to manage</li>
-        </ul>
-      </article>
-
-      <article class="deployment-card featured-model">
-        <div class="deployment-badge badge-distributed">Recommended for Scale</div>
-        <h3>Distributed SecureOne + Agent Nodes</h3>
-        <p>Best for enterprises that want to isolate the control plane from CI execution and scale scan infrastructure independently.</p>
-        <div class="deployment-diagram distributed">
-          <div class="node-group">
-            <div class="group-title">secureone.com</div>
-            <div class="node primary"><strong>SecureOne</strong><span>App / API</span></div>
-            <div class="node"><strong>PostgreSQL</strong><span>Data Store</span></div>
-          </div>
-          <div class="connector vertical">↔</div>
-          <div class="node-group">
-            <div class="group-title">secureone_agent.com</div>
-            <div class="node primary"><strong>Scan Agent</strong><span>Job Execution</span></div>
-            <div class="node"><strong>Jenkins</strong><span>Pipeline Orchestration</span></div>
-            <div class="node"><strong>Tool Images</strong><span>Semgrep / Snyk / Gitleaks</span></div>
-          </div>
-        </div>
-        <ul>
-          <li>Separates platform and scanning workloads</li>
-          <li>Improves isolation, scaling, and operational flexibility</li>
-          <li>Ideal for dedicated CI/CD and agent infrastructure</li>
-        </ul>
-      </article>
-    </div>
-    <div class="highlight deployment-note">
-      <h3>How to Decide</h3>
-      <p>Choose SaaS for fastest onboarding, single-host for simple internal deployments, and distributed deployment when you need separate SecureOne and scan-agent infrastructure across different machines or domains.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="docs.html">View Deployment Docs</a>
-        <a class="btn btn-secondary" href="downloads.html">Download Packages</a>
       </div>
     </div>
   </section>
