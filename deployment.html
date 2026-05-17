@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>SecureOne Deployment Models | SaaS, Self-Hosted, and Distributed Architecture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header>
+  <div class="container topbar">
+    <a class="logo" href="index.html">
+      <img src="Bounty.jpg" alt="Bounty logo">
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="compare.html">Compare</a>
+      <a href="integrations.html">Integrations</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="docs.html">Docs</a>
+      <a class="active" href="deployment.html">Deployment</a>
+      <a href="demo.html">Demo</a>
+      <a href="contact.html">Contact</a>
+      <a href="downloads.html">Downloads</a>
+    </nav>
+    <div style="display:flex;gap:8px;">
+      <a class="btn btn-secondary" href="#models">Choose a Model</a>
+      <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Login →</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="page-hero">
+    <span class="tag">Deployment Architecture</span>
+    <h1>Choose the SecureOne deployment model that fits your infrastructure and security goals.</h1>
+    <p>
+      Whether you need a fully managed SaaS platform, a simple self-hosted setup, or a distributed architecture
+      across separate SecureOne and agent nodes, SecureOne gives you the flexibility to deploy based on team size,
+      operational maturity, and compliance needs.
+    </p>
+  </section>
+
+  <section id="models">
+    <h2>Deployment Models</h2>
+    <p class="section-subtitle">Compare the three most common ways teams deploy SecureOne.</p>
+    <div class="deployment-grid">
+      <article class="deployment-card">
+        <div class="deployment-badge">Fastest Start</div>
+        <h3>SaaS Deployment</h3>
+        <p>Ideal for teams that want fast time-to-value and minimal infrastructure management.</p>
+        <div class="deployment-diagram">
+          <div class="node"><strong>Users</strong><span>Developers / Security</span></div>
+          <div class="connector">→</div>
+          <div class="node primary"><strong>SecureOne Cloud</strong><span>Hosted Platform</span></div>
+          <div class="connector">→</div>
+          <div class="node"><strong>GitHub + CI</strong><span>Integrations</span></div>
+        </div>
+        <ul>
+          <li>No local infrastructure required</li>
+          <li>Managed updates and operations</li>
+          <li>Best for quick onboarding and smaller ops teams</li>
+        </ul>
+      </article>
+
+      <article class="deployment-card">
+        <div class="deployment-badge badge-self">Simple Self-Hosted</div>
+        <h3>All-in-One Deployment</h3>
+        <p>Best for evaluation environments, internal labs, and teams that want everything on a single host.</p>
+        <div class="deployment-diagram stack">
+          <div class="node primary"><strong>SecureOne</strong><span>UI / API</span></div>
+          <div class="node"><strong>PostgreSQL</strong><span>Database</span></div>
+          <div class="node"><strong>Jenkins + Agent</strong><span>CI / Orchestration</span></div>
+          <div class="node"><strong>Tool Images</strong><span>SAST / SCA / Secrets</span></div>
+        </div>
+        <ul>
+          <li>Easiest self-managed setup</li>
+          <li>Good for local or single-server installs</li>
+          <li>Lower infrastructure complexity</li>
+        </ul>
+      </article>
+
+      <article class="deployment-card featured-model">
+        <div class="deployment-badge badge-distributed">Recommended for Scale</div>
+        <h3>Distributed Deployment</h3>
+        <p>Best for enterprises that want SecureOne and scanning infrastructure on separate machines or domains.</p>
+        <div class="deployment-diagram distributed">
+          <div class="node-group">
+            <div class="group-title">secureone.com</div>
+            <div class="node primary"><strong>SecureOne</strong><span>App / API</span></div>
+            <div class="node"><strong>PostgreSQL</strong><span>Primary Data Store</span></div>
+          </div>
+          <div class="connector vertical">↔</div>
+          <div class="node-group">
+            <div class="group-title">secureone_agent.com</div>
+            <div class="node primary"><strong>Scan Agent</strong><span>Job Execution</span></div>
+            <div class="node"><strong>Jenkins</strong><span>Pipeline Control</span></div>
+            <div class="node"><strong>Tool Images</strong><span>Semgrep / Snyk / Gitleaks</span></div>
+          </div>
+        </div>
+        <ul>
+          <li>Separates control plane from scan execution plane</li>
+          <li>Better scaling and isolation for CI workloads</li>
+          <li>Supports dedicated infrastructure per environment</li>
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section>
+    <h2>How to Choose</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Choose SaaS if...</h3>
+        <ul>
+          <li>You want immediate access with no infrastructure setup</li>
+          <li>You prefer managed operations and updates</li>
+          <li>Your team wants the fastest onboarding path</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Choose All-in-One if...</h3>
+        <ul>
+          <li>You want a simple local or on-prem deployment</li>
+          <li>You are evaluating SecureOne internally</li>
+          <li>You do not yet need separate agent infrastructure</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h3>Choose Distributed if...</h3>
+        <ul>
+          <li>You run separate control-plane and CI/CD workloads</li>
+          <li>You need stronger workload isolation and scaling</li>
+          <li>You want `secureone.com` and `secureone_agent.com` on separate machines</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Operational Guidance</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Requirement</th>
+          <th>Recommended Model</th>
+          <th>Why</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Fastest rollout</td>
+          <td>SaaS</td>
+          <td>No infrastructure management and fastest onboarding</td>
+        </tr>
+        <tr>
+          <td>Single server deployment</td>
+          <td>All-in-One</td>
+          <td>Keeps application, database, agent, and CI together</td>
+        </tr>
+        <tr>
+          <td>Separate app and agent nodes</td>
+          <td>Distributed</td>
+          <td>Supports separate domains, scaling, and operational isolation</td>
+        </tr>
+        <tr>
+          <td>Enterprise CI/CD segmentation</td>
+          <td>Distributed</td>
+          <td>Lets scan workloads live independently from SecureOne app services</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="highlight deployment-note">
+      <h2>Ready to Deploy?</h2>
+      <p>
+        Start with the model that matches your current requirements, then evolve into distributed deployment as your
+        scale, compliance, or CI/CD isolation needs grow.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="docs.html">View Deployment Docs</a>
+        <a class="btn btn-secondary" href="downloads.html">Download SecureOne</a>
+        <a class="btn btn-secondary" href="contact.html">Talk to BountyBreach</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  SecureOne Deployment Guide · SaaS, Self-Hosted, and Distributed Architecture
+</footer>
+</body>
+</html>
