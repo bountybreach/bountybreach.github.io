@@ -116,6 +116,8 @@
       <a href="#ai-powered">AI-Powered Security</a>
       <a href="#deployment-compliance">Deployment &amp; Compliance</a>
       <a href="#scale">Built to Scale</a>
+      <a href="#developer-scanning">Developer-First Scanning</a>
+      <a href="#github-events">GitHub Event Triggers</a>
       <a href="#sast">Why SAST?</a>
       <a href="#sca">Why SCA?</a>
       <a href="#secrets">Why Secret Detection?</a>
@@ -260,6 +262,55 @@
         large enterprises. It is designed to scale with your needs, whether you're starting with a
         single project or managing security across a complex, distributed organization.
       </p>
+    </article>
+
+    <!-- DEVELOPER SCANNING -->
+    <article class="guide-section" id="developer-scanning">
+      <span class="why-tag sca">Docker</span>
+      <h2>Developer-First Scanning — Run Locally in Docker</h2>
+      <p>
+        Developers can install SecureOne directly in their own Docker environment and scan their code
+        <strong>before merging it into the main branch</strong>. This puts security in the hands of
+        developers at the earliest possible moment, reducing the risk of vulnerabilities ever reaching
+        a shared or production codebase.
+      </p>
+      <h3>How it works</h3>
+      <ul>
+        <li>Pull the SecureOne Docker image and run it locally — no cloud dependency required.</li>
+        <li>Point it at any local repository or working branch to scan code on demand.</li>
+        <li>Review findings immediately in the SecureOne panel before opening a pull request.</li>
+        <li>Fix issues in your own environment without affecting other team members.</li>
+      </ul>
+      <div class="guide-note">
+        Local Docker scanning empowers developers to own security from the start — catching vulnerabilities
+        during development rather than after merge, keeping the main branch clean and the release cycle fast.
+      </div>
+    </article>
+
+    <!-- GITHUB EVENT TRIGGERS -->
+    <article class="guide-section" id="github-events">
+      <span class="why-tag sast">GitHub</span>
+      <h2>GitHub Event-Triggered Scanning</h2>
+      <p>
+        SecureOne integrates natively with GitHub to trigger automated security scans based on real
+        developer activity — no manual intervention required.
+      </p>
+      <h3>Supported trigger events</h3>
+      <ul>
+        <li><strong>Repository creation</strong> — a scan is automatically initiated when a new repository is created, establishing a security baseline from day one.</li>
+        <li><strong>Code commit</strong> — every push triggers a scan so vulnerabilities are caught immediately as code is written.</li>
+        <li><strong>Pull request opened</strong> — scans run automatically when a PR is opened, ensuring all incoming code is reviewed for security issues before merge.</li>
+      </ul>
+      <h3>Automatic results</h3>
+      <p>
+        Scan results are automatically generated and uploaded to the SecureOne panel as each event fires.
+        Teams get a real-time, always-current view of their security posture across every repository
+        and branch — without having to trigger scans manually.
+      </p>
+      <div class="guide-note">
+        GitHub event-triggered scanning means security runs in the background of your normal workflow.
+        Developers commit code, open PRs, and create repos — SecureOne handles the scanning automatically.
+      </div>
     </article>
 
     <!-- SAST -->
