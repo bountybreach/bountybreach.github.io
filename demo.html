@@ -4,6 +4,7 @@
   <title>SecureOne Demo Library | Guided Product Setup Videos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="cta-guide.css">
   <style>
     .scan-mode-tabs {
       display: flex;
@@ -64,6 +65,8 @@
       margin-bottom: 8px;
     }
   </style>
+  <script defer src="cta-guide.js"></script>
+  <script defer src="quick-cta.js"></script>
 </head>
 <body>
 <header>
@@ -92,6 +95,40 @@
 
 <main class="container">
   <section class="page-hero">
+    <aside class="quick-cta quick-cta-inline" id="quick-cta" aria-label="Auto Security Tour">
+      <div class="quick-cta-copy">
+        <span class="tag">Auto Security Tour</span>
+        <h3 id="quickCtaTitle">SAST: static code vulnerability checks.</h3>
+        <p id="quickCtaDesc">SecureOne scans source code patterns with Semgrep-style analysis before merge.</p>
+        <ul class="quick-cta-defs" aria-label="Security scan type definitions">
+          <li><strong>SAST:</strong> static code flaw detection before runtime.</li>
+          <li><strong>SCA:</strong> dependency/package vulnerability analysis.</li>
+          <li><strong>Secrets:</strong> leaked keys and credential detection.</li>
+          <li><strong>DAST:</strong> runtime behavior and endpoint risk testing.</li>
+        </ul>
+        <div class="quick-cta-pills" id="quickCtaPills" aria-label="Quick tour steps">
+          <button class="quick-pill active" type="button" data-step="0">SAST</button>
+          <button class="quick-pill" type="button" data-step="1">SCA</button>
+          <button class="quick-pill" type="button" data-step="2">Secrets</button>
+          <button class="quick-pill" type="button" data-step="3">DAST</button>
+          <button class="quick-pill" type="button" data-step="4">Agent Setup</button>
+          <button class="quick-pill" type="button" data-step="5">CI/CD Setup</button>
+          <button class="quick-pill" type="button" data-step="6">Scan Results</button>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#scan-modes">Jump to Scan Modes</a>
+          <a class="btn btn-secondary" href="docs.html#startup">Read 5-Min Setup</a>
+        </div>
+      </div>
+      <div class="quick-cta-media" aria-label="Short SecureOne demo preview">
+        <div class="quick-video-shell">
+          <video id="quickCtaVideo" class="quick-cta-video" autoplay muted loop playsinline preload="metadata" aria-label="SecureOne quick demo">
+            <source src="secureone/demo/executions_scan_mode/self_managed/Self_manage_Semgrep_SAST_Semgrep_WebGoat.mov" type="video/mp4">
+          </video>
+        </div>
+        <p class="quick-cta-note">Autoplay story: scan types → scan agent setup → Jenkins CI/CD integration → scan status results.</p>
+      </div>
+    </aside>
     <span class="tag">Product Demo</span>
     <h1>SecureOne Demo Library by Scan Execution Mode</h1>
     <p>
@@ -686,6 +723,32 @@
     document.getElementById(mode).classList.add('active');
     btn.classList.add('active');
   }
+</script>
+<script>
+// Context-aware quick-cta step selection for demo.html
+// This script sets the CTA step based on URL hash or query (?step=)
+document.addEventListener('DOMContentLoaded', function () {
+  var hash = window.location.hash.toLowerCase();
+  var search = window.location.search.toLowerCase();
+  var step = 0;
+  if (hash.includes('agent') || search.includes('agent')) step = 4;
+  else if (hash.includes('ci') || search.includes('ci')) step = 5;
+  else if (hash.includes('self')) step = 0;
+  var match = search.match(/[?&]step=(\d+)/);
+  if (match) step = parseInt(match[1], 10);
+  function setQuickCtaStep() {
+    if (typeof window.setStep === 'function') {
+      window.setStep(step);
+      if (typeof window.stopRotation === 'function') window.stopRotation();
+    } else if (window.quickCtaSetStep) {
+      window.quickCtaSetStep(step);
+      if (window.quickCtaStopRotation) window.quickCtaStopRotation();
+    } else {
+      setTimeout(setQuickCtaStep, 60);
+    }
+  }
+  setQuickCtaStep();
+});
 </script>
 
 </body>
