@@ -1,20 +1,43 @@
 (function () {
   var quickSteps = [
     {
-      title: 'Connect GitHub in minutes.',
-      description: 'Link repositories, branches, and pull requests so every change is ready for security scanning.'
+      title: 'SAST: static code vulnerability checks.',
+      description: 'Analyze source code patterns before merge to catch unsafe logic and insecure coding patterns early.',
+      video: 'secureone/demo/executions_scan_mode/self_managed/Self_manage_Semgrep_SAST_Semgrep_WebGoat.mov'
     },
     {
-      title: 'Run SAST, SCA, Secrets, and DAST.',
-      description: 'SecureOne executes core AppSec checks from a single control plane and unifies findings instantly.'
+      title: 'SCA: dependency and package risk.',
+      description: 'Detect known CVEs and licensing issues in third-party libraries used by your application.',
+      video: 'secureone/demo/executions_scan_mode/self_managed/Self_manage_Snyk_SCA_WebGoat.mov'
     },
     {
-      title: 'Gate Jenkins builds with policy.',
-      description: 'Use CI/CD thresholds to fail high-risk builds and ship with clear, actionable risk visibility.'
+      title: 'Secrets: keys and credentials exposure.',
+      description: 'Find leaked API tokens, passwords, and sensitive keys before code reaches production.',
+      video: 'secureone/demo/executions_scan_mode/self_managed/Self_manage_scan_GitLeaks_Secret_WebGoat.mov'
+    },
+    {
+      title: 'DAST: runtime attack-surface validation.',
+      description: 'Assess running application behavior and endpoint risks to expose exploitable runtime weaknesses.',
+      video: 'secureone/demo/executions_scan_mode/self_managed/Self_Managed_ALL_Scan_OverView.mov'
+    },
+    {
+      title: 'Scan Agent setup with tokens.',
+      description: 'Configure agent registration, tool images, and licensing to prepare automated scan execution.',
+      video: 'secureone/demo/executions_scan_mode/ci_cd_scan/SecureOne_Jenkins_Scan_Agent_SetUp.mov'
+    },
+    {
+      title: 'CI/CD setup in Jenkins.',
+      description: 'Wire SecureOne into Jenkins jobs so every pipeline run triggers policy-driven security checks.',
+      video: 'secureone/demo/executions_scan_mode/ci_cd_scan/SecureOne_Scan_Agent_Jenkins_Job_SetUp_Part_One.mov'
+    },
+    {
+      title: 'Scan results and pipeline status.',
+      description: 'View execution outcomes, policy impact, and final scan status to decide release confidence.',
+      video: 'secureone/demo/executions_scan_mode/ci_cd_scan/SecureOne_Scan_Agent_Jenkins_Scan_Status.mov'
     }
   ];
 
-  var rotateMs = 2500;
+  var rotateMs = 4500;
   var currentIndex = 0;
   var intervalId = null;
 
@@ -22,15 +45,22 @@
     var titleNode = document.getElementById('quickCtaTitle');
     var descNode = document.getElementById('quickCtaDesc');
     var pillNodes = document.querySelectorAll('#quickCtaPills .quick-pill');
+    var video = document.getElementById('quickCtaVideo');
 
-    if (!titleNode || !descNode || pillNodes.length === 0) {
+    if (!titleNode || !descNode || pillNodes.length === 0 || !(video instanceof HTMLVideoElement)) {
       return;
     }
 
-    currentIndex = index % quickSteps.length;
+    currentIndex = ((index % quickSteps.length) + quickSteps.length) % quickSteps.length;
     var step = quickSteps[currentIndex];
     titleNode.textContent = step.title;
     descNode.textContent = step.description;
+
+    if (video.getAttribute('src') !== step.video) {
+      video.setAttribute('src', step.video);
+      video.load();
+    }
+    tryAutoplayVideo();
 
     pillNodes.forEach(function (pill, pillIndex) {
       pill.classList.toggle('active', pillIndex === currentIndex);
@@ -94,9 +124,12 @@
   }
 
   function init() {
-    if (!document.getElementById('quick-cta')) {
+    var cta = document.getElementById('quick-cta');
+    if (!cta) {
       return;
     }
+
+    document.body.classList.add('has-quick-cta');
 
     setStep(0);
     setupPills();
