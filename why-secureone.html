@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why SecureOne? | BountyBreach</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="guides.css">
+  <style>
+    .why-tag {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .why-tag.sast   { background: rgba(78,201,255,0.12); color: #4ec9ff; border: 1px solid #4ec9ff44; }
+    .why-tag.sca    { background: rgba(132,242,191,0.12); color: #84f2bf; border: 1px solid #84f2bf44; }
+    .why-tag.secret { background: rgba(255,180,60,0.12); color: #ffb43c; border: 1px solid #ffb43c44; }
+    .why-tag.dast   { background: rgba(200,120,255,0.12); color: #c878ff; border: 1px solid #c878ff44; }
+    .why-tag.pentest{ background: rgba(255,100,100,0.12); color: #ff7070; border: 1px solid #ff707044; }
+    .why-tag.ai     { background: rgba(255,210,80,0.12); color: #ffd250; border: 1px solid #ffd25044; }
+    .why-tag.scale  { background: rgba(100,200,255,0.10); color: #8ecfff; border: 1px solid #8ecfff44; }
+    .guide-nav a.active-link {
+      background: rgba(78, 201, 255, 0.12);
+      color: var(--accent);
+    }
+    .why-bullet-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+      margin: 10px 0 4px 0;
+    }
+    .why-bullet-grid li {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    .guide-section p {
+      color: var(--muted);
+      font-size: 0.97rem;
+      line-height: 1.7;
+      margin: 8px 0;
+    }
+    .guide-section h3 {
+      color: var(--accent);
+      font-size: 1.05rem;
+      margin: 16px 0 6px;
+    }
+    .coming-soon-badge {
+      display: inline-block;
+      background: rgba(255,210,80,0.14);
+      color: #ffd250;
+      border: 1px solid #ffd25044;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      margin-left: 10px;
+      vertical-align: middle;
+      letter-spacing: 0.05em;
+    }
+    .ai-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+      margin: 10px 0 4px 0;
+    }
+    .ai-grid li {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 700px) {
+      .why-bullet-grid, .ai-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+<header>
+  <div class="container topbar">
+    <a class="logo" href="index.html">
+      <img src="Bounty.jpg" alt="Bounty logo">
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="why-secureone.html" class="active">Why SecureOne</a>
+      <a href="features.html">Features</a>
+      <a href="compare.html">Compare</a>
+      <a href="integrations.html">Integrations</a>
+      <a href="deployment.html">Deployment</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="docs.html">Docs</a>
+      <a href="demo.html">Demo</a>
+      <a href="contact.html">Contact</a>
+      <a href="downloads.html">Downloads</a>
+    </nav>
+    <div style="display:flex;gap:8px;">
+      <a class="btn btn-secondary" href="docs.html#startup">Run Locally</a>
+      <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Login →</a>
+    </div>
+  </div>
+</header>
+
+<main class="container guide-layout">
+
+  <!-- LEFT NAV -->
+  <aside class="guide-nav-wrap">
+    <h2>Why SecureOne?</h2>
+    <nav class="guide-nav" id="whyNav">
+      <a href="#overview">Overview</a>
+      <a href="#open-flexible">Open &amp; Flexible Platform</a>
+      <a href="#unified-coverage">Unified AppSec Coverage</a>
+      <a href="#securegrep">Powered by SecureGrep</a>
+      <a href="#ai-powered">AI-Powered Security</a>
+      <a href="#deployment-compliance">Deployment &amp; Compliance</a>
+      <a href="#scale">Built to Scale</a>
+      <a href="#sast">Why SAST?</a>
+      <a href="#sca">Why SCA?</a>
+      <a href="#secrets">Why Secret Detection?</a>
+      <a href="#dast">Why DAST?</a>
+      <a href="#pentest">Why Pen Testing?</a>
+      <a href="#security-at-scale">Security for All</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN CONTENT -->
+  <section class="guide-content">
+
+    <!-- HERO -->
+    <div class="guide-hero" id="overview">
+      <span class="tag">Platform Overview</span>
+      <h1>Why SecureOne?</h1>
+      <p>
+        SecureOne is an open, flexible, and AI-ready Application Security platform designed for modern
+        engineering and security teams. Unlike closed security platforms, SecureOne allows organizations
+        to onboard and manage both open-source and commercial security tools from a single unified platform.
+      </p>
+      <div class="guide-note">
+        From SAST and SCA to secrets, DAST, and pen testing — SecureOne centralizes your entire AppSec
+        program so your team can move fast without compromising on security.
+      </div>
+    </div>
+
+    <!-- OPEN & FLEXIBLE -->
+    <article class="guide-section" id="open-flexible">
+      <span class="why-tag scale">Platform</span>
+      <h2>Open &amp; Flexible Security Platform</h2>
+      <p>SecureOne supports a broad ecosystem of tools — not just a closed, proprietary stack:</p>
+      <ul>
+        <li>Open-source security tools</li>
+        <li>Commercial security tools</li>
+        <li>Custom security integrations</li>
+      </ul>
+      <h3>This gives teams the freedom to:</h3>
+      <ul class="why-bullet-grid">
+        <li>Reuse existing investments</li>
+        <li>Avoid vendor lock-in</li>
+        <li>Standardize security workflows</li>
+        <li>Centralize visibility and remediation</li>
+      </ul>
+    </article>
+
+    <!-- UNIFIED COVERAGE -->
+    <article class="guide-section" id="unified-coverage">
+      <span class="why-tag sast">Coverage</span>
+      <h2>Unified Application Security Coverage</h2>
+      <p>SecureOne provides centralized scanning and management for the full AppSec spectrum:</p>
+      <ul class="why-bullet-grid">
+        <li><strong>SAST</strong> — Code Security</li>
+        <li><strong>SCA</strong> — Open Source Security</li>
+        <li><strong>Secret Protection</strong> — Credential Leakage</li>
+        <li><strong>DAST</strong> — Runtime Security</li>
+      </ul>
+      <p>
+        All findings can be automatically tracked through integrated JIRA workflows for faster remediation
+        and better collaboration between developers and security teams.
+      </p>
+    </article>
+
+    <!-- SECUREGREP -->
+    <article class="guide-section" id="securegrep">
+      <span class="why-tag sca">Engine</span>
+      <h2>Powered by SecureGrep</h2>
+      <p>
+        SecureOne includes <strong>SecureGrep</strong>, a modern code scanning engine developed on top of
+        OpenGrep — enhancing speed, flexibility, and enterprise-grade rule management.
+      </p>
+      <h3>What SecureGrep brings:</h3>
+      <ul class="why-bullet-grid">
+        <li>Faster rule execution</li>
+        <li>Flexible detection capabilities</li>
+        <li>Custom rule support</li>
+        <li>Developer-friendly scanning</li>
+        <li>Scalable enterprise workflows</li>
+        <li>Open ecosystem compatibility</li>
+      </ul>
+      <h3>Benefits:</h3>
+      <ul class="why-bullet-grid">
+        <li>Lightweight and extensible</li>
+        <li>Easy onboarding</li>
+        <li>Improved detection accuracy</li>
+        <li>Open ecosystem compatibility</li>
+      </ul>
+    </article>
+
+    <!-- AI-POWERED -->
+    <article class="guide-section" id="ai-powered">
+      <span class="why-tag ai">AI</span>
+      <h2>AI-Powered Security <span class="coming-soon-badge">Coming Soon</span></h2>
+      <p>
+        SecureOne is evolving into an intelligent AppSec platform with upcoming AI-driven capabilities
+        designed to reduce manual effort and accelerate secure software delivery:
+      </p>
+      <ul class="ai-grid">
+        <li>Auto Fix</li>
+        <li>Auto Audit</li>
+        <li>AI Risk Prioritization</li>
+        <li>Smart Root Cause Analysis</li>
+        <li>AI Security Assistant</li>
+        <li>Policy Recommendations</li>
+      </ul>
+      <p>
+        10+ AI-powered AppSec use cases are planned to help organizations reduce manual effort and
+        accelerate secure software delivery.
+      </p>
+    </article>
+
+    <!-- DEPLOYMENT & COMPLIANCE -->
+    <article class="guide-section" id="deployment-compliance">
+      <span class="why-tag scale">Deployment</span>
+      <h2>Deployment &amp; Compliance</h2>
+      <p>
+        SecureOne supports both <strong>local (on-premise)</strong> and <strong>SaaS-based</strong>
+        scanning, giving organizations full flexibility in how they run application security.
+      </p>
+      <p>
+        It is designed to meet major compliance and security standards, including
+        <strong>SOC 1</strong>, <strong>SOC 2</strong>, <strong>HIPAA</strong>, and
+        <strong>ISO 27001</strong> (as applicable to organizational requirements).
+      </p>
+      <p>
+        Unlike cloud-only security platforms, SecureOne is deployed within the customer's own infrastructure.
+        Organizations retain <strong>full control over their code, data, and security findings</strong> —
+        nothing needs to be shared externally.
+      </p>
+      <div class="guide-note">
+        SecureOne ensures that sensitive application data never leaves the customer environment, enabling
+        a strong security posture while maintaining compliance and data sovereignty requirements.
+      </div>
+    </article>
+
+    <!-- SCALE -->
+    <article class="guide-section" id="scale">
+      <span class="why-tag scale">Scale</span>
+      <h2>Built to Scale With You</h2>
+      <p>
+        SecureOne supports organizations of all sizes — from individual developers and small teams to
+        large enterprises. It is designed to scale with your needs, whether you're starting with a
+        single project or managing security across a complex, distributed organization.
+      </p>
+    </article>
+
+    <!-- SAST -->
+    <article class="guide-section" id="sast">
+      <span class="why-tag sast">SAST</span>
+      <h2>Why SAST?</h2>
+      <p>
+        SAST (Static Application Security Testing) helps you find security vulnerabilities <strong>early</strong> —
+        before your application is run or deployed. Instead of waiting for issues to appear in production,
+        SAST analyzes your source code, dependencies, and logic during development, when problems are
+        cheapest and easiest to fix.
+      </p>
+      <h3>Key Benefits</h3>
+      <ul>
+        <li>Catches insecure coding patterns, injection risks (SQL injection), hardcoded secrets, and unsafe functions before production.</li>
+        <li>Lets developers fix problems immediately during their normal workflow (e.g., during a pull request).</li>
+        <li>Reduces cost and risk — fixing a vulnerability in code is fast and low impact vs. fixing it in production.</li>
+        <li>Supports compliance requirements in standards like <strong>SOC 2</strong>, <strong>ISO 27001</strong>, and others.</li>
+      </ul>
+      <div class="guide-note">
+        In short, SAST shifts security left — catching vulnerabilities early, reducing remediation cost, and making secure development part of everyday engineering work.
+      </div>
+    </article>
+
+    <!-- SCA -->
+    <article class="guide-section" id="sca">
+      <span class="why-tag sca">SCA</span>
+      <h2>Why SCA?</h2>
+      <p>
+        SCA (Software Composition Analysis) is critical because most modern applications are built heavily
+        on open-source libraries — and those dependencies often introduce security risk without developers
+        realizing it. Instead of only checking your own code, SCA looks at everything your application
+        depends on and identifies known vulnerabilities in those third-party components.
+      </p>
+      <h3>Key Benefits</h3>
+      <ul>
+        <li>Detects known CVEs in open-source libraries — a single vulnerable dependency can expose the entire application.</li>
+        <li>Identifies license risks — important for legal and compliance reasons.</li>
+        <li>Provides full visibility into your software supply chain, including nested (transitive) dependencies.</li>
+        <li>Helps teams prioritize fixes based on reachability and exploitability.</li>
+      </ul>
+      <div class="guide-note">
+        In short, SCA secures your software supply chain, reduces hidden risk from third-party code, and ensures you are not unknowingly shipping vulnerable dependencies.
+      </div>
+    </article>
+
+    <!-- SECRETS -->
+    <article class="guide-section" id="secrets">
+      <span class="why-tag secret">Secrets</span>
+      <h2>Why Secret Detection?</h2>
+      <p>
+        Secret detection prevents sensitive information — passwords, API keys, tokens, encryption keys,
+        and private credentials — from being accidentally exposed. Many real-world data breaches start
+        with something as simple as a hardcoded API key pushed to GitHub.
+      </p>
+      <h3>Key Benefits</h3>
+      <ul>
+        <li>Automatically scans code, commits, and CI/CD pipelines to catch credential exposures early.</li>
+        <li>Supports compliance requirements under <strong>GDPR</strong>, <strong>HIPAA</strong>, <strong>SOC 2</strong>, and more.</li>
+        <li>Reduces blast radius — quick detection means fast credential rotation before attackers can exploit.</li>
+        <li>Acts as a safety net for human error in fast-moving development environments.</li>
+      </ul>
+      <div class="guide-note">
+        In short, secret detection acts like a safety net — catching sensitive data before it becomes a security incident.
+      </div>
+    </article>
+
+    <!-- DAST -->
+    <article class="guide-section" id="dast">
+      <span class="why-tag dast">DAST</span>
+      <h2>Why DAST?</h2>
+      <p>
+        DAST (Dynamic Application Security Testing) finds security vulnerabilities in a running
+        application — testing the system the same way an attacker would, without needing access to
+        source code. It scans the live application (web or API) to detect real exploitable weaknesses.
+      </p>
+      <h3>Key Benefits</h3>
+      <ul>
+        <li>Detects runtime vulnerabilities: SQL injection, XSS, authentication flaws, and insecure configurations.</li>
+        <li>Reflects real-world attack conditions — tools like OWASP ZAP and Burp Suite simulate attacker behavior.</li>
+        <li>Complements SAST — validating security after deployment to close blind spots in the pipeline.</li>
+        <li>Works in CI/CD pipelines, catching vulnerabilities before production release.</li>
+      </ul>
+      <div class="guide-note">
+        In short, DAST tests what actually runs in production and helps uncover real, exploitable security weaknesses that other methods might miss.
+      </div>
+    </article>
+
+    <!-- PENTEST -->
+    <article class="guide-section" id="pentest">
+      <span class="why-tag pentest">Pen Testing</span>
+      <h2>Why Penetration Testing?</h2>
+      <p>
+        Penetration testing proactively simulates real cyberattacks to find security weaknesses before
+        malicious attackers do. It is a controlled, ethical hacking exercise where security professionals
+        try to break into systems using the same techniques as real attackers.
+      </p>
+      <h3>Key Benefits</h3>
+      <ul>
+        <li>Reveals real-world exploit paths — shows how multiple small weaknesses can chain together to compromise a system.</li>
+        <li>Validates security controls — checks whether firewalls, authentication, and encryption hold up under attack.</li>
+        <li>Uncovers overlooked issues: misconfigurations, logic flaws, privilege escalation paths, and insecure APIs.</li>
+        <li>Supports risk prioritization — shows which issues are truly exploitable and high-impact.</li>
+        <li>Required for compliance standards like <strong>PCI DSS</strong>, <strong>SOC 2</strong>, and <strong>ISO 27001</strong>.</li>
+      </ul>
+      <div class="guide-note">
+        In short, pentesting answers a critical question: "Can a real attacker actually break in, and if so, how?"
+      </div>
+    </article>
+
+    <!-- SECURITY FOR ALL -->
+    <article class="guide-section" id="security-at-scale">
+      <span class="why-tag scale">Security for All</span>
+      <h2>Security Matters at Every Scale</h2>
+      <p>
+        Security matters for both individuals and large organizations. The core reason is the same:
+        protecting information, systems, and trust from misuse, theft, or disruption. In cybersecurity,
+        security is about <strong>reducing risk</strong> — whether that risk affects one person or millions of users.
+      </p>
+      <h3>For Individuals</h3>
+      <p>
+        Personal data is highly valuable. Passwords, banking details, identity documents, and private
+        messages can be used for fraud, identity theft, or financial loss if exposed. Even a single
+        compromised account can lead to long-term problems. Good security habits — like strong passwords
+        and multi-factor authentication — help prevent that.
+      </p>
+      <h3>For Organizations</h3>
+      <p>
+        The stakes are much higher. A single breach can affect thousands or millions of customers,
+        disrupt services, and cause major financial and reputational damage. Companies store sensitive
+        data — customer records, intellectual property, payment information — making them attractive
+        targets. They also run many systems, cloud services, third-party vendors, and APIs, all of
+        which expand the attack surface.
+      </p>
+      <div class="guide-note">
+        Security is important at every level, but the scale changes the consequences: individuals risk personal loss, while organizations risk large-scale disruption and trust breakdown.
+      </div>
+    </article>
+
+  </section><!-- /guide-content -->
+
+</main>
+
+<footer>
+  <div class="container">
+    <p>&copy; 2026 BountyBreach. SecureOne is built for engineering and security teams who move fast.</p>
+  </div>
+</footer>
+
+<script>
+// Highlight active left-nav link on scroll
+(function () {
+  var links = document.querySelectorAll('#whyNav a');
+  var sections = Array.from(links).map(function (a) {
+    return document.querySelector(a.getAttribute('href'));
+  });
+
+  function onScroll() {
+    var scrollY = window.scrollY + 120;
+    var active = 0;
+    sections.forEach(function (sec, i) {
+      if (sec && sec.offsetTop <= scrollY) active = i;
+    });
+    links.forEach(function (a, i) {
+      a.classList.toggle('active-link', i === active);
+    });
+  }
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
