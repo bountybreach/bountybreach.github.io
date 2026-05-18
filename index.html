@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="cta-guide.css">
   <script defer src="cta-guide.js"></script>
+  <script defer src="quick-cta.js"></script>
 </head>
 <body>
 <header>
@@ -59,6 +60,31 @@
         <div class="metric"><strong>1</strong><span>Central dashboard</span></div>
         <div class="metric"><strong>∞</strong><span>Scalable scan agents</span></div>
       </div>
+    </aside>
+  </section>
+
+  <section class="quick-cta" id="quick-cta" aria-label="Quick BountyBreach walkthrough">
+    <div class="quick-cta-copy">
+      <span class="tag">Quick Product Tour</span>
+      <h2 id="quickCtaTitle">Scan code and pipelines in minutes.</h2>
+      <p id="quickCtaDesc">Connect your repo, run SAST/SCA/Secrets/DAST, and get policy-ready findings from one dashboard.</p>
+      <div class="quick-cta-pills" id="quickCtaPills" aria-label="Quick tour steps">
+        <button class="quick-pill active" type="button" data-step="0">Connect</button>
+        <button class="quick-pill" type="button" data-step="1">Scan</button>
+        <button class="quick-pill" type="button" data-step="2">Gate CI/CD</button>
+      </div>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="demo.html">Watch Full Demo</a>
+        <a class="btn btn-secondary" href="docs.html#startup">Read 5-Min Setup</a>
+      </div>
+    </div>
+    <aside class="quick-cta-media" aria-label="Short SecureOne demo preview">
+      <div class="quick-video-shell">
+        <video id="quickCtaVideo" class="quick-cta-video" autoplay muted loop playsinline preload="metadata" aria-label="SecureOne quick demo">
+          <source src="secureone/demo/executions_scan_mode/ci_cd_scan/SecureOne_Scan_Agent_Jenkins_Job_Scanning_Check.mov" type="video/quicktime">
+        </video>
+      </div>
+      <p class="quick-cta-note">Auto-preview from our Jenkins workflow demos. For complete walkthroughs, open the Demo Library.</p>
     </aside>
   </section>
 
