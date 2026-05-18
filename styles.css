@@ -122,10 +122,6 @@ main section {
   padding: 28px 0;
 }
 
-body.has-quick-cta main {
-  padding-bottom: 360px;
-}
-
 .hero {
   padding: 74px 0 54px;
   display: grid;
@@ -200,11 +196,8 @@ p {
 }
 
 .quick-cta {
-  position: fixed;
-  left: 50%;
-  bottom: 14px;
-  transform: translateX(-50%);
-  width: min(1100px, 94%);
+  position: relative;
+  width: 100%;
   margin-top: 0;
   border: 1px solid #2d4f8f;
   border-radius: 16px;
@@ -218,8 +211,12 @@ p {
   gap: 14px;
   align-items: center;
   box-shadow: var(--shadow);
-  z-index: 20;
-  backdrop-filter: blur(6px);
+  z-index: 1;
+  backdrop-filter: blur(4px);
+}
+
+.quick-cta-inline {
+  align-self: start;
 }
 
 .quick-cta-copy h2 {
@@ -838,15 +835,6 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  body.has-quick-cta main {
-    padding-bottom: 520px;
-  }
-
-  .quick-cta {
-    width: min(700px, 95%);
-    bottom: 10px;
-  }
-
   .quick-cta-defs {
     grid-template-columns: 1fr;
   }
@@ -894,15 +882,9 @@ footer {
 
   .quick-cta {
     padding: 12px;
-    width: 96%;
-    bottom: 8px;
   }
 
   .quick-cta-copy p {
     min-height: 0;
-  }
-
-  body.has-quick-cta main {
-    padding-bottom: 610px;
   }
 }

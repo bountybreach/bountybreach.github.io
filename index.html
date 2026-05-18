@@ -47,54 +47,39 @@
         <a class="btn btn-secondary" href="docs.html#startup">Self-Host</a>
       </div>
     </div>
-    <aside class="hero-panel" aria-label="Security Operations Snapshot">
-      <h3>Platform Snapshot</h3>
-      <ul class="mini-list">
-        <li>Repository, branch, pull request, and commit-level scanning</li>
-        <li>Scan Agent onboarding with token-based registration</li>
-        <li>Jenkins integration with policy controls for build outcomes</li>
-        <li>Unified findings across SAST, SCA, Secrets, DAST, and pen testing requests</li>
-      </ul>
-      <div class="metric-grid">
-        <div class="metric"><strong>5</strong><span>Security scan types</span></div>
-        <div class="metric"><strong>1</strong><span>Central dashboard</span></div>
-        <div class="metric"><strong>∞</strong><span>Scalable scan agents</span></div>
+    <aside class="quick-cta quick-cta-inline" id="quick-cta" aria-label="Auto Security Tour">
+      <div class="quick-cta-copy">
+        <span class="tag">Auto Security Tour</span>
+        <h3 id="quickCtaTitle">SAST: static code vulnerability checks.</h3>
+        <p id="quickCtaDesc">SecureOne scans source code patterns with Semgrep-style analysis before merge.</p>
+        <ul class="quick-cta-defs" aria-label="Security scan type definitions">
+          <li><strong>SAST:</strong> static code flaw detection before runtime.</li>
+          <li><strong>SCA:</strong> dependency/package vulnerability analysis.</li>
+          <li><strong>Secrets:</strong> leaked keys and credential detection.</li>
+          <li><strong>DAST:</strong> runtime behavior and endpoint risk testing.</li>
+        </ul>
+        <div class="quick-cta-pills" id="quickCtaPills" aria-label="Quick tour steps">
+          <button class="quick-pill active" type="button" data-step="0">SAST</button>
+          <button class="quick-pill" type="button" data-step="1">SCA</button>
+          <button class="quick-pill" type="button" data-step="2">Secrets</button>
+          <button class="quick-pill" type="button" data-step="3">DAST</button>
+          <button class="quick-pill" type="button" data-step="4">Agent Setup</button>
+          <button class="quick-pill" type="button" data-step="5">CI/CD Setup</button>
+          <button class="quick-pill" type="button" data-step="6">Scan Results</button>
+        </div>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="demo.html">Watch Full Demo</a>
+          <a class="btn btn-secondary" href="docs.html#startup">Read 5-Min Setup</a>
+        </div>
       </div>
-    </aside>
-  </section>
-
-  <section class="quick-cta" id="quick-cta" aria-label="Quick BountyBreach walkthrough">
-    <div class="quick-cta-copy">
-      <span class="tag">Auto Security Tour</span>
-      <h2 id="quickCtaTitle">SAST: static code vulnerability checks.</h2>
-      <p id="quickCtaDesc">SecureOne scans source code patterns with Semgrep-style analysis before merge.</p>
-      <ul class="quick-cta-defs" aria-label="Security scan type definitions">
-        <li><strong>SAST:</strong> static code flaw detection before runtime.</li>
-        <li><strong>SCA:</strong> dependency/package vulnerability analysis.</li>
-        <li><strong>Secrets:</strong> leaked keys and credential detection.</li>
-        <li><strong>DAST:</strong> runtime behavior and endpoint risk testing.</li>
-      </ul>
-      <div class="quick-cta-pills" id="quickCtaPills" aria-label="Quick tour steps">
-        <button class="quick-pill active" type="button" data-step="0">SAST</button>
-        <button class="quick-pill" type="button" data-step="1">SCA</button>
-        <button class="quick-pill" type="button" data-step="2">Secrets</button>
-        <button class="quick-pill" type="button" data-step="3">DAST</button>
-        <button class="quick-pill" type="button" data-step="4">Agent Setup</button>
-        <button class="quick-pill" type="button" data-step="5">CI/CD Setup</button>
-        <button class="quick-pill" type="button" data-step="6">Scan Results</button>
+      <div class="quick-cta-media" aria-label="Short SecureOne demo preview">
+        <div class="quick-video-shell">
+          <video id="quickCtaVideo" class="quick-cta-video" autoplay muted loop playsinline preload="metadata" aria-label="SecureOne quick demo">
+            <source src="secureone/demo/executions_scan_mode/self_managed/Self_manage_Semgrep_SAST_Semgrep_WebGoat.mov" type="video/mp4">
+          </video>
+        </div>
+        <p class="quick-cta-note">Autoplay story: scan types → scan agent setup → Jenkins CI/CD integration → scan status results.</p>
       </div>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="demo.html">Watch Full Demo</a>
-        <a class="btn btn-secondary" href="docs.html#startup">Read 5-Min Setup</a>
-      </div>
-    </div>
-    <aside class="quick-cta-media" aria-label="Short SecureOne demo preview">
-      <div class="quick-video-shell">
-        <video id="quickCtaVideo" class="quick-cta-video" autoplay muted loop playsinline preload="metadata" aria-label="SecureOne quick demo">
-          <source src="secureone/demo/executions_scan_mode/self_managed/Self_manage_Semgrep_SAST_Semgrep_WebGoat.mov" type="video/quicktime">
-        </video>
-      </div>
-      <p class="quick-cta-note">Autoplay story: scan types → scan agent setup → Jenkins CI/CD integration → scan status results.</p>
     </aside>
   </section>
 
