@@ -41,13 +41,31 @@
   var currentIndex = 0;
   var intervalId = null;
 
+  function getVideoElements() {
+    var video = document.getElementById('quickCtaVideo');
+    if (!(video instanceof HTMLVideoElement)) {
+      return null;
+    }
+
+    var source = video.querySelector('source');
+    if (!(source instanceof HTMLSourceElement)) {
+      source = document.createElement('source');
+      source.type = 'video/mp4';
+      video.appendChild(source);
+    }
+
+    return { video: video, source: source };
+  }
+
   function setStep(index) {
     var titleNode = document.getElementById('quickCtaTitle');
     var descNode = document.getElementById('quickCtaDesc');
     var pillNodes = document.querySelectorAll('#quickCtaPills .quick-pill');
-    var video = document.getElementById('quickCtaVideo');
+    var videoPack = getVideoElements();
+    var video = videoPack ? videoPack.video : null;
+    var source = videoPack ? videoPack.source : null;
 
-    if (!titleNode || !descNode || pillNodes.length === 0 || !(video instanceof HTMLVideoElement)) {
+    if (!titleNode || !descNode || pillNodes.length === 0 || !video || !source) {
       return;
     }
 
@@ -56,8 +74,9 @@
     titleNode.textContent = step.title;
     descNode.textContent = step.description;
 
-    if (video.getAttribute('src') !== step.video) {
-      video.setAttribute('src', step.video);
+    if (source.getAttribute('src') !== step.video || source.getAttribute('type') !== 'video/mp4') {
+      source.setAttribute('src', step.video);
+      source.setAttribute('type', 'video/mp4');
       video.load();
     }
     tryAutoplayVideo();
@@ -107,13 +126,21 @@
   }
 
   function tryAutoplayVideo() {
-    var video = document.getElementById('quickCtaVideo');
-    if (!(video instanceof HTMLVideoElement)) {
+    var videoPack = getVideoElements();
+    if (!videoPack) {
       return;
     }
+    var video = videoPack.video;
+    var source = videoPack.source;
 
+    source.setAttribute('type', 'video/mp4');
+    video.autoplay = true;
+    video.defaultMuted = true;
     video.muted = true;
     video.playsInline = true;
+    video.setAttribute('autoplay', '');
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
 
     var playPromise = video.play();
     if (playPromise && typeof playPromise.catch === 'function') {
@@ -123,16 +150,37 @@
     }
   }
 
+  function setupAutoplayResilience() {
+    var videoPack = getVideoElements();
+    if (!videoPack) {
+      return;
+    }
+    var video = videoPack.video;
+
+    video.addEventListener('loadeddata', function () {
+      tryAutoplayVideo();
+    });
+
+    document.addEventListener('visibilitychange', function () {
+      if (!document.hidden) {
+        tryAutoplayVideo();
+      }
+    });
+
+    window.addEventListener('focus', function () {
+      tryAutoplayVideo();
+    });
+  }
+
   function init() {
     var cta = document.getElementById('quick-cta');
     if (!cta) {
       return;
     }
 
-    document.body.classList.add('has-quick-cta');
-
     setStep(0);
     setupPills();
+    setupAutoplayResilience();
     startRotation();
     tryAutoplayVideo();
   }
