@@ -1,0 +1,354 @@
+/**
+ * CTA Guide System - Styles
+ * Non-intrusive guide overlay and tooltip styles
+ */
+
+/* Guide Overlay */
+.cta-guide-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.cta-guide-overlay.fade-out {
+  opacity: 0;
+}
+
+/* Tooltip Container */
+.cta-guide-tooltip {
+  position: fixed;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  z-index: 9999;
+  max-width: 380px;
+  min-width: 280px;
+  animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Tooltip Header */
+.cta-guide-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 16px 20px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.cta-guide-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1f2937;
+  flex: 1;
+}
+
+.cta-guide-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #9ca3af;
+  cursor: pointer;
+  padding: 0;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.cta-guide-close:hover {
+  background: #f3f4f6;
+  color: #4b5563;
+}
+
+/* Tooltip Body */
+.cta-guide-body {
+  padding: 12px 20px;
+}
+
+.cta-guide-body p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #374151;
+}
+
+/* Tooltip Footer */
+.cta-guide-footer {
+  padding: 16px 20px;
+  border-top: 1px solid #e5e7eb;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cta-guide-progress {
+  font-size: 12px;
+  color: #9ca3af;
+  text-align: center;
+}
+
+.cta-guide-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+}
+
+/* Buttons */
+.cta-btn {
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.cta-btn-primary {
+  background: #2563eb;
+  color: white;
+}
+
+.cta-btn-primary:hover {
+  background: #1d4ed8;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.3);
+}
+
+.cta-btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #e5e7eb;
+}
+
+.cta-btn-secondary:hover {
+  background: #e5e7eb;
+  color: #1f2937;
+}
+
+.cta-btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+/* Button as Link */
+.cta-guide-actions a.cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+/* Highlight Element */
+.cta-guide-highlight {
+  position: relative;
+  z-index: 10000;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.2), 
+              inset 0 0 0 1px rgba(37, 99, 235, 0.3) !important;
+  border-radius: 4px;
+}
+
+/* Position Variants */
+.cta-position-center {
+  position: fixed;
+  left: 50% !important;
+  top: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 9999;
+}
+
+.cta-position-top {
+  transform: translateX(-50%);
+}
+
+.cta-position-bottom {
+  transform: translateX(-50%);
+}
+
+.cta-position-left {
+  transform: translateY(-50%);
+}
+
+.cta-position-right {
+  transform: translateY(-50%);
+}
+
+/* Completion Message */
+.cta-guide-message {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: white;
+  padding: 12px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  z-index: 9999;
+  animation: slideInUp 0.3s ease;
+  font-size: 13px;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.cta-guide-success {
+  border-left: 4px solid #10b981;
+  color: #047857;
+}
+
+.cta-guide-success span {
+  font-weight: 500;
+}
+
+/* Restart Button */
+.cta-guide-restart-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: white;
+  border: none;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+  transition: all 0.2s ease;
+}
+
+.cta-guide-restart-btn:hover {
+  background: #1d4ed8;
+  transform: scale(1.1);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+.cta-guide-restart-btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .cta-guide-tooltip {
+    max-width: calc(100vw - 32px);
+    min-width: auto;
+  }
+
+  .cta-guide-actions {
+    flex-direction: column;
+  }
+
+  .cta-btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .cta-guide-message {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cta-guide-restart-btn {
+    bottom: 16px;
+    right: 16px;
+  }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+  .cta-guide-tooltip {
+    background: #1f2937;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  }
+
+  .cta-guide-header {
+    border-bottom-color: #374151;
+  }
+
+  .cta-guide-header h3 {
+    color: #f3f4f6;
+  }
+
+  .cta-guide-close {
+    color: #6b7280;
+  }
+
+  .cta-guide-close:hover {
+    background: #374151;
+    color: #e5e7eb;
+  }
+
+  .cta-guide-body p {
+    color: #d1d5db;
+  }
+
+  .cta-guide-footer {
+    border-top-color: #374151;
+  }
+
+  .cta-guide-progress {
+    color: #6b7280;
+  }
+
+  .cta-btn-secondary {
+    background: #374151;
+    color: #e5e7eb;
+    border-color: #4b5563;
+  }
+
+  .cta-btn-secondary:hover {
+    background: #4b5563;
+    color: #f3f4f6;
+  }
+
+  .cta-guide-message {
+    background: #1f2937;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    color: #d1d5db;
+  }
+
+  .cta-guide-success {
+    border-left-color: #10b981;
+    color: #6ee7b7;
+  }
+}
