@@ -89,9 +89,15 @@ class CTAGuide {
         steps: [
           {
             title: 'Ready to Get Started?',
-            description: 'You can try SecureOne in two ways:',
+            description: 'Choose what you want to do next:',
             position: 'center',
-            action: 'choice'
+            action: 'choice',
+            choices: [
+              { label: 'Understand Product', target: 'features.html', style: 'secondary' },
+              { label: 'See Deployment Models', target: 'deployment.html', style: 'secondary' },
+              { label: 'Watch Demo Videos', target: 'demo.html', style: 'secondary' },
+              { label: 'Continue Setup Guide', action: 'next', style: 'primary' }
+            ]
           },
           {
             element: '[href*="login"]',
@@ -145,7 +151,12 @@ class CTAGuide {
             title: 'Next Step',
             description: 'Ready to deploy? Visit our Docs or contact Sales to discuss your setup.',
             position: 'center',
-            action: 'choice'
+            action: 'choice',
+            choices: [
+              { label: 'Open Docs', target: 'docs.html', style: 'primary' },
+              { label: 'Contact Team', target: 'contact.html', style: 'secondary' },
+              { label: 'Not Now', action: 'dismiss', style: 'secondary' }
+            ]
           }
         ]
       },
@@ -366,9 +377,7 @@ class CTAGuide {
         <a href="${step.target}" class="cta-btn cta-btn-primary" id="cta-navigate">Continue →</a>
       `;
     } else if (step.action === 'choice') {
-      content += `
-        <button class="cta-btn cta-btn-secondary" id="cta-dismiss">Not Now</button>
-      `;
+      content += this.buildChoiceButtons(step);
     } else if (step.action === 'complete') {
       content += `
         <button class="cta-btn cta-btn-secondary" id="cta-dismiss">Dismiss</button>
@@ -401,12 +410,16 @@ class CTAGuide {
     const skipBtn = overlay.querySelector('#cta-skip');
     const dismissBtn = overlay.querySelector('#cta-dismiss');
     const completeBtn = overlay.querySelector('#cta-complete');
+    const choiceButtons = overlay.querySelectorAll('.cta-choice-btn');
 
     if (nextBtn) nextBtn.addEventListener('click', () => this.nextStep());
     if (prevBtn) prevBtn.addEventListener('click', () => this.prevStep());
     if (skipBtn) skipBtn.addEventListener('click', () => this.dismissGuide());
     if (dismissBtn) dismissBtn.addEventListener('click', () => this.dismissGuide());
     if (completeBtn) completeBtn.addEventListener('click', () => this.completeGuide());
+    choiceButtons.forEach(btn => {
+      btn.addEventListener('click', () => this.handleChoiceAction(btn));
+    });
 
     return overlay;
   }
@@ -441,6 +454,42 @@ class CTAGuide {
 
   handleStepAction(step) {
     // Action-specific handling
+  }
+
+  buildChoiceButtons(step) {
+    if (Array.isArray(step.choices) && step.choices.length > 0) {
+      return step.choices.map(choice => {
+        const variant = choice.style === 'primary' ? 'cta-btn-primary' : 'cta-btn-secondary';
+        return `<button class="cta-btn ${variant} cta-choice-btn" data-choice-action="${choice.action || ''}" data-choice-target="${choice.target || ''}">${choice.label}</button>`;
+      }).join('');
+    }
+
+    return `
+      <button class="cta-btn cta-btn-secondary" id="cta-dismiss">Not Now</button>
+      <button class="cta-btn cta-btn-primary" id="cta-next">Continue →</button>
+    `;
+  }
+
+  handleChoiceAction(button) {
+    const action = button.getAttribute('data-choice-action');
+    const target = button.getAttribute('data-choice-target');
+
+    if (action === 'dismiss') {
+      this.dismissGuide();
+      return;
+    }
+
+    if (action === 'next') {
+      this.nextStep();
+      return;
+    }
+
+    if (target) {
+      window.location.href = target;
+      return;
+    }
+
+    this.nextStep();
   }
 
   nextStep() {
