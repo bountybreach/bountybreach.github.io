@@ -75,6 +75,48 @@
     @media (max-width: 700px) {
       .why-bullet-grid, .ai-grid { grid-template-columns: 1fr; }
     }
+    .guide-video-wrap {
+      margin: 18px 0 4px;
+    }
+    .guide-video-label {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+    .guide-video-embed {
+      position: relative;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: #060e20;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+    .guide-video-embed iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+    .guide-video-placeholder {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+    .guide-video-placeholder svg {
+      opacity: 0.35;
+    }
+    .why-tag.owasp { background: rgba(255,100,100,0.10); color: #ff8888; border: 1px solid #ff888844; }
   </style>
 </head>
 <body>
@@ -123,6 +165,7 @@
       <a href="#secrets">Why Secret Detection?</a>
       <a href="#dast">Why DAST?</a>
       <a href="#pentest">Why Pen Testing?</a>
+      <a href="#owasp">OWASP Top 10</a>
       <a href="#security-at-scale">Security for All</a>
     </nav>
   </aside>
@@ -333,6 +376,18 @@
       <div class="guide-note">
         In short, SAST shifts security left — catching vulnerabilities early, reducing remediation cost, and making secure development part of everyday engineering work.
       </div>
+      <div class="guide-video-wrap">
+        <p class="guide-video-label">&#9654;&nbsp; Why SAST? — Explainer Video</p>
+        <div class="guide-video-embed">
+          <!-- Replace YOUR_SAST_VIDEO_ID with your YouTube video ID -->
+          <!-- <iframe src="https://www.youtube.com/embed/YOUR_SAST_VIDEO_ID" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+          <div class="guide-video-placeholder">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#4ec9ff" stroke-width="2"/><polygon points="19,15 36,24 19,33" fill="#4ec9ff"/></svg>
+            <span>SAST explainer video — coming soon</span>
+            <span style="font-size:0.78rem;opacity:0.6">Replace the comment above with your YouTube embed URL</span>
+          </div>
+        </div>
+      </div>
     </article>
 
     <!-- SCA -->
@@ -355,6 +410,18 @@
       <div class="guide-note">
         In short, SCA secures your software supply chain, reduces hidden risk from third-party code, and ensures you are not unknowingly shipping vulnerable dependencies.
       </div>
+      <div class="guide-video-wrap">
+        <p class="guide-video-label">&#9654;&nbsp; Why SCA? — Explainer Video</p>
+        <div class="guide-video-embed">
+          <!-- Replace YOUR_SCA_VIDEO_ID with your YouTube video ID -->
+          <!-- <iframe src="https://www.youtube.com/embed/YOUR_SCA_VIDEO_ID" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+          <div class="guide-video-placeholder">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#84f2bf" stroke-width="2"/><polygon points="19,15 36,24 19,33" fill="#84f2bf"/></svg>
+            <span>SCA explainer video — coming soon</span>
+            <span style="font-size:0.78rem;opacity:0.6">Replace the comment above with your YouTube embed URL</span>
+          </div>
+        </div>
+      </div>
     </article>
 
     <!-- SECRETS -->
@@ -375,6 +442,18 @@
       </ul>
       <div class="guide-note">
         In short, secret detection acts like a safety net — catching sensitive data before it becomes a security incident.
+      </div>
+      <div class="guide-video-wrap">
+        <p class="guide-video-label">&#9654;&nbsp; Why Secret Detection? — Explainer Video</p>
+        <div class="guide-video-embed">
+          <!-- Replace YOUR_SECRETS_VIDEO_ID with your YouTube video ID -->
+          <!-- <iframe src="https://www.youtube.com/embed/YOUR_SECRETS_VIDEO_ID" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+          <div class="guide-video-placeholder">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#ffb43c" stroke-width="2"/><polygon points="19,15 36,24 19,33" fill="#ffb43c"/></svg>
+            <span>Secrets explainer video — coming soon</span>
+            <span style="font-size:0.78rem;opacity:0.6">Replace the comment above with your YouTube embed URL</span>
+          </div>
+        </div>
       </div>
     </article>
 
@@ -397,6 +476,18 @@
       <div class="guide-note">
         In short, DAST tests what actually runs in production and helps uncover real, exploitable security weaknesses that other methods might miss.
       </div>
+      <div class="guide-video-wrap">
+        <p class="guide-video-label">&#9654;&nbsp; Why DAST? — Explainer Video</p>
+        <div class="guide-video-embed">
+          <!-- Replace YOUR_DAST_VIDEO_ID with your YouTube video ID -->
+          <!-- <iframe src="https://www.youtube.com/embed/YOUR_DAST_VIDEO_ID" allow="autoplay; encrypted-media" allowfullscreen></iframe> -->
+          <div class="guide-video-placeholder">
+            <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="23" stroke="#c878ff" stroke-width="2"/><polygon points="19,15 36,24 19,33" fill="#c878ff"/></svg>
+            <span>DAST explainer video — coming soon</span>
+            <span style="font-size:0.78rem;opacity:0.6">Replace the comment above with your YouTube embed URL</span>
+          </div>
+        </div>
+      </div>
     </article>
 
     <!-- PENTEST -->
@@ -418,6 +509,57 @@
       </ul>
       <div class="guide-note">
         In short, pentesting answers a critical question: "Can a real attacker actually break in, and if so, how?"
+      </div>
+    </article>
+
+    <!-- OWASP TOP 10 -->
+    <article class="guide-section" id="owasp">
+      <span class="why-tag owasp">OWASP</span>
+      <h2>OWASP Top 10 — The Most Critical Web Application Risks</h2>
+      <p>
+        The <strong>OWASP Top 10</strong> is the industry-standard awareness document for web application
+        security risks, maintained by the Open Web Application Security Project. It represents the most
+        critical and commonly exploited vulnerabilities found in real-world applications — and forms the
+        foundation for most compliance and security testing requirements.
+      </p>
+      <h3>Current OWASP Top 10 Risks</h3>
+      <ul>
+        <li><strong>A01 — Broken Access Control:</strong> Failure to enforce what authenticated users are allowed to do, enabling unauthorized access to data or functions.</li>
+        <li><strong>A02 — Cryptographic Failures:</strong> Weak or absent encryption exposing sensitive data such as passwords, credit cards, or health records.</li>
+        <li><strong>A03 — Injection:</strong> Untrusted data sent to an interpreter (SQL, OS, LDAP) causes unintended commands or data access. Includes SQL injection and XSS.</li>
+        <li><strong>A04 — Insecure Design:</strong> Fundamental design flaws that cannot be fixed by correct implementation alone — requires threat modelling and secure design patterns.</li>
+        <li><strong>A05 — Security Misconfiguration:</strong> Missing hardening, unnecessary features enabled, default credentials, overly permissive cloud permissions.</li>
+        <li><strong>A06 — Vulnerable &amp; Outdated Components:</strong> Using libraries, frameworks, or OS components with known vulnerabilities — addressed directly by SCA.</li>
+        <li><strong>A07 — Identification &amp; Authentication Failures:</strong> Weak authentication, session fixation, credential stuffing, and missing MFA.</li>
+        <li><strong>A08 — Software &amp; Data Integrity Failures:</strong> Insecure CI/CD pipelines, auto-update mechanisms, and deserialization vulnerabilities.</li>
+        <li><strong>A09 — Security Logging &amp; Monitoring Failures:</strong> Insufficient logging and alerting that allows breaches to go undetected.</li>
+        <li><strong>A10 — Server-Side Request Forgery (SSRF):</strong> Forcing the server to make requests to unintended internal or external resources.</li>
+      </ul>
+      <h3>How SecureOne addresses OWASP Top 10</h3>
+      <ul>
+        <li><strong>SAST</strong> — detects injection flaws, insecure coding patterns, and authentication logic issues in source code (A03, A04, A07).</li>
+        <li><strong>SCA</strong> — identifies vulnerable and outdated third-party components (A06).</li>
+        <li><strong>Secret Detection</strong> — catches hardcoded credentials before they reach production (A02, A07).</li>
+        <li><strong>DAST</strong> — validates access control, misconfiguration, and SSRF risks in the running application (A01, A05, A10).</li>
+      </ul>
+      <div class="guide-note">
+        Together, SAST + SCA + Secrets + DAST in SecureOne provides layered coverage across the OWASP Top 10 — reducing your exploitable attack surface at every stage of the development lifecycle.
+      </div>
+      <div class="guide-video-wrap">
+        <p class="guide-video-label">&#9654;&nbsp; OWASP Top 10 Explained — Official OWASP Playlist</p>
+        <div class="guide-video-embed">
+          <iframe
+            src="https://www.youtube.com/embed/videoseries?list=PLpr-xdpM8wG-5-pyxni2HaKWmAjEFKclI"
+            title="OWASP Top 10 — Official Playlist"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            loading="lazy">
+          </iframe>
+        </div>
+        <p style="font-size:0.78rem;color:var(--muted);margin-top:6px;">
+          Source: <a href="https://videos.owasp.org/" target="_blank" rel="noopener" style="color:var(--accent)">videos.owasp.org</a>
+          &mdash; Official OWASP Foundation video content, licensed under Creative Commons Attribution-ShareAlike v4.0.
+        </p>
       </div>
     </article>
 
