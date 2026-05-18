@@ -117,6 +117,55 @@
       opacity: 0.35;
     }
     .why-tag.owasp { background: rgba(255,100,100,0.10); color: #ff8888; border: 1px solid #ff888844; }
+    .owasp-ref-card {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin: 18px 0 4px;
+      padding: 16px 20px;
+      border-radius: 12px;
+      border: 1px solid #ff888855;
+      background: rgba(255,100,100,0.07);
+      text-decoration: none;
+      transition: background 0.18s, border-color 0.18s;
+    }
+    .owasp-ref-card:hover {
+      background: rgba(255,100,100,0.14);
+      border-color: #ff8888aa;
+    }
+    .owasp-ref-card-icon {
+      flex-shrink: 0;
+      width: 48px;
+      height: 48px;
+      background: rgba(255,100,100,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.6rem;
+    }
+    .owasp-ref-card-body {
+      min-width: 0;
+    }
+    .owasp-ref-card-title {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #ff8888;
+      margin: 0 0 3px;
+    }
+    .owasp-ref-card-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .owasp-ref-card-arrow {
+      margin-left: auto;
+      flex-shrink: 0;
+      color: #ff8888;
+      font-size: 1.3rem;
+      opacity: 0.7;
+    }
   </style>
 </head>
 <body>
@@ -545,6 +594,18 @@
       <div class="guide-note">
         Together, SAST + SCA + Secrets + DAST in SecureOne provides layered coverage across the OWASP Top 10 — reducing your exploitable attack surface at every stage of the development lifecycle.
       </div>
+
+      <a class="owasp-ref-card" href="https://owasp.org/Top10/2025/" target="_blank" rel="noopener" aria-label="OWASP Top 10 2025 official documentation">
+        <div class="owasp-ref-card-icon">🛡️</div>
+        <div class="owasp-ref-card-body">
+          <p class="owasp-ref-card-title">OWASP Top 10 — 2025 Edition</p>
+          <p class="owasp-ref-card-desc">
+            Read the full official 2025 OWASP Top 10 list — the definitive reference for web application security risks, with detailed descriptions, examples, and mitigation guidance for each category.
+          </p>
+        </div>
+        <span class="owasp-ref-card-arrow" aria-hidden="true">↗</span>
+      </a>
+
       <div class="guide-video-wrap">
         <p class="guide-video-label">&#9654;&nbsp; OWASP Top 10 Explained — Official OWASP Playlist</p>
         <div class="guide-video-embed">
