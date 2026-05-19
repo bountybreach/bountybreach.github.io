@@ -1,6 +1,6 @@
 (function () {
   var config = window.SECUREONE_CHATBASE_CONFIG || {};
-  var botId = config.botId || 'YOUR_CHATBASE_BOT_ID';
+  var botId = config.botId || 'c3OrETioT9kPdS7UgpQA2';
   var domain = config.domain || 'www.chatbase.co';
 
   if (!botId || botId === 'YOUR_CHATBASE_BOT_ID') {
