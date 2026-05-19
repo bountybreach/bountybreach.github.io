@@ -71,7 +71,8 @@
   }
 
   function loadClarity(projectId) {
-    if (hasLoadedClarity) {
+    if (hasLoadedClarity || window.__bbClarityLoaded) {
+      hasLoadedClarity = true;
       return;
     }
 
@@ -87,6 +88,7 @@
     })(window, document, 'clarity', 'script', projectId);
 
     hasLoadedClarity = true;
+    window.__bbClarityLoaded = true;
   }
 
   function trackEvent(eventName, params) {

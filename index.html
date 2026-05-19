@@ -5,6 +5,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="cta-guide.css">
+  <script>
+    (function () {
+      try {
+        var consentChoice = localStorage.getItem('bb_consent_mode_choice_v1');
+        if (consentChoice !== 'granted' || window.__bbClarityLoaded) {
+          return;
+        }
+
+        (function (c, l, a, r, i, t, y) {
+          c[a] = c[a] || function () {
+            (c[a].q = c[a].q || []).push(arguments);
+          };
+          t = l.createElement(r);
+          t.async = 1;
+          t.src = 'https://www.clarity.ms/tag/' + i;
+          y = l.getElementsByTagName(r)[0];
+          y.parentNode.insertBefore(t, y);
+        })(window, document, 'clarity', 'script', 'wtece0dqmq');
+
+        window.__bbClarityLoaded = true;
+      } catch (error) {
+      }
+    })();
+  </script>
   <script defer src="cta-guide.js"></script>
   <script defer src="quick-cta.js"></script>
   <script defer src="marketing-cta.js"></script>
