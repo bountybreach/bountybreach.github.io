@@ -30,16 +30,10 @@
 
     window.__bbChatbaseLoading = true;
 
-    window.embeddedChatbotConfig = {
-      chatbotId: botId,
-      domain: domain
-    };
-
     var script = document.createElement('script');
     script.src = 'https://www.chatbase.co/embed.min.js';
-    script.defer = true;
-    script.setAttribute('chatbotId', botId);
-    script.setAttribute('domain', domain);
+    script.id = botId;
+    script.domain = domain;
 
     script.onload = function () {
       window.__bbChatbaseLoaded = true;
