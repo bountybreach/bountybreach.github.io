@@ -88,7 +88,7 @@
         <span class="dl-release-title">Latest Release</span>
         <span class="badge badge-stable">Stable</span>
         <span class="badge badge-platform">Platform</span>
-        <span class="dl-release-meta">Version: v3.0.4 · Release Date: May 2026</span>
+        <span class="dl-release-meta">Version: v3.0.6 · Release Date: May 2026</span>
         <div class="dl-release-actions">
           <a class="dl-checksum-link" href="docs.html">Read docs</a>
         </div>
@@ -96,7 +96,7 @@
 
       <div class="dl-release-body">
         <h3>Status</h3>
-        <p>Initial Release (Stable)</p>
+        <p>Latest Stable Release (v3.0.6)</p>
 
         <h3>Docker Setup and Run: SecureOne</h3>
         <p>
@@ -106,7 +106,7 @@
 
         <h3>Docker Installation</h3>
         <p>Pull the image:</p>
-        <pre><code>docker pull ghcr.io/bountybreach/secureone:v3.0.4</code></pre>
+        <pre><code>docker pull ghcr.io/bountybreach/secureone:v3.0.6</code></pre>
         <p>Run the container:</p>
         <h4>Windows (PowerShell + Git Bash)</h4>
         <ol>
@@ -114,8 +114,8 @@
           <li>Type <code>Windows PowerShell</code> and open it.</li>
           <li>From the folder that contains the scripts, run:</li>
         </ol>
-        <pre><code>bash ./docker-start.sh v3.0.4
-bash ./docker-run-local.sh v3.0.4</code></pre>
+        <pre><code>bash ./docker-start.sh v3.0.6
+      bash ./docker-run-local.sh v3.0.6</code></pre>
 
         <h4>macOS / Linux</h4>
         <ol>
@@ -123,9 +123,9 @@ bash ./docker-run-local.sh v3.0.4</code></pre>
           <li>Make scripts executable and run:</li>
         </ol>
         <pre><code>chmod +x docker-start.sh docker-run-local.sh
-./docker-start.sh v3.0.4
-./docker-run-local.sh v3.0.4</code></pre>
-        <p>If local images already exist, you can run only <code>./docker-run-local.sh v3.0.4</code>.</p>
+      ./docker-start.sh v3.0.6
+      ./docker-run-local.sh v3.0.6</code></pre>
+        <p>If local images already exist, you can run only <code>./docker-run-local.sh v3.0.6</code>.</p>
 
         <h4>View Script Content</h4>
         <details class="script-toggle">
@@ -158,7 +158,7 @@ bash ./docker-run-local.sh v3.0.4</code></pre>
         </p>
         <h3>Docker Installation</h3>
         <p>Pull the image:</p>
-        <pre><code>docker pull ghcr.io/bountybreach/secureone_scan_agent:v3.0.4</code></pre>
+        <pre><code>docker pull ghcr.io/bountybreach/secureone_scan_agent:v3.0.6</code></pre>
         <p>Run the container:</p>
         <h4>Windows (PowerShell + Git Bash)</h4>
         <ol>
@@ -166,8 +166,8 @@ bash ./docker-run-local.sh v3.0.4</code></pre>
           <li>Type <code>Windows PowerShell</code> and open it.</li>
           <li>From the folder that contains the scripts, run:</li>
         </ol>
-        <pre><code>bash ./docker-start.sh v3.0.4
-bash ./docker-run-local.sh v3.0.4</code></pre>
+        <pre><code>bash ./docker-start.sh v3.0.6
+      bash ./docker-run-local.sh v3.0.6</code></pre>
 
         <h4>macOS / Linux</h4>
         <ol>
@@ -175,9 +175,9 @@ bash ./docker-run-local.sh v3.0.4</code></pre>
           <li>Make scripts executable and run:</li>
         </ol>
         <pre><code>chmod +x docker-start.sh docker-run-local.sh
-./docker-start.sh v3.0.4
-./docker-run-local.sh v3.0.4</code></pre>
-        <p>If local images already exist, you can run only <code>./docker-run-local.sh v3.0.4</code>.</p>
+      ./docker-start.sh v3.0.6
+      ./docker-run-local.sh v3.0.6</code></pre>
+        <p>If local images already exist, you can run only <code>./docker-run-local.sh v3.0.6</code>.</p>
 
         <h4>View Script Content</h4>
         <details class="script-toggle">
@@ -203,14 +203,59 @@ bash ./docker-run-local.sh v3.0.4</code></pre>
           </div>
         </details>
 
-        <h3>What’s Included in v3.0.4</h3>
+        <h3>What’s Included in v3.0.6</h3>
         <ul>
-          <li>Initial production-ready release</li>
-          <li>Core application features enabled</li>
-          <li>Basic configuration support</li>
-          <li>Docker container support</li>
-          <li>Standard logging and monitoring hooks</li>
+          <li>Latest stable platform updates for SecureOne and Scan Agent</li>
+          <li>Improved release packaging and startup script compatibility</li>
+          <li>Docker-based deployment workflow for local and self-hosted usage</li>
+          <li>Jenkins image support delivered via Docker containers</li>
+          <li>Security tool images delivered and managed through Docker</li>
         </ul>
+
+        <h3>CI/CD and Tool Image Delivery</h3>
+        <p>
+          Jenkins and security tool images are distributed as Docker images and are intended to run in Docker-based environments.
+          This keeps CI/CD setup consistent across local, staging, and production pipelines.
+        </p>
+
+        <h3>One-Step Stack Pull Script (v3.0.6)</h3>
+        <p>
+          Use <code>deploy-ghcr-stack.sh</code> to pull SecureOne <code>v3.0.6</code>, SecureOne Scan Agent <code>v3.0.6</code>,
+          Jenkins, and commonly used security tool images in one command.
+        </p>
+
+        <h4>Windows (PowerShell + Git Bash)</h4>
+        <ol>
+          <li>Open <code>Windows PowerShell</code> and go to your project folder.</li>
+          <li>Run the script using Git Bash:</li>
+        </ol>
+        <pre><code>bash ./deploy-ghcr-stack.sh v3.0.6</code></pre>
+
+        <h4>macOS / Linux</h4>
+        <ol>
+          <li>Open Terminal and go to your project folder.</li>
+          <li>Make the script executable, then run:</li>
+        </ol>
+        <pre><code>chmod +x deploy-ghcr-stack.sh
+./deploy-ghcr-stack.sh v3.0.6</code></pre>
+
+        <p>
+          Optional: override security tool images with <code>TOOL_IMAGES</code> (comma or space-separated list), for example:
+        </p>
+        <pre><code>TOOL_IMAGES="returntocorp/semgrep:latest,owasp/zap2docker-stable:latest" ./deploy-ghcr-stack.sh v3.0.6</code></pre>
+
+        <h4>View Script Content</h4>
+        <details class="script-toggle">
+          <summary><code>Open deploy-ghcr-stack.sh</code></summary>
+          <div class="script-viewer" data-script-path="deploy-ghcr-stack.sh">
+            <div class="script-viewer-header">
+              <code>deploy-ghcr-stack.sh</code>
+              <button class="btn btn-secondary script-copy-btn" type="button">Copy</button>
+            </div>
+            <pre><code class="script-content">Loading script...</code></pre>
+            <p class="script-status" aria-live="polite"></p>
+          </div>
+        </details>
 
         <h3>Requirements</h3>
         <ul>
@@ -221,7 +266,7 @@ bash ./docker-run-local.sh v3.0.4</code></pre>
 
         <h3>Image Information</h3>
         <ul>
-          <li>Image tag: <code>v3.0.4</code></li>
+          <li>Image tag: <code>v3.0.6</code></li>
           <li>Base image: Alpine / Debian</li>
           <li>Architecture: amd64</li>
           <li>Image size: ~XXX MB</li>
@@ -235,8 +280,8 @@ bash ./docker-run-local.sh v3.0.4</code></pre>
 
         <h3>Notes</h3>
         <ul>
-          <li>This is the first stable release</li>
-          <li>Future updates will follow semantic versioning, such as <code>v3.0.5</code> and <code>v3.1.0</code></li>
+          <li>This page tracks the latest stable release for SecureOne and Scan Agent</li>
+          <li>Current stable version: <code>v3.0.6</code>; future updates will continue semantic versioning</li>
           <li>Breaking changes will be clearly documented in future releases</li>
         </ul>
 
