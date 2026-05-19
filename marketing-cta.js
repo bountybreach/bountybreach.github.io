@@ -1,7 +1,7 @@
 (function () {
   var config = window.SECUREONE_MARKETING_CONFIG || {};
   var ga4Id = config.ga4Id || 'G-EXTMGBL6S9';
-  var clarityProjectId = config.clarityProjectId || 'CLARITY_PROJECT_ID';
+  var clarityProjectId = config.clarityProjectId || 'wtece0dqmq';
   var consentStorageKey = 'bb_consent_mode_choice_v1';
   var hasLoadedClarity = false;
 
