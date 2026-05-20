@@ -152,7 +152,8 @@
   width: 100%;
   display: block;
   height: 150px;
-  object-fit: cover;
+  object-fit: contain;
+  background: #040816;
   cursor: zoom-in;
   transition: transform 0.18s ease, filter 0.18s ease;
 }
