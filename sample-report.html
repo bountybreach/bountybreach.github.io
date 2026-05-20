@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sample Pentest Report | BountyBreach</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="marketing-cta.js"></script>
+</head>
+<body>
+<header>
+  <div class="container topbar">
+    <a class="logo" href="index.html">
+      <img src="Bounty.jpg" alt="Bounty logo">
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="offensive-security.html">Services+</a>
+      <a class="active" href="sample-report.html">Sample Report</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="page-hero">
+    <span class="tag">Anonymized Deliverable</span>
+    <h1>Sample Penetration Test Report</h1>
+    <p>This is the same report style we share with clients: clear risk summary, technical detail for engineers, and concrete fix guidance.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="contact.html">Request Full Sample PDF</a>
+      <a class="btn btn-secondary" href="offensive-security.html">Back to Services</a>
+    </div>
+  </section>
+
+  <section>
+    <h2>Executive Summary</h2>
+    <div class="card">
+      <p>Assessment type: web and API penetration test for a fintech SaaS product.</p>
+      <p>Duration: 6 business days. Scope: login flow, customer APIs, and admin actions.</p>
+      <p>Outcome: 1 critical, 2 high, and 3 medium findings. The critical issue was fixed and verified in retest.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Severity Overview</h2>
+    <table class="table">
+      <thead>
+        <tr><th>Severity</th><th>Count</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Critical</td><td>1</td><td>Fixed + Retested</td></tr>
+        <tr><td>High</td><td>2</td><td>In Remediation</td></tr>
+        <tr><td>Medium</td><td>3</td><td>Planned</td></tr>
+        <tr><td>Low</td><td>2</td><td>Accepted</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2>Sample Finding</h2>
+    <div class="card">
+      <h3>Critical: Authentication Bypass via Token Validation Gap</h3>
+      <p><strong>Impact:</strong> Unauthorized account access was possible for valid user IDs.</p>
+      <p><strong>CVSS:</strong> 9.1 (Critical)</p>
+      <p><strong>Proof of Concept:</strong> A modified token claim in a crafted request bypassed backend authorization checks.</p>
+      <p><strong>Remediation Guidance:</strong> Enforce strict token signature and audience validation server-side. Add tests for malformed and replayed tokens.</p>
+      <p><strong>Retest Result:</strong> Bypass no longer reproducible after patch.</p>
+    </div>
+  </section>
+
+  <section>
+    <h2>Deliverables Included</h2>
+    <div class="grid">
+      <div class="card"><h3>Executive PDF</h3><p>Risk summary for founders, CTOs, and compliance stakeholders.</p></div>
+      <div class="card"><h3>Technical Findings</h3><p>Reproduction steps, request/response evidence, and affected components.</p></div>
+      <div class="card"><h3>Fix Guidance</h3><p>Actionable remediation recommendations with priority and ownership hints.</p></div>
+      <div class="card"><h3>Retest Addendum</h3><p>Verification notes for remediated issues and closure statement.</p></div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  BountyBreach · Sample Pentest Reporting Format
+</footer>
+<script defer src="chatbase-loader.js"></script>
+</body>
+</html>
