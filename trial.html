@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Start your free 30-day trial with Bounty Breach expert support</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="marketing-cta.js"></script>
+</head>
+<body>
+<header>
+  <div class="container topbar">
+    <a class="logo" href="index.html">
+      <img src="Bounty.jpg" alt="Bounty logo">
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="why-secureone.html">Why SecureOne</a>
+      <a href="features.html">Features</a>
+      <a href="compare.html">Compare</a>
+      <a href="integrations.html">Integrations</a>
+      <a href="deployment.html">Deployment</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="docs.html">Docs</a>
+      <a href="demo.html">Demo</a>
+      <a href="contact.html">Contact</a>
+      <a href="downloads.html">Downloads</a>
+    </nav>
+    <div style="display:flex;gap:8px;">
+      <a class="btn btn-secondary" href="docs.html#startup">Run Locally</a>
+      <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Login →</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+  <section class="page-hero">
+    <span class="tag">30-Day Free Trial</span>
+    <h1>Start your free 30-day trial with Bounty Breach expert support</h1>
+    <p>
+      Built for enterprise-style onboarding, this guided signup helps your team evaluate
+      SAST, SCA, Secrets detection, and DAST with clear onboarding and optional pentest consultation.
+    </p>
+  </section>
+
+  <section>
+    <div id="trial-success" class="highlight" style="display:none; margin-bottom:16px; border-color:#2f7a53; background:linear-gradient(160deg, rgba(56, 181, 120, 0.18), rgba(132, 242, 191, 0.1));">
+      <h2 style="margin-bottom:8px;">Trial request received.</h2>
+      <p style="margin:0; color:#d9ffe9;">Our team will activate your trial and send onboarding instructions shortly.</p>
+    </div>
+
+    <div class="two-col">
+      <div class="card">
+        <h3>What you get in trial</h3>
+        <ul>
+          <li>Cloud trial workspace with guided setup</li>
+          <li>Repository and pull request scan coverage</li>
+          <li>SAST, SCA, Secrets, and DAST included</li>
+          <li>Jenkins and GitHub integration walkthrough</li>
+          <li>Optional 30-minute onboarding call</li>
+        </ul>
+
+        <h3 style="margin-top:18px;">Choose trial path</h3>
+        <div class="grid" style="grid-template-columns:1fr; gap:10px;">
+          <label class="card" style="padding:12px; cursor:pointer;">
+            <input type="radio" name="trial-path-preview" checked disabled style="width:auto; margin-right:8px;"> SaaS Trial (recommended)
+            <p style="margin:6px 0 0; font-size:0.88rem; color:#9eb3da;">Instant access in hosted SecureOne environment.</p>
+          </label>
+          <label class="card" style="padding:12px; cursor:pointer;">
+            <input type="radio" name="trial-path-preview" disabled style="width:auto; margin-right:8px;"> Self-Hosted Evaluation
+            <p style="margin:6px 0 0; font-size:0.88rem; color:#9eb3da;">Run in your own infrastructure with local agent setup.</p>
+          </label>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Create Trial Request</h3>
+        <form action="https://formsubmit.co/support@bountybreach.com" method="POST">
+          <input type="hidden" name="_subject" value="New Free Trial Request from bountybreach.com">
+          <input type="hidden" name="_template" value="table">
+          <input type="hidden" name="_next" value="https://bountybreach.com/trial.html?submitted=true">
+          <input type="text" name="_honey" style="display:none">
+
+          <div class="form-row">
+            <label for="name">Full Name</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" required>
+          </div>
+
+          <div class="form-row">
+            <label for="email">Work Email</label>
+            <input id="email" name="email" type="email" placeholder="you@company.com" required>
+          </div>
+
+          <div class="form-row">
+            <label for="company">Company</label>
+            <input id="company" name="company" type="text" placeholder="Company name" required>
+          </div>
+
+          <div class="form-row">
+            <label for="team-size">Team Size</label>
+            <select id="team-size" name="team_size" required>
+              <option value="">Select team size</option>
+              <option>1-10</option>
+              <option>11-50</option>
+              <option>51-200</option>
+              <option>201-1000</option>
+              <option>1000+</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="trial-path">Trial Type</label>
+            <select id="trial-path" name="trial_type" required>
+              <option>SaaS Trial</option>
+              <option>Self-Hosted Evaluation</option>
+              <option>Need Recommendation</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="requirements">What do you want to test?</label>
+            <textarea id="requirements" name="requirements" placeholder="Example: GitHub PR scans + Jenkins policy gating + API DAST"></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">Start My Free Trial</button>
+        </form>
+
+        <p class="privacy-note">
+          We use this information only to activate your trial and provide onboarding support.
+          Please do not include passwords or other sensitive secrets in this form.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="highlight">
+      <h2>Need a security engineer on the call?</h2>
+      <p>
+        Alongside your trial, we can schedule a live walkthrough covering repository onboarding,
+        policy thresholds, and how to combine automated scans with manual pentesting.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="contact.html">Book Onboarding Call</a>
+        <a class="btn btn-secondary" href="offensive-security.html">See Pentest Services</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  BountyBreach · SecureOne Trial Experience
+</footer>
+
+<script>
+  (function () {
+    var params = new URLSearchParams(window.location.search);
+    if (params.get('submitted') === 'true') {
+      var successBanner = document.getElementById('trial-success');
+      if (successBanner) {
+        successBanner.style.display = 'block';
+        successBanner.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  })();
+</script>
+<script defer src="chatbase-loader.js"></script>
+</body>
+</html>

@@ -1292,7 +1292,7 @@ footer {
 }
 
 /* ═══════════════════════════════════════════════════════════════════════════════
-   ACRONIS-INSPIRED DESIGN COMPONENTS
+   BOUNTY-BREACH-INSPIRED DESIGN COMPONENTS
    ═══════════════════════════════════════════════════════════════════════════════ */
 
 /* ── Centered cinematic hero ─────────────────────────────────────────────────── */
@@ -1405,7 +1405,7 @@ footer {
 }
 .ticker-item:hover { color: #a0b8e0; }
 
-/* ── Big number stat block (Acronis-style) ───────────────────────────────────── */
+/* ── Big number stat block (Bounty Breach -style) ───────────────────────────────────── */
 .big-stat-block {
   background: linear-gradient(160deg, rgba(8,16,40,0.95), rgba(4,8,22,0.98));
   border: 1px solid #1e3868;
