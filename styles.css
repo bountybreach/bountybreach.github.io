@@ -999,6 +999,8 @@ footer {
 }
 
 .autoplay-row .autoplay-cta-slide img {
+  object-fit: contain;
+  background: #040816;
   height: 520px;
 }
 
