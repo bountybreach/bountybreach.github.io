@@ -1,0 +1,29 @@
+.bb-proof-strip {
+  border: 1px solid #2d4f8f;
+  border-radius: 14px;
+  background: linear-gradient(165deg, rgba(15, 28, 60, 0.92), rgba(8, 15, 35, 0.9));
+  padding: 16px;
+}
+
+.bb-proof-strip h2 {
+  margin-bottom: 8px;
+}
+
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.proof-card {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(10, 20, 46, 0.75);
+  padding: 14px;
+}
+
+.proof-card h3 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
