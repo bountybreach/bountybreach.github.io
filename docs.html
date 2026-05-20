@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="styles.css">
   <script defer src="marketing-cta.js"></script>
+  <script defer src="screenshot-lightbox.js"></script>
 </head>
 <body>
 <header>
@@ -33,26 +34,12 @@
 </header>
 
 <main class="container">
-  <section class="page-hero">
-    <span class="tag">Documentation</span>
-    <h1>Install and launch SecureOne in a few simple steps.</h1>
-    <p>
-      Use this quick guide to run SecureOne Control Panel locally, complete first-time login,
-      and begin scanning repositories and pipelines.
-    </p>
-    <p>
-      Need a guided click-through flow? Open the
-      <a href="guides.html"><strong>SecureOne User Guides</strong></a>
-      to follow left-navigation onboarding steps.
-    </p>
-  </section>
-
-  <section aria-label="Autoplay onboarding CTA">
-    <div class="autoplay-cta-block">
+  <section class="docs-top-row">
+    <div class="autoplay-cta-block autoplay-cta-hero">
       <div class="autoplay-cta-copy">
         <span class="tag">Autoplay CTA</span>
         <h2>Watch the full setup flow in autoplay mode</h2>
-        <p>All 35 guide screenshots are ordered by step to give you a continuous product walkthrough.</p>
+        <p>All 35 guide screenshots are ordered by step to give you a larger, clearer walkthrough.</p>
         <div class="autoplay-cta-actions">
           <a class="btn btn-primary" href="guides.html">Open Full Guides</a>
           <a class="btn btn-secondary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Start in SecureOne</a>
@@ -60,6 +47,20 @@
       </div>
       <div class="autoplay-cta-viewer" data-autoplay-cta data-autoplay-interval="2500"></div>
     </div>
+
+    <section class="page-hero page-hero-top">
+      <span class="tag">Documentation</span>
+      <h1>Install and launch SecureOne in a few simple steps.</h1>
+      <p>
+        Use this quick guide to run SecureOne Control Panel locally, complete first-time login,
+        and begin scanning repositories and pipelines.
+      </p>
+      <p>
+        Need a guided click-through flow? Open the
+        <a href="guides.html"><strong>SecureOne User Guides</strong></a>
+        to follow left-navigation onboarding steps.
+      </p>
+    </section>
   </section>
 
   <section id="startup">
