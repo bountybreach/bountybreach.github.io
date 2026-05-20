@@ -156,7 +156,9 @@
 
   // ── Hero upgrade ─────────────────────────────────────────────────────────────
   function upgradeHero() {
-    var hero = document.querySelector('.hero#overview .hero-copy');
+    // support both old and new hero layout
+    var hero = document.querySelector('.hero-centered#overview') ||
+               document.querySelector('.hero#overview .hero-copy');
     if (!hero) return;
 
     var tag = hero.querySelector('.tag');
@@ -211,16 +213,17 @@
   // ── Assembly ──────────────────────────────────────────────────────────────────
   function injectSections() {
     var main = document.querySelector('main.container');
-    var heroSection = document.querySelector('.hero#overview');
+    // support both old .hero#overview and new .hero-centered#overview
+    var heroSection = document.querySelector('.hero-centered#overview') ||
+                      document.querySelector('.hero#overview');
     if (!main || !heroSection) return;
 
-    if (!main.querySelector('.bb-stat-strip')) {
-      heroSection.insertAdjacentElement('afterend', createStatStrip());
-    }
+    // Stat strip is now static HTML (big-stat-block) — skip injecting
+    // Testimonials are now static HTML (case-study-grid) — skip injecting
 
-    var statStrip = main.querySelector('.bb-stat-strip');
-    if (statStrip && !main.querySelector('.bb-persona-section')) {
-      statStrip.insertAdjacentElement('afterend', createPersonaSection());
+    // Persona section after hero
+    if (!main.querySelector('.bb-persona-section')) {
+      heroSection.insertAdjacentElement('afterend', createPersonaSection());
       initPersonaTabs();
     }
 
@@ -229,14 +232,10 @@
       personaSection.insertAdjacentElement('afterend', createProofSection());
     }
 
+    // Sectors after proof strip
     var proofStrip = main.querySelector('.bb-proof-strip');
-    if (proofStrip && !main.querySelector('.bb-testimonials')) {
-      proofStrip.insertAdjacentElement('afterend', createTestimonials());
-    }
-
-    var testimonials = main.querySelector('.bb-testimonials');
-    if (testimonials && !main.querySelector('.bb-sectors')) {
-      testimonials.insertAdjacentElement('afterend', createSectorsSection());
+    if (proofStrip && !main.querySelector('.bb-sectors')) {
+      proofStrip.insertAdjacentElement('afterend', createSectorsSection());
     }
 
     var lastSection = main.querySelector('section:last-of-type');
