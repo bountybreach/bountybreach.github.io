@@ -37,9 +37,16 @@
     <span class="tag">Integrations</span>
     <h1>Connect application security to your existing delivery workflow.</h1>
     <p>
-      SecureOne integrates directly with GitHub and Jenkins, enabling automated scans,
-      policy gating, and centralized visibility from commit to deployment.
+      SecureOne integrates with the source control, CI/CD, scan engines, issue trackers, and notification
+      tools your team already uses — no rearchitecting required.
     </p>
+    <div class="hero-actions" style="margin-top:12px; flex-wrap:wrap; gap:8px;">
+      <a class="btn btn-secondary" href="#cicd-tools">CI/CD</a>
+      <a class="btn btn-secondary" href="#source-control">Source Control</a>
+      <a class="btn btn-secondary" href="#scan-engines">Scan Engines</a>
+      <a class="btn btn-secondary" href="#issue-tracking">Issue Tracking</a>
+      <a class="btn btn-secondary" href="#notifications">Notifications</a>
+    </div>
   </section>
 
   <section>
@@ -103,12 +110,155 @@
     </div>
   </section>
 
+  <section id="cicd-tools">
+    <h2>CI/CD & Pipeline Integrations</h2>
+    <p class="section-subtitle">SecureOne scan agents and pipeline scripts work with the CI/CD tools your team already uses.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Jenkins</h3>
+        <p>Native pipeline script integration with configurable pass/fail thresholds and scan result reporting back to Jenkins.</p>
+      </div>
+      <div class="card">
+        <h3>GitHub Actions</h3>
+        <p>Trigger SecureOne scans directly from GitHub Actions workflows on push, pull request, or schedule events.</p>
+      </div>
+      <div class="card">
+        <h3>GitLab CI/CD</h3>
+        <p>Embed SecureOne scan jobs into GitLab pipelines with result artifacts and merge request blocking.</p>
+      </div>
+      <div class="card">
+        <h3>Azure DevOps Pipelines</h3>
+        <p>Integrate SecureOne into Azure Pipelines YAML definitions — works with both hosted and self-hosted agents.</p>
+      </div>
+      <div class="card">
+        <h3>CircleCI</h3>
+        <p>Run SecureOne scans as CircleCI jobs, with findings reported back to the dashboard and optionally failing the build.</p>
+      </div>
+      <div class="card">
+        <h3>Bitbucket Pipelines</h3>
+        <p>Connect Bitbucket repositories and trigger scans from pipeline steps — supports branch and PR scan modes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="source-control">
+    <h2>Source Control & Repositories</h2>
+    <p class="section-subtitle">Connect your repositories and start scanning in minutes.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>GitHub</h3>
+        <p>Connect via GitHub App or personal access token. Supports repository, branch, PR, and commit-level scans.</p>
+      </div>
+      <div class="card">
+        <h3>GitLab</h3>
+        <p>Integrate with GitLab.com or self-hosted GitLab instances. Supports group and project-level scanning.</p>
+      </div>
+      <div class="card">
+        <h3>Bitbucket</h3>
+        <p>OAuth-based Bitbucket connection supporting workspace, repository, and branch scanning.</p>
+      </div>
+      <div class="card">
+        <h3>Azure Repos</h3>
+        <p>Connect to Azure DevOps repositories via personal access token and trigger scans from pipeline or on demand.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="scan-engines">
+    <h2>Scan Engines & Security Tools</h2>
+    <p class="section-subtitle">SecureOne orchestrates best-in-class open-source and commercial scan engines through a unified control plane.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Semgrep (SAST)</h3>
+        <p>Static analysis with custom and community rule sets. Supports 30+ languages and framework-aware patterns.</p>
+      </div>
+      <div class="card">
+        <h3>Snyk (SCA)</h3>
+        <p>Software composition analysis for dependency vulnerabilities across npm, pip, Maven, Go modules, and more.</p>
+      </div>
+      <div class="card">
+        <h3>Gitleaks (Secrets)</h3>
+        <p>Detect exposed API keys, tokens, credentials, and private keys across commit history and staged changes.</p>
+      </div>
+      <div class="card">
+        <h3>OWASP ZAP (DAST)</h3>
+        <p>Dynamic application security testing for runtime vulnerabilities — scans live endpoints for exploitable issues.</p>
+      </div>
+      <div class="card">
+        <h3>Trivy (Container Security)</h3>
+        <p>Scan Docker images and container filesystems for OS vulnerabilities and application dependency issues.</p>
+      </div>
+      <div class="card">
+        <h3>Custom Scan Agents</h3>
+        <p>Deploy your own scan agent binary with configurable tool images — run in your environment with no egress requirements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="issue-tracking">
+    <h2>Issue Tracking & Ticketing</h2>
+    <p class="section-subtitle">Route security findings directly to the tools your engineering team uses to track work.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Jira</h3>
+        <p>Auto-create Jira issues from findings with severity, description, and remediation steps pre-populated.</p>
+      </div>
+      <div class="card">
+        <h3>GitHub Issues</h3>
+        <p>Create GitHub issues from scan findings and link them back to the repository and commit that triggered the scan.</p>
+      </div>
+      <div class="card">
+        <h3>GitLab Issues</h3>
+        <p>Open GitLab issues from SecureOne findings with full finding context attached to the right project.</p>
+      </div>
+      <div class="card">
+        <h3>Azure Boards</h3>
+        <p>Push findings to Azure Boards work items and track remediation progress alongside your sprint backlog.</p>
+      </div>
+      <div class="card">
+        <h3>DefectDojo</h3>
+        <p>Export findings to DefectDojo for vulnerability management, deduplication, and compliance tracking.</p>
+      </div>
+      <div class="card">
+        <h3>ServiceNow</h3>
+        <p>Create ServiceNow incidents and vulnerability records from SecureOne scan output for enterprise workflows.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="notifications">
+    <h2>Notifications & Alerting</h2>
+    <p class="section-subtitle">Get notified when scans complete, policy thresholds are breached, or critical findings surface.</p>
+    <div class="grid">
+      <div class="card">
+        <h3>Slack</h3>
+        <p>Post scan summaries, critical findings, and policy breach alerts to Slack channels in real time.</p>
+      </div>
+      <div class="card">
+        <h3>Microsoft Teams</h3>
+        <p>Deliver scan results and security alerts to Teams channels via webhook or connector.</p>
+      </div>
+      <div class="card">
+        <h3>PagerDuty</h3>
+        <p>Trigger PagerDuty incidents for critical or high-severity findings that need immediate attention.</p>
+      </div>
+      <div class="card">
+        <h3>Email</h3>
+        <p>Receive scan completion reports and policy alerts via email — configurable per team or project.</p>
+      </div>
+      <div class="card">
+        <h3>Webhooks</h3>
+        <p>Send scan events and findings to any endpoint via configurable webhooks — integrate with any internal tooling.</p>
+      </div>
+    </div>
+  </section>
+
   <section>
     <div class="highlight">
       <h2>Unified Security Operations</h2>
       <p>
-        Whether scans start from GitHub or Jenkins, SecureOne centralizes output into one dashboard,
-        helping teams prioritize risk and track security posture across the entire SDLC.
+        Whether scans start from GitHub, Jenkins, GitLab, or the SecureOne dashboard directly — output
+        centralizes into one place. One view of risk across repositories, pipelines, and agents.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="features.html">Explore Feature Set</a>
