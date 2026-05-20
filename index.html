@@ -34,6 +34,17 @@
   <script defer src="quick-cta.js"></script>
   <script defer src="marketing-cta.js"></script>
   <script defer src="homepage-upgrade.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      var tabs = document.querySelectorAll('.product-tab');
+      tabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          tabs.forEach(function (t) { t.classList.remove('active'); });
+          tab.classList.add('active');
+        });
+      });
+    });
+  </script>
 </head>
 <body class="cta-large-page">
 <header>
@@ -98,29 +109,67 @@
       </div>
     </aside>
   </section>
-  <section class="hero" id="overview">
-    <div class="hero-copy">
-      <span class="tag">Application Security Platform + Offensive Security</span>
-      <h1>Secure your code before it ships — across repos, pipelines, and live apps.</h1>
-      <p>
-        SecureOne brings SAST, SCA, Secrets, and DAST into one control plane.
-        BountyBreach backs it with manual pentesting, API testing, and secure code review when automated scanning isn't enough.
-      </p>
-      <div class="hero-actions">
-        <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Start Free — SaaS</a>
-        <a class="btn btn-secondary" href="docs.html#startup">Self-Host</a>
-      </div>
-    </div>    
+  <section class="hero-centered" id="overview">
+    <span class="tag">Application Security Platform + Offensive Security</span>
+    <h1>Protect. Scan. Test. Ship with confidence.</h1>
+    <p>SecureOne brings SAST, SCA, Secrets, and DAST into one control plane. BountyBreach backs it with hands-on pentesting when automated scanning isn't enough.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Start Free — SaaS</a>
+      <a class="btn btn-secondary" href="docs.html#startup">Self-Host</a>
+      <a class="btn btn-secondary" href="offensive-security.html">Book a Pentest</a>
+    </div>
+    <div class="product-tab-strip" role="tablist" aria-label="Product capabilities">
+      <button class="product-tab active" type="button">SAST</button>
+      <button class="product-tab" type="button">SCA</button>
+      <button class="product-tab" type="button">Secrets Detection</button>
+      <button class="product-tab" type="button">DAST</button>
+      <button class="product-tab" type="button">Pen Testing</button>
+      <button class="product-tab" type="button">CI/CD Integration</button>
+      <button class="product-tab" type="button">Self-Hosted</button>
+    </div>
   </section>
 
-  <section>
-    <p class="section-subtitle">Built for product security, DevSecOps, and engineering teams.</p>
-    <div class="trusted" aria-label="Supported Ecosystem">
-      <div>GitHub</div>
-      <div>Jenkins</div>
-      <div>Semgrep</div>
-      <div>Snyk</div>
-      <div>Gitleaks</div>
+  <section style="padding:0;">
+    <div class="ticker-wrap" aria-label="Supported ecosystem">
+      <div class="ticker-track">
+        <span class="ticker-item">GitHub</span>
+        <span class="ticker-item">GitLab</span>
+        <span class="ticker-item">Jenkins</span>
+        <span class="ticker-item">GitHub Actions</span>
+        <span class="ticker-item">Semgrep</span>
+        <span class="ticker-item">Snyk</span>
+        <span class="ticker-item">Gitleaks</span>
+        <span class="ticker-item">OWASP ZAP</span>
+        <span class="ticker-item">Trivy</span>
+        <span class="ticker-item">Jira</span>
+        <span class="ticker-item">Slack</span>
+        <span class="ticker-item">Azure DevOps</span>
+        <span class="ticker-item">Bitbucket</span>
+        <span class="ticker-item">CircleCI</span>
+        <span class="ticker-item">DefectDojo</span>
+        <span class="ticker-item">PagerDuty</span>
+        <span class="ticker-item">ServiceNow</span>
+        <span class="ticker-item">Microsoft Teams</span>
+        <!-- duplicate set for seamless loop -->
+        <span class="ticker-item">GitHub</span>
+        <span class="ticker-item">GitLab</span>
+        <span class="ticker-item">Jenkins</span>
+        <span class="ticker-item">GitHub Actions</span>
+        <span class="ticker-item">Semgrep</span>
+        <span class="ticker-item">Snyk</span>
+        <span class="ticker-item">Gitleaks</span>
+        <span class="ticker-item">OWASP ZAP</span>
+        <span class="ticker-item">Trivy</span>
+        <span class="ticker-item">Jira</span>
+        <span class="ticker-item">Slack</span>
+        <span class="ticker-item">Azure DevOps</span>
+        <span class="ticker-item">Bitbucket</span>
+        <span class="ticker-item">CircleCI</span>
+        <span class="ticker-item">DefectDojo</span>
+        <span class="ticker-item">PagerDuty</span>
+        <span class="ticker-item">ServiceNow</span>
+        <span class="ticker-item">Microsoft Teams</span>
+      </div>
     </div>
   </section>
 
@@ -252,19 +301,73 @@
   </section>
 
   <section>
+    <div class="big-stat-block">
+      <div class="block-label">BountyBreach by the numbers</div>
+      <div class="big-stat-grid">
+        <div class="big-stat-item">
+          <span class="big-stat-num">4</span>
+          <span class="big-stat-desc">Scan types in one platform</span>
+        </div>
+        <div class="big-stat-item">
+          <span class="big-stat-num">30 min</span>
+          <span class="big-stat-desc">Avg. scan agent setup time</span>
+        </div>
+        <div class="big-stat-item">
+          <span class="big-stat-num">100%</span>
+          <span class="big-stat-desc">Retest coverage on pentest findings</span>
+        </div>
+        <div class="big-stat-item">
+          <span class="big-stat-num">0 egress</span>
+          <span class="big-stat-desc">Self-hosted, data never leaves your network</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="compliance-strip">
+      <span class="compliance-label">Standards &amp; Scope</span>
+      <span class="compliance-badge"><span class="badge-icon">🔒</span> OWASP Top 10</span>
+      <span class="compliance-badge"><span class="badge-icon">🔒</span> PTES</span>
+      <span class="compliance-badge"><span class="badge-icon">🔒</span> HIPAA-aware testing</span>
+      <span class="compliance-badge"><span class="badge-icon">🔒</span> PCI-DSS scope</span>
+      <span class="compliance-badge"><span class="badge-icon">🔒</span> SOC 2 readiness</span>
+      <span class="compliance-badge"><span class="badge-icon">🔒</span> Air-gapped deployment</span>
+    </div>
+  </section>
+
+  <section>
+    <h2>What teams say after working with us</h2>
+    <div class="case-study-grid">
+      <div class="case-study-card">
+        <blockquote>"We needed a pentest before our enterprise deal closed. BountyBreach delivered a report our customer's security team actually read and trusted — findings were real, clearly explained, and the retest confirmed everything was fixed."</blockquote>
+        <div class="cs-role">CTO</div>
+        <div class="cs-name">SaaS startup (Series A)</div>
+      </div>
+      <div class="case-study-card">
+        <blockquote>"SecureOne was the first scanner that surfaced broken object-level authorization in our API that other tools completely missed. DAST caught runtime behavior static analysis couldn't see."</blockquote>
+        <div class="cs-role">Lead Engineer</div>
+        <div class="cs-name">API-first product company</div>
+      </div>
+      <div class="case-study-card">
+        <blockquote>"Setting up the scan agent took less than 30 minutes. We now block high-severity findings in Jenkins before they can merge — something we'd been trying to do with other tools for months."</blockquote>
+        <div class="cs-role">DevSecOps Engineer</div>
+        <div class="cs-name">Fintech team</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
     <div class="highlight">
-      <h2>Platform Summary</h2>
+      <h2>One platform. One team. Full coverage.</h2>
       <p>
-        SecureOne enables centralized security scanning across GitHub, CI/CD pipelines, and standalone
-        scan agents with flexible deployment via a simple local binary startup process.
-      </p>
-      <p>
-        Built for modern engineering teams, SecureOne helps organizations detect and prioritize risk earlier,
-        automate security gates, and deliver software with confidence.
+        SecureOne centralizes scanning across GitHub, CI/CD pipelines, and standalone agents.
+        BountyBreach adds the human layer — manual pentesting with retest included.
       </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Launch SecureOne (SaaS)</a>
         <a class="btn btn-secondary" href="docs.html#startup">Download &amp; Self-Host</a>
+        <a class="btn btn-secondary" href="offensive-security.html">Book a Pentest</a>
       </div>
     </div>
   </section>
@@ -302,7 +405,38 @@
 </main>
 
 <footer>
-  SecureOne · Application Security Simplified · GitHub + CI/CD + Agent Scanning
+  <div class="container" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:24px;padding:36px 0 24px;border-top:1px solid #1e3060;">
+    <div>
+      <div style="font-weight:700;color:#c8d8ff;margin-bottom:10px;">Platform</div>
+      <a href="features.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Features</a>
+      <a href="integrations.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Integrations</a>
+      <a href="pricing.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Pricing</a>
+      <a href="deployment.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Deployment</a>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#c8d8ff;margin-bottom:10px;">Services</div>
+      <a href="offensive-security.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Penetration Testing</a>
+      <a href="sample-report.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Sample Report</a>
+      <a href="secureone-clarity.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">What is SecureOne?</a>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#c8d8ff;margin-bottom:10px;">Resources</div>
+      <a href="docs.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Documentation</a>
+      <a href="guides.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">User Guides</a>
+      <a href="security-insights.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Security Insights</a>
+      <a href="compare.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Compare</a>
+    </div>
+    <div>
+      <div style="font-weight:700;color:#c8d8ff;margin-bottom:10px;">Company</div>
+      <a href="contact.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Contact</a>
+      <a href="downloads.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Downloads</a>
+      <a href="legal.html" style="display:block;color:#6a80b0;text-decoration:none;font-size:0.87rem;margin-bottom:6px;">Legal</a>
+    </div>
+  </div>
+  <div class="container" style="border-top:1px solid #1a2d58;padding:16px 0;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;">
+    <span style="color:#4a607f;font-size:0.82rem;">© 2025–2026 BountyBreach. All rights reserved.</span>
+    <span style="color:#4a607f;font-size:0.82rem;">SecureOne · AppSec Platform + Offensive Security</span>
+  </div>
 </footer>
 <script defer src="chatbase-loader.js"></script>
 </body>
