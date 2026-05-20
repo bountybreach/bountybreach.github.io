@@ -904,6 +904,90 @@ footer {
   font-size: 0.92rem;
 }
 
+.autoplay-cta-block {
+  border: 1px solid #2d4f8f;
+  border-radius: 16px;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(78, 201, 255, 0.16), transparent 44%),
+    radial-gradient(circle at 100% 100%, rgba(132, 242, 191, 0.14), transparent 40%),
+    linear-gradient(165deg, rgba(17, 31, 67, 0.86), rgba(8, 16, 37, 0.92));
+  box-shadow: var(--shadow);
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: center;
+}
+
+.autoplay-cta-copy h2 {
+  margin: 0 0 8px;
+}
+
+.autoplay-cta-copy p {
+  margin: 0 0 12px;
+  color: #bdd0fb;
+}
+
+.autoplay-cta-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.autoplay-cta-viewer {
+  border: 1px solid #31569b;
+  border-radius: 12px;
+  background: rgba(5, 11, 28, 0.8);
+  overflow: hidden;
+}
+
+.autoplay-cta-slide {
+  margin: 0;
+}
+
+.autoplay-cta-slide img {
+  width: 100%;
+  display: block;
+  height: 280px;
+  object-fit: cover;
+}
+
+.autoplay-cta-slide figcaption {
+  border-top: 1px solid var(--border);
+  padding: 8px 10px;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.autoplay-cta-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid var(--border);
+  padding: 8px 10px;
+}
+
+.autoplay-cta-btn {
+  border: 1px solid #31569b;
+  background: rgba(17, 31, 67, 0.8);
+  color: #d7e3ff;
+  border-radius: 8px;
+  width: 34px;
+  height: 30px;
+  font-size: 0.95rem;
+  cursor: pointer;
+}
+
+.autoplay-cta-btn:hover {
+  border-color: #4ec9ff;
+  color: #4ec9ff;
+}
+
+.autoplay-cta-counter {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 @media (max-width: 1000px) {
   .topbar {
     flex-wrap: wrap;
@@ -914,6 +998,10 @@ footer {
   .hero,
   .two-col,
   .quick-cta {
+    grid-template-columns: 1fr;
+  }
+
+  .autoplay-cta-block {
     grid-template-columns: 1fr;
   }
 
@@ -968,5 +1056,9 @@ footer {
 
   .quick-cta-copy p {
     min-height: 0;
+  }
+
+  .autoplay-cta-slide img {
+    height: 220px;
   }
 }
