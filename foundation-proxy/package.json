@@ -1,0 +1,19 @@
+{
+  "name": "bountybreach-foundation-proxy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Production reverse proxy for BountyBreach AI Foundation chat endpoint",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "engines": {
+    "node": ">=18.18"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.6.1",
+    "express": "^4.21.2"
+  }
+}

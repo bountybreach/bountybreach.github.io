@@ -1592,3 +1592,230 @@ footer {
   .product-tab:last-child { border-bottom: none; }
   .compliance-strip { flex-direction: column; align-items: flex-start; }
 }
+
+.bb-foundation-bot {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.bb-foundation-bot__launcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid rgba(78, 201, 255, 0.35);
+  background: linear-gradient(135deg, rgba(8, 18, 44, 0.96), rgba(9, 24, 56, 0.96));
+  color: #f5f8ff;
+  border-radius: 999px;
+  padding: 12px 16px;
+  font-weight: 700;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+}
+
+.bb-foundation-bot__launcher-badge {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  color: #07152e;
+  font-size: 0.82rem;
+}
+
+.bb-foundation-bot__panel {
+  width: min(380px, calc(100vw - 32px));
+  border-radius: 20px;
+  border: 1px solid rgba(78, 201, 255, 0.2);
+  background: linear-gradient(180deg, rgba(8, 14, 30, 0.98), rgba(5, 10, 24, 0.98));
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.bb-foundation-bot__panel-header,
+.bb-foundation-bot__toolbar,
+.bb-foundation-bot__composer {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.bb-foundation-bot__panel-header {
+  padding-top: 16px;
+  padding-bottom: 14px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid rgba(38, 63, 118, 0.7);
+}
+
+.bb-foundation-bot__subtitle,
+.bb-foundation-bot__label,
+.bb-foundation-bot__status {
+  color: var(--muted);
+  font-size: 0.8rem;
+}
+
+.bb-foundation-bot__close {
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.bb-foundation-bot__toolbar {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid rgba(38, 63, 118, 0.45);
+}
+
+.bb-foundation-bot__select,
+.bb-foundation-bot__composer textarea,
+.bb-foundation-bot__composer button,
+.bb-foundation-bot__chip {
+  font: inherit;
+}
+
+.bb-foundation-bot__select,
+.bb-foundation-bot__composer textarea {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid rgba(78, 201, 255, 0.15);
+  background: rgba(8, 17, 38, 0.9);
+  color: var(--text);
+}
+
+.bb-foundation-bot__select {
+  padding: 9px 12px;
+}
+
+.bb-foundation-bot__messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  min-height: 280px;
+  max-height: 360px;
+  overflow-y: auto;
+}
+
+.bb-foundation-bot__message {
+  display: flex;
+}
+
+.bb-foundation-bot__message--assistant {
+  justify-content: flex-start;
+}
+
+.bb-foundation-bot__message--user {
+  justify-content: flex-end;
+}
+
+.bb-foundation-bot__bubble {
+  max-width: 88%;
+  padding: 11px 13px;
+  border-radius: 16px;
+  font-size: 0.94rem;
+  line-height: 1.5;
+  border: 1px solid rgba(78, 201, 255, 0.08);
+}
+
+.bb-foundation-bot__message--assistant .bb-foundation-bot__bubble {
+  background: rgba(11, 23, 52, 0.96);
+  color: #deebff;
+}
+
+.bb-foundation-bot__message--user .bb-foundation-bot__bubble {
+  background: linear-gradient(135deg, rgba(78, 201, 255, 0.18), rgba(132, 242, 191, 0.22));
+  color: #ffffff;
+}
+
+.bb-foundation-bot__suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 16px 14px;
+}
+
+.bb-foundation-bot__chip {
+  border: 1px solid rgba(78, 201, 255, 0.18);
+  background: rgba(7, 17, 40, 0.95);
+  color: #cfe0ff;
+  border-radius: 999px;
+  padding: 7px 10px;
+  cursor: pointer;
+  font-size: 0.77rem;
+}
+
+.bb-foundation-bot__composer {
+  padding-top: 14px;
+  padding-bottom: 16px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  border-top: 1px solid rgba(38, 63, 118, 0.45);
+}
+
+.bb-foundation-bot__composer textarea {
+  resize: vertical;
+  min-height: 78px;
+  padding: 12px 14px;
+}
+
+.bb-foundation-bot__composer button {
+  align-self: end;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 16px;
+  font-weight: 700;
+  color: #04101f;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  cursor: pointer;
+}
+
+.bb-foundation-bot__composer button:disabled,
+.bb-foundation-bot__composer textarea:disabled,
+.bb-foundation-bot__select:disabled {
+  opacity: 0.65;
+  cursor: wait;
+}
+
+@media (max-width: 720px) {
+  .bb-foundation-bot {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    align-items: stretch;
+  }
+
+  .bb-foundation-bot__launcher {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bb-foundation-bot__panel {
+    width: 100%;
+  }
+
+  .bb-foundation-bot__toolbar,
+  .bb-foundation-bot__composer {
+    grid-template-columns: 1fr;
+  }
+
+  .bb-foundation-bot__status {
+    justify-self: start;
+  }
+}
