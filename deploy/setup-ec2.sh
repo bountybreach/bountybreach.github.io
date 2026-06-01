@@ -4,7 +4,7 @@
 # 
 # This script automates the initial setup of an Ubuntu EC2 instance including:
 # - System updates
-# - Node.js 18+ installation
+# - Node.js 20+ installation (installs from NodeSource 22.x channel)
 # - Nginx installation
 # - PM2 global installation
 # - Repository cloning
@@ -59,14 +59,26 @@ echo -e "${YELLOW}[1/7] Updating system packages...${NC}"
 sudo apt update
 sudo apt upgrade -y
 
-# Step 2: Install Node.js 18+
-echo -e "${YELLOW}[2/7] Installing Node.js 18+...${NC}"
-if ! command -v node &> /dev/null; then
-    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
+# Step 2: Install or upgrade Node.js to supported version
+echo -e "${YELLOW}[2/7] Ensuring Node.js 20+ is installed...${NC}"
+NODE_MIN_MAJOR=20
+NEEDS_NODE_INSTALL=true
+
+if command -v node &> /dev/null; then
+    CURRENT_NODE_VERSION="$(node --version)"
+    CURRENT_NODE_MAJOR="$(echo "$CURRENT_NODE_VERSION" | sed 's/^v//' | cut -d. -f1)"
+    if [[ "$CURRENT_NODE_MAJOR" =~ ^[0-9]+$ ]] && [ "$CURRENT_NODE_MAJOR" -ge "$NODE_MIN_MAJOR" ]; then
+        NEEDS_NODE_INSTALL=false
+        echo -e "${GREEN}✓ Node.js already supported: $CURRENT_NODE_VERSION${NC}"
+    else
+        echo -e "${YELLOW}! Node.js $CURRENT_NODE_VERSION is outdated. Upgrading to a supported version...${NC}"
+    fi
+fi
+
+if [ "$NEEDS_NODE_INSTALL" = true ]; then
+    curl -fsSL https://deb.nodesource.com/setup_22.x | sudo -E bash -
     sudo apt install -y nodejs
-    echo -e "${GREEN}✓ Node.js $(node --version) installed${NC}"
-else
-    echo -e "${GREEN}✓ Node.js already installed: $(node --version)${NC}"
+    echo -e "${GREEN}✓ Node.js $(node --version) installed/updated${NC}"
 fi
 
 # Step 3: Install Nginx

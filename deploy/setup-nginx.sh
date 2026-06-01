@@ -4,7 +4,7 @@
 #
 # This script:
 # - Creates Nginx configuration for bountybreach.com
-# - Sets up SSL redirect (HTTP → HTTPS)
+# - Sets up HTTP bootstrap config (SSL added later via setup-ssl.sh)
 # - Configures reverse proxy for /api/* routes to foundation-proxy
 # - Enables the site
 #
@@ -34,33 +34,13 @@ fi
 echo -e "${YELLOW}[1/4] Creating Nginx configuration...${NC}"
 
 cat > /etc/nginx/sites-available/bountybreach.com << 'EOF'
-# HTTP redirect to HTTPS
+# HTTP bootstrap server (SSL is configured later by setup-ssl.sh)
 server {
     listen 80;
     listen [::]:80;
     server_name bountybreach.com www.bountybreach.com;
-    return 301 https://$server_name$request_uri;
-}
 
-# HTTPS server
-server {
-    listen 443 ssl http2;
-    listen [::]:443 ssl http2;
-    server_name bountybreach.com www.bountybreach.com;
-
-    # SSL configuration (will be updated by certbot)
-    # ssl_certificate /etc/letsencrypt/live/bountybreach.com/fullchain.pem;
-    # ssl_certificate_key /etc/letsencrypt/live/bountybreach.com/privkey.pem;
-
-    # SSL hardening
-    ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_ciphers HIGH:!aNULL:!MD5;
-    ssl_prefer_server_ciphers on;
-    ssl_session_cache shared:SSL:10m;
-    ssl_session_timeout 10m;
-
-    # Security headers
-    add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+    # Security headers (HSTS enabled after HTTPS is active)
     add_header X-Content-Type-Options "nosniff" always;
     add_header X-Frame-Options "SAMEORIGIN" always;
     add_header X-XSS-Protection "1; mode=block" always;
@@ -177,7 +157,7 @@ echo -e "${GREEN}=== Nginx Setup Complete ===${NC}"
 echo ""
 echo "Next steps:"
 echo "1. Install SSL certificate:"
-echo "   sudo certbot --nginx -d bountybreach.com -d www.bountybreach.com"
+echo "   sudo ./deploy/setup-ssl.sh"
 echo ""
 echo "2. Verify Nginx is running:"
 echo "   sudo systemctl status nginx"

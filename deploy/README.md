@@ -11,7 +11,7 @@ chmod +x deploy/setup-ec2.sh
 ```
 
 This installs:
-- Node.js 18+
+- Node.js 20+ (via NodeSource 22.x channel)
 - Nginx
 - PM2
 - Clones the repository
@@ -68,7 +68,7 @@ Point `bountybreach.com` and `www.bountybreach.com` to your EC2 Elastic IP.
 
 **What it does**:
 - Updates system packages
-- Installs Node.js 18+, Nginx, PM2
+- Installs/updates Node.js 20+, Nginx, PM2
 - Clones the GitHub repository
 - Creates static files directory
 

@@ -5,6 +5,7 @@
 # This script:
 # - Installs Certbot and the Nginx plugin
 # - Obtains an SSL certificate from Let's Encrypt
+# - Configures Nginx with HTTPS and redirect
 # - Configures automatic renewal
 #
 # Usage: sudo ./setup-ssl.sh
@@ -40,7 +41,7 @@ echo -e "${YELLOW}[2/4] Obtaining SSL certificate from Let's Encrypt...${NC}"
 echo "You will be prompted to enter an email address and agree to the terms."
 echo ""
 
-certbot certonly --nginx -d bountybreach.com -d www.bountybreach.com
+certbot --nginx --redirect -d bountybreach.com -d www.bountybreach.com
 
 # Step 3: Enable automatic renewal
 echo -e "${YELLOW}[3/4] Setting up automatic certificate renewal...${NC}"
