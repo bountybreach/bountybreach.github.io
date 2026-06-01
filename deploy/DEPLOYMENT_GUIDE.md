@@ -59,7 +59,7 @@ chmod +x deploy/setup-ec2.sh
 ./deploy/setup-ec2.sh
 
 # Output should show:
-# ✓ Node.js 18+ installed
+# ✓ Node.js 20+ installed/updated
 # ✓ Nginx installed and enabled
 # ✓ PM2 installed globally
 # ✓ Repository cloned
