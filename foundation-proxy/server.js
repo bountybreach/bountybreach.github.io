@@ -15,6 +15,8 @@ const tenantId = process.env.BB_PROXY_TENANT_ID || 'public';
 const role = process.env.BB_PROXY_ROLE || 'analyst';
 const upstreamAgentId = (process.env.BB_PROXY_AGENT_ID || '').trim();
 const requestTimeoutMs = Number(process.env.BB_PROXY_TIMEOUT_MS || 20000);
+const authTimeoutMs = Number(process.env.BB_PROXY_AUTH_TIMEOUT_MS || Math.min(requestTimeoutMs, 15000));
+const chatTimeoutMs = Number(process.env.BB_PROXY_CHAT_TIMEOUT_MS || Math.max(requestTimeoutMs, 120000));
 const bodyLimit = process.env.BB_PROXY_BODY_LIMIT || '256kb';
 const allowedOrigins = (process.env.BB_PROXY_ALLOWED_ORIGINS || '')
   .split(',')
@@ -35,6 +37,14 @@ if (!foundationToken) {
 
 if (!Number.isFinite(requestTimeoutMs) || requestTimeoutMs < 1000) {
   throw new Error('Invalid BB_PROXY_TIMEOUT_MS. Use a number >= 1000');
+}
+
+if (!Number.isFinite(authTimeoutMs) || authTimeoutMs < 1000) {
+  throw new Error('Invalid BB_PROXY_AUTH_TIMEOUT_MS. Use a number >= 1000');
+}
+
+if (!Number.isFinite(chatTimeoutMs) || chatTimeoutMs < 1000) {
+  throw new Error('Invalid BB_PROXY_CHAT_TIMEOUT_MS. Use a number >= 1000');
 }
 
 app.use((req, res, next) => {
@@ -108,7 +118,7 @@ app.get('/ready', (_req, res) => {
 
 app.get('/upstream/auth-check', async (_req, res) => {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), requestTimeoutMs);
+  const timeout = setTimeout(() => controller.abort(), authTimeoutMs);
 
   try {
     const upstreamResponse = await fetch(`${foundationBaseUrl}/v1/audit`, {
@@ -152,7 +162,7 @@ app.get('/upstream/auth-check', async (_req, res) => {
     if (error.name === 'AbortError') {
       return res.status(504).json({
         status: 'error',
-        detail: 'Upstream auth check timed out.',
+        detail: 'Upstream auth check timed out. This does not indicate invalid credentials.',
       });
     }
 
@@ -203,7 +213,7 @@ app.post('/api/v1/ai/chat', async (req, res) => {
   };
 
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), requestTimeoutMs);
+  const timeout = setTimeout(() => controller.abort(), chatTimeoutMs);
 
   try {
     const upstreamResponse = await fetch(`${foundationBaseUrl}/api/v1/ai/chat`, {
@@ -249,7 +259,7 @@ app.post('/api/v1/ai/chat', async (req, res) => {
   } catch (error) {
     if (error.name === 'AbortError') {
       return res.status(504).json({
-        detail: 'Upstream timeout from AI Foundation service.',
+        detail: 'Upstream LLM response is taking longer than expected. The request timed out while waiting.',
         request_id: req.requestId,
       });
     }
