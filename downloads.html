@@ -1,636 +1,414 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SecureOne Downloads & Releases</title>
-
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Segoe UI,Arial,sans-serif;
-}
-
-body{
-    background:#f5f7fb;
-    color:#222;
-}
-
-/* Header */
-
-header{
-    background:#0b3d91;
-    color:#fff;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:18px 40px;
-}
-
-.logo{
-    font-size:26px;
-    font-weight:bold;
-}
-
-nav a{
-    color:white;
-    text-decoration:none;
-    margin-left:25px;
-    font-weight:500;
-}
-
-nav a:hover{
-    color:#cde1ff;
-}
-
-/* Hero */
-
-.hero{
-    background:white;
-    padding:50px;
-    border-bottom:1px solid #ddd;
-}
-
-.hero h1{
-    font-size:38px;
-    margin-bottom:10px;
-}
-
-.hero p{
-    color:#666;
-    font-size:17px;
-}
-
-/* Layout */
-
-.container{
-    display:grid;
-    grid-template-columns:280px 1fr;
-    gap:25px;
-    padding:30px;
-}
-
-/* Sidebar */
-
-.sidebar{
-    background:white;
-    border-radius:10px;
-    padding:20px;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-.sidebar details{
-    margin-bottom:18px;
-}
-
-.sidebar summary{
-    cursor:pointer;
-    font-weight:bold;
-    font-size:16px;
-    padding:8px 0;
-}
-
-.sidebar ul{
-    list-style:none;
-    margin-top:10px;
-    margin-left:12px;
-}
-
-.sidebar li{
-    padding:8px;
-    cursor:pointer;
-    border-radius:6px;
-}
-
-.sidebar li:hover{
-    background:#edf4ff;
-}
-
-.sidebar li.active{
-    background:#0b63ce;
-    color:white;
-}
-
-/* Content */
-
-.content{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-}
-
-/* Cards */
-
-.card{
-    background:white;
-    border-radius:10px;
-    padding:25px;
-    box-shadow:0 2px 8px rgba(0,0,0,.08);
-}
-
-.release-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.badge{
-    background:#2e8b57;
-    color:white;
-    padding:5px 14px;
-    border-radius:20px;
-    font-size:13px;
-}
-
-.download-grid{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-    gap:20px;
-}
-
-.download-card{
-    border:1px solid #ddd;
-    border-radius:8px;
-    padding:20px;
-}
-
-.download-card h3{
-    margin-bottom:10px;
-}
-
-button{
-    background:#0b63ce;
-    color:white;
-    border:none;
-    padding:10px 18px;
-    border-radius:6px;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#084ea6;
-}
-
-pre{
-    background:#1d1d1d;
-    color:#8cff8c;
-    padding:18px;
-    border-radius:8px;
-    overflow:auto;
-}
-
-table{
-    width:100%;
-    border-collapse:collapse;
-}
-
-table th,
-table td{
-    border-bottom:1px solid #ddd;
-    padding:12px;
-    text-align:left;
-}
-
-.section-title{
-    margin-bottom:18px;
-    color:#0b3d91;
-}
-
-.notes h4{
-    margin-top:18px;
-    margin-bottom:8px;
-    color:#0b63ce;
-}
-
-.notes ul{
-    margin-left:18px;
-}
-
-.copy{
-    background:#eee;
-    color:#333;
-    margin-left:10px;
-}
-
-.links a{
-    display:block;
-    margin-bottom:10px;
-    color:#0b63ce;
-    text-decoration:none;
-}
-
-.links a:hover{
-    text-decoration:underline;
-}
-
-@media(max-width:900px){
-
-.container{
-grid-template-columns:1fr;
-}
-
-}
-</style>
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Download &amp; Release | SecureOne</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="downloads.css">
+  <script defer src="marketing-cta.js"></script>
 </head>
-
 <body>
 
 <header>
-
-<div class="logo">SecureOne</div>
-
-<nav>
-<a href="#">Home</a>
-<a href="#">Features</a>
-<a href="#">Docs</a>
-<a href="#">Pricing</a>
-<a href="#">Downloads</a>
-<a href="#">Login</a>
-</nav>
-
+  <div class="container topbar">
+    <a class="logo" href="index.html">
+      <img src="Bounty.jpg" alt="Bounty logo">
+    </a>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="features.html">Features</a>
+      <a href="docs.html">Docs</a>
+      <a href="pricing.html">Pricing</a>
+      <a class="active" href="downloads.html">Downloads</a>
+    </nav>
+    <div style="display:flex;gap:8px;">
+      <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Login →</a>
+    </div>
+  </div>
 </header>
 
-<section class="hero">
-
-<h1>Download & Release Center</h1>
-
-<p>Download SecureOne products, release notes, installation guides and documentation.</p>
-
+<section class="dl-hero container">
+  <h1>Download &amp; Release</h1>
+  <p>SecureOne release center with instant version switching, installers, Docker, script viewers, and full release lifecycle notes.</p>
 </section>
 
-<div class="container">
+<div class="container dl-page-wrap">
+  <aside class="dl-sidebar" aria-label="Release navigation">
+    <h2 class="dl-sidebar-title">Products</h2>
+    <div id="releaseNav"></div>
+  </aside>
 
-<!-- LEFT SIDEBAR -->
-
-<aside class="sidebar">
-
-<details open>
-
-<summary>SecureOne</summary>
-
-<ul>
-<li class="active" onclick="loadRelease('SecureOne','v2026.07.02')">⭐ v2026.07.02</li>
-<li onclick="loadRelease('SecureOne','v2026.06.15')">v2026.06.15</li>
-<li onclick="loadRelease('SecureOne','v2026.05.01')">v2026.05.01</li>
-</ul>
-
-</details>
-
-<details open>
-
-<summary>Scan Agents</summary>
-
-<ul>
-<li onclick="loadRelease('Scan Agents','v2026.07.02')">⭐ v2026.07.02</li>
-<li onclick="loadRelease('Scan Agents','v2026.06.15')">v2026.06.15</li>
-</ul>
-
-</details>
-
-<details open>
-
-<summary>AI Foundation</summary>
-
-<ul>
-<li onclick="loadRelease('AI Foundation','v2026.07.02')">⭐ v2026.07.02</li>
-</ul>
-
-</details>
-
-</aside>
-
-<!-- RIGHT CONTENT -->
-
-<section class="content">
-
-<div class="card">
-
-<div class="release-header">
-
-<div>
-
-<h2 id="productName">SecureOne</h2>
-
-<p id="version">v2026.07.02</p>
-
-<p>Released: July 2, 2026</p>
-
+  <main class="dl-releases-main" id="releaseContent" aria-live="polite"></main>
 </div>
 
-<div class="badge">Stable</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2 class="section-title">Downloads</h2>
-
-<div class="download-grid">
-
-<div class="download-card">
-
-<h3>Windows</h3>
-
-<p>Windows Installer (.exe)</p>
-
-<br>
-
-<button>Download</button>
-
-</div>
-
-<div class="download-card">
-
-<h3>Linux</h3>
-
-<p>Linux Package (.tar.gz)</p>
-
-<br>
-
-<button>Download</button>
-
-</div>
-
-<div class="download-card">
-
-<h3>Docker</h3>
-
-<p>Container Image</p>
-
-<br>
-
-<button>Copy Pull Command</button>
-
-</div>
-
-<div class="download-card">
-
-<h3>macOS</h3>
-
-<p>Universal Package</p>
-
-<br>
-
-<button>Download</button>
-
-</div>
-
-</div>
-
-</div>
-
-<div class="card">
-
-<h2 class="section-title">Docker</h2>
-
-<pre>
-docker pull ghcr.io/secureone/secureone:v2026.07.02
-</pre>
-
-</div>
-
-<div class="card">
-
-<h2 class="section-title">Installation</h2>
-
-<ul>
-
-<li>Windows Installer</li>
-
-<li>Linux Package</li>
-
-<li>Docker Container</li>
-
-<li>macOS Installer</li>
-
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2 class="section-title">Script Viewer</h2>
-
-<pre>
-#!/bin/bash
-
-curl -L https://downloads.secureone.io/install.sh | bash
-</pre>
-
-</div>
-
-<div class="card notes">
-
-<h2 class="section-title">Release Notes</h2>
-
-<h4>New Features</h4>
-
-<ul>
-
-<li>AI powered vulnerability analysis</li>
-
-<li>New reporting dashboard</li>
-
-</ul>
-
-<h4>Improvements</h4>
-
-<ul>
-
-<li>Faster scanning engine</li>
-
-<li>Improved API performance</li>
-
-</ul>
-
-<h4>Bug Fixes</h4>
-
-<ul>
-
-<li>Resolved Windows installer issue</li>
-
-<li>Fixed Docker networking problem</li>
-
-</ul>
-
-<h4>Breaking Changes</h4>
-
-<ul>
-
-<li>Updated configuration format</li>
-
-</ul>
-
-<h4>Security Updates</h4>
-
-<ul>
-
-<li>Updated OpenSSL</li>
-
-<li>Dependency patches</li>
-
-</ul>
-
-<h4>Known Issues</h4>
-
-<ul>
-
-<li>macOS installer requires Rosetta on Intel migration</li>
-
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2 class="section-title">Download History</h2>
-
-<table>
-
-<tr>
-
-<th>Platform</th>
-
-<th>Action</th>
-
-</tr>
-
-<tr>
-
-<td>Windows</td>
-
-<td><button>Download</button></td>
-
-</tr>
-
-<tr>
-
-<td>Linux</td>
-
-<td><button>Download</button></td>
-
-</tr>
-
-<tr>
-
-<td>Docker</td>
-
-<td><button>Copy</button></td>
-
-</tr>
-
-<tr>
-
-<td>macOS</td>
-
-<td><button>Download</button></td>
-
-</tr>
-
-</table>
-
-</div>
-
-<div class="card">
-
-<h2 class="section-title">Checksums</h2>
-
-<table>
-
-<tr>
-
-<td>SHA256</td>
-
-<td>93df6f88fe5....</td>
-
-<td><button class="copy">Copy</button></td>
-
-</tr>
-
-<tr>
-
-<td>MD5</td>
-
-<td>56fa884ac....</td>
-
-<td><button class="copy">Copy</button></td>
-
-</tr>
-
-</table>
-
-</div>
-
-<div class="card">
-
-<h2 class="section-title">Requirements</h2>
-
-<ul>
-
-<li>Windows 11 / Server 2022</li>
-
-<li>Ubuntu 22.04+</li>
-
-<li>Docker 25+</li>
-
-<li>macOS 14+</li>
-
-</ul>
-
-</div>
-
-<div class="card links">
-
-<h2 class="section-title">Documentation</h2>
-
-<a href="#">Installation Guide</a>
-
-<a href="#">Upgrade Notes</a>
-
-<a href="#">API Documentation</a>
-
-<a href="#">Release Archive</a>
-
-</div>
-
-<div class="card">
-
-<h2 class="section-title">Support</h2>
-
-<p>Email: support@secureone.io</p>
-
-<p>Enterprise Support Portal</p>
-
-<p>Community Forum</p>
-
-</div>
-
-</section>
-
-</div>
+<footer>
+  <div class="container" style="padding: 24px 0; text-align: center; font-size: 0.8rem; color: var(--muted);">
+    SecureOne · Application Security Simplified · © 2026 BountyBreach
+  </div>
+</footer>
 
 <script>
+  (function () {
+    var releaseData = {
+      secureone: {
+        label: 'SecureOne',
+        versions: {
+          'v2026.07.02': {
+            status: 'Stable',
+            releaseDate: 'July 2, 2026',
+            dockerImage: 'ghcr.io/bountybreach/secureone:v2026.07.02',
+            requirements: ['Docker Engine ≥ 24.x', 'Linux, macOS, or Windows with Docker Desktop', '4 GB RAM recommended'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Installer', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/secureone:v2026.07.02', action: 'docker pull ghcr.io/bountybreach/secureone:v2026.07.02', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Open PowerShell in your script folder.', 'Run: bash ./docker-start.sh v2026.07.02', 'Run: bash ./docker-run-local.sh v2026.07.02'],
+              linux: ['Open terminal in your script folder.', 'Run: chmod +x docker-start.sh docker-run-local.sh', 'Run: ./docker-start.sh v2026.07.02', 'Run: ./docker-run-local.sh v2026.07.02'],
+              docker: ['Pull image: docker pull ghcr.io/bountybreach/secureone:v2026.07.02', 'Run startup scripts for first-time setup.'],
+              macos: ['Follow Linux steps in Terminal.', 'If image exists locally, run only ./docker-run-local.sh v2026.07.02.']
+            },
+            scripts: [
+              { title: 'secureone/docker-start.sh', path: 'secureone/docker-start.sh' },
+              { title: 'secureone/docker-run-local.sh', path: 'secureone/docker-run-local.sh' },
+              { title: 'deploy-ghcr-stack.sh', path: 'deploy-ghcr-stack.sh' }
+            ],
+            checksums: {
+              sha256: 'be6b01dcf5f9c0c4f3d9d0574f6d3d85ae0e45df0f6d4f6d1bf842f44e55d90a',
+              md5: 'f4b9158a5f5f2f8f52424f5f058d7f91'
+            },
+            releaseNotes: {
+              newFeatures: ['Release Center UI with instant version navigation.', 'Expanded script viewer support for stack pull workflows.'],
+              improvements: ['Improved Docker startup script compatibility across OS platforms.', 'More consistent documentation links for deployment paths.'],
+              bugFixes: ['Fixed command formatting inconsistencies in install snippets.', 'Resolved script copy action issues in release details.'],
+              breakingChanges: ['Versioning format is now date-based (`vYYYY.MM.DD`).'],
+              securityUpdates: ['Hardened base image refresh and dependency updates.']
+            },
+            knownIssues: ['Windows systems without Git Bash cannot run `.sh` scripts directly.', 'Some proxies may block GHCR pulls without authentication.'],
+            upgradeNotes: ['If upgrading from `v3.x`, update script arguments to the new date-based version format.', 'Clear old local tags if you use image pinning by semantic versions.'],
+            docs: [
+              { label: 'User Manual', href: 'docs.html' },
+              { label: 'Product Overview', href: 'features.html' },
+              { label: 'Deployment Guide', href: 'deployment.html' }
+            ]
+          },
+          //'v2026.06.15': { status: 'Stable', releaseDate: 'June 15, 2026' },
+          //'v2026.05.01': { status: 'Stable', releaseDate: 'May 1, 2026' }
+        }
+      },
+      scanAgents: {
+        label: 'SecureOne Scan Agents',
+        versions: {
+          'v2026.07.02': {
+            status: 'Stable',
+            releaseDate: 'July 2, 2026',
+            dockerImage: 'ghcr.io/bountybreach/secureone_scan_agent:v2026.07.02',
+            requirements: ['Docker Engine ≥ 24.x', '2 GB RAM minimum'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Agent Bundle', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Agent Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/secureone_scan_agent:v2026.07.02', action: 'docker pull ghcr.io/bountybreach/secureone_scan_agent:v2026.07.02', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Run: bash ./docker-start.sh v2026.07.02', 'Run: bash ./docker-run-local.sh v2026.07.02'],
+              linux: ['Run: chmod +x docker-start.sh docker-run-local.sh', 'Run: ./docker-start.sh v2026.07.02', 'Run: ./docker-run-local.sh v2026.07.02'],
+              docker: ['Pull image and launch using local orchestrator scripts.'],
+              macos: ['Use Linux commands in macOS Terminal.']
+            },
+            scripts: [
+              { title: 'secureone_scan_agents/docker-start.sh', path: 'secureone_scan_agents/docker-start.sh' },
+              { title: 'secureone_scan_agents/docker-run-local.sh', path: 'secureone_scan_agents/docker-run-local.sh' }
+            ],
+            checksums: {
+              sha256: '85f3574e806925dbf570cc76f5b3916edec63949cf45e07bbd4ed6f8dd2fcb4a',
+              md5: '5d86855ce560656b28ee9f2dc816e7d9'
+            },
+            releaseNotes: {
+              newFeatures: ['New CI/CD-ready scan orchestration defaults.'],
+              improvements: ['Better startup speed for multi-agent environments.'],
+              bugFixes: ['Resolved intermittent startup order issues.'],
+              breakingChanges: ['No breaking API changes in this release.'],
+              securityUpdates: ['Updated bundled scanner images to latest stable tags.']
+            },
+            knownIssues: ['Local antivirus can slow first container startup.'],
+            upgradeNotes: ['Re-run `docker-start.sh` when moving from pre-2026.07 builds.'],
+            docs: [
+              { label: 'Agent Docs', href: 'docs.html' },
+              { label: 'Integrations', href: 'integrations.html' }
+            ]
+          },
+          //'v2026.06.15': { status: 'Stable', releaseDate: 'June 15, 2026' },
+          //'v2026.06.10': { status: 'Stable', releaseDate: 'June 10, 2026' }
+        }
+      },
+      aiFoundation: {
+        label: 'BountyBreach AI Foundation',
+        versions: {
+          'v2026.07.02': {
+            status: 'Beta',
+            releaseDate: 'July 2, 2026',
+            dockerImage: 'ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.07.02',
+            requirements: ['Docker Engine ≥ 24.x', '8 GB RAM recommended for local AI workflows'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Foundation Bundle', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.07.02', action: 'docker pull ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.07.02', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Install Docker Desktop and run project startup scripts from PowerShell + Git Bash.'],
+              linux: ['Use compose or startup scripts from project root.'],
+              docker: ['Pull and run the foundation image with required environment variables.'],
+              macos: ['Use Linux install flow in Terminal.']
+            },
+            scripts: [
+              { title: 'secureone_docker_build/deploy-ghcr-stack.sh', path: 'secureone_docker_build/deploy-ghcr-stack.sh' }
+            ],
+            checksums: {
+              sha256: '946ce7ceff7f48f4a594f0b9fdf6c78c6a6f60cab5fd8e98fdfdf6dbf2bc983c',
+              md5: 'e2e7995fe137b1f2a08bfb39cf5b16f1'
+            },
+            releaseNotes: {
+              newFeatures: ['Expanded control-plane orchestration support.'],
+              improvements: ['Improved model routing validation prompts.'],
+              bugFixes: ['Fixed release artifact metadata generation.'],
+              breakingChanges: ['No breaking changes.'],
+              securityUpdates: ['Dependency patch refresh for orchestration services.']
+            },
+            knownIssues: ['Initial model cache download can take several minutes.'],
+            upgradeNotes: ['Validate environment variables before upgrading shared stacks.'],
+            docs: [
+              { label: 'Foundation Docs', href: 'docs.html' },
+              { label: 'Admin Panel Guide', href: 'ADMIN_PANEL_QUICKSTART.md' }
+            ]
+          }
+        }
+      }
+    };
 
-function loadRelease(product, version){
+    var selectedProduct = 'secureone';
+    var selectedVersion = 'v2026.07.02';
+    var navRoot = document.getElementById('releaseNav');
+    var contentRoot = document.getElementById('releaseContent');
 
-document.getElementById("productName").innerText=product;
+    function getRelease(productKey, versionKey) {
+      return releaseData[productKey].versions[versionKey];
+    }
 
-document.getElementById("version").innerText=version;
+    function stableBadge(status) {
+      return status === 'Beta' ? '<span class="badge badge-beta">Beta</span>' : '<span class="badge badge-stable">Stable</span>';
+    }
 
-document.querySelectorAll(".sidebar li").forEach(i=>i.classList.remove("active"));
+    function renderNav() {
+      var html = Object.keys(releaseData).map(function (productKey) {
+        var product = releaseData[productKey];
+        var versionKeys = Object.keys(product.versions);
+        var isOpen = productKey === selectedProduct;
 
-event.target.classList.add("active");
+        var items = versionKeys.map(function (version) {
+          var activeClass = productKey === selectedProduct && version === selectedVersion ? 'is-active' : '';
+          var isLatest = version === 'v2026.07.02' ? '<span class="star">★</span>' : '';
+          return '<button class="dl-version-item ' + activeClass + '" data-product="' + productKey + '" data-version="' + version + '">' + version + ' ' + isLatest + '</button>';
+        }).join('');
 
-}
+        return '<details class="dl-product-group" ' + (isOpen ? 'open' : '') + '><summary>' + product.label + '</summary><div class="dl-version-list">' + items + '</div></details>';
+      }).join('');
 
+      navRoot.innerHTML = html;
+
+      var buttons = navRoot.querySelectorAll('.dl-version-item');
+      buttons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          selectedProduct = btn.getAttribute('data-product');
+          selectedVersion = btn.getAttribute('data-version');
+          renderNav();
+          renderContent();
+        });
+      });
+    }
+
+    function renderDownloadCards(downloads) {
+      return '<div class="dl-platform-grid">' + downloads.map(function (item) {
+        var actionButton = item.mode === 'copy'
+          ? '<button class="btn btn-secondary js-copy-value" data-copy="' + item.action.replace(/"/g, '&quot;') + '">Copy</button>'
+          : '<a class="btn btn-primary" href="' + item.action + '">Download</a>';
+
+        return '<article class="dl-platform-card"><h4>' + item.platform + '</h4><p>' + item.type + '</p>' + actionButton + '</article>';
+      }).join('') + '</div>';
+    }
+
+    function renderInstallSteps(install) {
+      return [
+        { key: 'windows', label: 'Windows' },
+        { key: 'linux', label: 'Linux' },
+        { key: 'docker', label: 'Docker' },
+        { key: 'macos', label: 'macOS' }
+      ].map(function (section) {
+        var lines = install[section.key] || [];
+        return '<article class="dl-install-card"><h4>' + section.label + '</h4><ul>' + lines.map(function (line) { return '<li>' + line + '</li>'; }).join('') + '</ul></article>';
+      }).join('');
+    }
+
+    function renderScriptViewers(scripts) {
+      if (!scripts || !scripts.length) {
+        return '<p>No scripts attached to this release.</p>';
+      }
+
+      return scripts.map(function (script) {
+        return '<details class="script-toggle"><summary><code>Open ' + script.title + '</code></summary><div class="script-viewer" data-script-path="' + script.path + '"><div class="script-viewer-header"><code>' + script.title + '</code><button class="btn btn-secondary script-copy-btn" type="button">Copy</button></div><pre><code class="script-content">Loading script...</code></pre><p class="script-status" aria-live="polite"></p></div></details>';
+      }).join('');
+    }
+
+    function renderReleaseNoteSections(notes) {
+      var sections = [
+        { key: 'newFeatures', label: 'New Features' },
+        { key: 'improvements', label: 'Improvements' },
+        { key: 'bugFixes', label: 'Bug Fixes' },
+        { key: 'breakingChanges', label: 'Breaking Changes' },
+        { key: 'securityUpdates', label: 'Security Updates' }
+      ];
+
+      return sections.map(function (section) {
+        var lines = notes[section.key] || [];
+        return '<article class="dl-note-section"><h4>' + section.label + '</h4><ul>' + lines.map(function (line) { return '<li>' + line + '</li>'; }).join('') + '</ul></article>';
+      }).join('');
+    }
+
+    function renderDownloadHistory(downloads) {
+      return '<table class="dl-history-table"><thead><tr><th>Platform</th><th>Download</th></tr></thead><tbody>' + downloads.map(function (item) {
+        var action = item.mode === 'copy'
+          ? '<button class="btn btn-secondary js-copy-value" data-copy="' + item.action.replace(/"/g, '&quot;') + '">Copy</button>'
+          : '<a class="btn btn-primary" href="' + item.action + '">Download</a>';
+        return '<tr><td>' + item.platform + '</td><td>' + action + '</td></tr>';
+      }).join('') + '</tbody></table>';
+    }
+
+    function renderChecksums(checksums) {
+      return '<div class="dl-checksum-grid"><article><h4>SHA256</h4><code>' + checksums.sha256 + '</code><button class="btn btn-secondary js-copy-value" data-copy="' + checksums.sha256 + '">Copy</button></article><article><h4>MD5</h4><code>' + checksums.md5 + '</code><button class="btn btn-secondary js-copy-value" data-copy="' + checksums.md5 + '">Copy</button></article></div>';
+    }
+
+    function renderContent() {
+      var release = getRelease(selectedProduct, selectedVersion);
+
+      var fallbackRelease = {
+        status: release.status || 'Stable',
+        releaseDate: release.releaseDate || 'N/A',
+        dockerImage: release.dockerImage || 'N/A',
+        requirements: release.requirements || ['Docker Desktop or Engine'],
+        downloads: release.downloads || [
+          { platform: 'Windows', type: 'Download', action: '#', mode: 'download' },
+          { platform: 'Linux', type: 'Download', action: '#', mode: 'download' },
+          { platform: 'Docker', type: 'docker pull image:tag', action: 'docker pull image:tag', mode: 'copy' },
+          { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+        ],
+        install: release.install || { windows: [], linux: [], docker: [], macos: [] },
+        scripts: release.scripts || [],
+        checksums: release.checksums || { sha256: 'N/A', md5: 'N/A' },
+        releaseNotes: release.releaseNotes || { newFeatures: [], improvements: [], bugFixes: [], breakingChanges: [], securityUpdates: [] },
+        knownIssues: release.knownIssues || [],
+        upgradeNotes: release.upgradeNotes || [],
+        docs: release.docs || []
+      };
+
+      var product = releaseData[selectedProduct];
+
+      contentRoot.innerHTML = '' +
+        '<article class="dl-release-card">' +
+          '<div class="dl-release-header">' +
+            '<div class="dl-title-wrap"><h2>' + product.label + ' ' + selectedVersion + '</h2><div class="dl-release-meta">Released: ' + fallbackRelease.releaseDate + '</div></div>' +
+            stableBadge(fallbackRelease.status) +
+          '</div>' +
+          '<div class="dl-release-body">' +
+            '<section class="dl-section"><h3>Download</h3>' + renderDownloadCards(fallbackRelease.downloads) + '</section>' +
+            '<section class="dl-section"><h3>Docker Pull</h3><pre><code>' + fallbackRelease.dockerImage.replace('ghcr.io/', 'docker pull ghcr.io/') + '</code></pre></section>' +
+            '<section class="dl-section"><h3>Installation</h3><div class="dl-install-grid">' + renderInstallSteps(fallbackRelease.install) + '</div></section>' +
+            '<section class="dl-section"><h3>Script Viewer</h3>' + renderScriptViewers(fallbackRelease.scripts) + '</section>' +
+            '<section class="dl-section"><h3>Release Notes</h3><div class="dl-notes-grid">' + renderReleaseNoteSections(fallbackRelease.releaseNotes) + '</div></section>' +
+            '<section class="dl-section"><h3>Known Issues</h3><ul>' + fallbackRelease.knownIssues.map(function (item) { return '<li>' + item + '</li>'; }).join('') + '</ul></section>' +
+            '<section class="dl-section"><h3>Upgrade Notes</h3><ul>' + fallbackRelease.upgradeNotes.map(function (item) { return '<li>' + item + '</li>'; }).join('') + '</ul></section>' +
+            '<section class="dl-section"><h3>Download History</h3>' + renderDownloadHistory(fallbackRelease.downloads) + '</section>' +
+            '<section class="dl-section"><h3>Checksums</h3>' + renderChecksums(fallbackRelease.checksums) + '</section>' +
+            '<section class="dl-section"><h3>Requirements</h3><ul>' + fallbackRelease.requirements.map(function (item) { return '<li>' + item + '</li>'; }).join('') + '</ul></section>' +
+            '<section class="dl-section"><h3>Documentation</h3><ul>' + fallbackRelease.docs.map(function (doc) { return '<li><a href="' + doc.href + '">' + doc.label + '</a></li>'; }).join('') + '</ul></section>' +
+            '<section class="dl-section"><h3>Support</h3><p>For issues or questions, email <a href="mailto:support@bountybreach.com">support@bountybreach.com</a>.</p><p class="dl-eula-note">Usage of this software is subject to the <a href="legal.html">license agreement</a>.</p></section>' +
+          '</div>' +
+        '</article>';
+
+      wireCopyButtons();
+      wireScriptViewers();
+    }
+
+    function wireCopyButtons() {
+      var copyButtons = contentRoot.querySelectorAll('.js-copy-value');
+      copyButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+          var value = button.getAttribute('data-copy') || '';
+          navigator.clipboard.writeText(value).then(function () {
+            button.textContent = 'Copied';
+            setTimeout(function () {
+              button.textContent = 'Copy';
+            }, 1200);
+          });
+        });
+      });
+    }
+
+    function setStatus(viewer, message) {
+      var status = viewer.querySelector('.script-status');
+      if (status) status.textContent = message;
+    }
+
+    function wireScriptViewers() {
+      var viewers = contentRoot.querySelectorAll('.script-viewer');
+
+      viewers.forEach(function (viewer) {
+        var scriptPath = viewer.getAttribute('data-script-path');
+        var codeEl = viewer.querySelector('.script-content');
+        var copyBtn = viewer.querySelector('.script-copy-btn');
+
+        fetch(scriptPath, { cache: 'no-store' })
+          .then(function (response) {
+            if (!response.ok) {
+              throw new Error('Unable to load script');
+            }
+            return response.text();
+          })
+          .then(function (text) {
+            codeEl.textContent = text;
+            setStatus(viewer, 'Ready to copy.');
+          })
+          .catch(function () {
+            codeEl.textContent = 'Unable to load this script right now.';
+            setStatus(viewer, 'Load failed.');
+            if (copyBtn) copyBtn.disabled = true;
+          });
+
+        if (copyBtn) {
+          copyBtn.addEventListener('click', function () {
+            var textToCopy = codeEl.textContent || '';
+            navigator.clipboard.writeText(textToCopy)
+              .then(function () {
+                setStatus(viewer, 'Copied to clipboard.');
+              })
+              .catch(function () {
+                setStatus(viewer, 'Clipboard copy failed.');
+              });
+          });
+        }
+      });
+    }
+
+    renderNav();
+    renderContent();
+  })();
 </script>
 
+<script defer src="chatbase-loader.js"></script>
+<script defer src="foundation-bot-config.js"></script>
+<script defer src="foundation-bot.js"></script>
 </body>
-
 </html>
-
