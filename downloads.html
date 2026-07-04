@@ -58,6 +58,115 @@
 <script>
   (function () {
     var releaseData = {
+            oneStepDeployment: {
+        label: "One-Step Deployment",
+        versions: {
+          "v2026.07.02": {
+            status: "Stable",
+            releaseDate: "July 2, 2026",
+
+            downloads: [
+              {
+                platform: "Shell Script",
+                type: "deploy-ghcr-stack.sh",
+                action: "deploy-ghcr-stack.sh",
+                mode: "download"
+              }
+            ],
+
+            install: {
+              windows: [
+                "Open Windows PowerShell.",
+                "Navigate to the folder containing deploy-ghcr-stack.sh.",
+                "Run using Git Bash:",
+                "bash ./deploy-ghcr-stack.sh v2026.07.02"
+              ],
+
+              linux: [
+                "Open Terminal.",
+                "Navigate to the deployment folder.",
+                "chmod +x deploy-ghcr-stack.sh",
+                "./deploy-ghcr-stack.sh v2026.07.02"
+              ],
+
+              docker: [
+                "Automatically pulls all required Docker images.",
+                "Creates the complete SecureOne deployment."
+              ],
+
+              macos: [
+                "Use the Linux installation steps.",
+                "./deploy-ghcr-stack.sh v2026.07.02"
+              ]
+            },
+
+            scripts: [
+              {
+                title: "deploy-ghcr-stack.sh",
+                path: "deploy-ghcr-stack.sh"
+              }
+            ],
+
+            requirements: [
+              "Docker Engine 24.x or later",
+              "Docker Compose",
+              "Git Bash (Windows)",
+              "Linux/macOS Terminal"
+            ],
+
+            releaseNotes: {
+
+              newFeatures: [
+                "Introduced One-Step Deployment for the complete SecureOne platform.",
+                "Deploys SecureOne, AI Foundation, Scan Agents, Jenkins, and security tool containers using a single command.",
+                "Automatically pulls the latest supported container images.",
+                "Simplifies first-time installation and environment setup."
+              ],
+
+              improvements: [
+                "Reduced deployment complexity from multiple manual commands to a single script.",
+                "Improved deployment consistency across Windows, Linux, and macOS.",
+                "Automatically validates Docker availability before deployment."
+              ],
+
+              bugFixes: [
+                "Improved image pull reliability.",
+                "Better handling of existing Docker images.",
+                "Enhanced deployment logging."
+              ],
+
+              breakingChanges: [
+                "Deployment now uses release version v2026.07.02."
+              ],
+
+              securityUpdates: [
+                "Downloads only official BountyBreach container images.",
+                "Improved container version validation."
+              ]
+            },
+
+            knownIssues: [
+              "Docker Desktop must already be running.",
+              "Internet connectivity is required during the initial deployment."
+            ],
+
+            upgradeNotes: [
+              "Existing installations can rerun deploy-ghcr-stack.sh safely.",
+              "Old containers are preserved unless manually removed."
+            ],
+
+            docs: [
+              {
+                label: "Deployment Guide",
+                href: "deployment.html"
+              }
+            ],
+
+            dockerImage:
+              "deploy-ghcr-stack.sh v2026.07.02"
+          }
+        }
+      },
       secureone: {
         label: 'SecureOne',
         versions: {
