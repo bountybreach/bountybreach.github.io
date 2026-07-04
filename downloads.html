@@ -88,12 +88,47 @@
               md5: 'f4b9158a5f5f2f8f52424f5f058d7f91'
             },
             releaseNotes: {
-              newFeatures: ['Release Center UI with instant version navigation.', 'Expanded script viewer support for stack pull workflows.'],
-              improvements: ['Improved Docker startup script compatibility across OS platforms.', 'More consistent documentation links for deployment paths.'],
-              bugFixes: ['Fixed command formatting inconsistencies in install snippets.', 'Resolved script copy action issues in release details.'],
-              breakingChanges: ['Versioning format is now date-based (`vYYYY.MM.DD`).'],
-              securityUpdates: ['Hardened base image refresh and dependency updates.']
-            },
+                newFeatures: [
+                  "🤖 AI Assistant for security findings with contextual analysis",
+                  "🔍 Global AI search across SecureOne application",
+                  "🧠 AI-powered secret scanning analysis support",
+                  "🆔 Finding ID support for improved AI context accuracy",
+                  "🔗 Deep integration with BountyBreach AI Foundation",
+                  "⚡ AI-driven remediation suggestion engine",
+                  "🚀 Automated Generate Fix & GitHub Pull Request creation",
+                  "⚙️ Dynamic AI actions with configurable workflows",
+                  "🎨 Redesigned AI Assistant UI with improved accessibility"
+                ],
+
+                improvements: [
+                  "Improved AI Assistant responsiveness and UX flow",
+                  "Enhanced backend AI communication pipeline",
+                  "Optimized prompt handling moved to AI Foundation backend",
+                  "Improved stability for AI-driven workflows",
+                  "Better global navigation and AI search experience",
+                  "Reduced latency in AI request processing"
+                ],
+
+                bugFixes: [
+                  "Fixed AI API 422 validation errors",
+                  "Resolved missing API routes for AI and CSV processing",
+                  "Fixed Generate Fix & Pull Request workflow issues",
+                  "Improved reliability of AI execution pipeline",
+                  "Fixed UI inconsistencies in AI Assistant panel"
+                ],
+
+                breakingChanges: [
+                  "Prompt generation logic moved from SecureOne frontend to AI Foundation backend",
+                  "AI workflow execution now handled centrally via AI Foundation service"
+                ],
+
+                securityUpdates: [
+                  "Enhanced protection against prompt injection attacks",
+                  "Improved isolation between AI prompts and system instructions",
+                  "Strengthened backend validation for AI requests",
+                  "Hardened AI execution pipeline security controls"
+                ]
+              },
             knownIssues: ['Windows systems without Git Bash cannot run `.sh` scripts directly.', 'Some proxies may block GHCR pulls without authentication.'],
             upgradeNotes: ['If upgrading from `v3.x`, update script arguments to the new date-based version format.', 'Clear old local tags if you use image pinning by semantic versions.'],
             docs: [
@@ -135,11 +170,46 @@
               md5: '5d86855ce560656b28ee9f2dc816e7d9'
             },
             releaseNotes: {
-              newFeatures: ['New CI/CD-ready scan orchestration defaults.'],
-              improvements: ['Better startup speed for multi-agent environments.'],
-              bugFixes: ['Resolved intermittent startup order issues.'],
-              breakingChanges: ['No breaking API changes in this release.'],
-              securityUpdates: ['Updated bundled scanner images to latest stable tags.']
+              newFeatures: [
+                "🚀 Added support for the latest SecureOne AI-powered scanning workflow",
+                "🤖 Integrated with BountyBreach AI Foundation for intelligent scan analysis",
+                "🔍 Improved vulnerability detection pipeline for SAST, SCA, Secret Scanning, and Container Security",
+                "⚙️ Added support for dynamic scan agent configuration",
+                "📦 Simplified deployment and registration of scan agents using Docker",
+                "🔄 Improved agent communication with the SecureOne platform"
+              ],
+
+              improvements: [
+                "⚡ Improved scan execution performance across supported security tools",
+                "📈 Enhanced scan reliability and job scheduling",
+                "🔗 Improved communication between Scan Agents and SecureOne",
+                "🛠️ Optimized Docker startup and initialization process",
+                "📋 Improved logging and troubleshooting information",
+                "🌐 Better handling of concurrent scan requests"
+              ],
+
+              bugFixes: [
+                "🐞 Fixed intermittent scan execution failures",
+                "🐞 Fixed agent registration issues during startup",
+                "🐞 Resolved Docker container restart issues",
+                "🐞 Fixed scanner timeout handling",
+                "🐞 Improved error reporting for failed scan jobs",
+                "🐞 Fixed stability issues affecting long-running scan operations"
+              ],
+
+              breakingChanges: [
+                "⚠️ Scan Agents now require SecureOne v2026.07.02 or later",
+                "⚠️ AI-powered scan analysis requires BountyBreach AI Foundation v2026.07.02",
+                "⚠️ Legacy agent communication endpoints have been deprecated"
+              ],
+
+              securityUpdates: [
+                "🔒 Updated bundled security scanning tools to the latest supported versions",
+                "🛡️ Improved secure communication between Scan Agents and SecureOne",
+                "🔐 Enhanced authentication and authorization for agent registration",
+                "🔍 Improved validation of scan requests before execution",
+                "📦 Updated Docker base images with the latest security patches"
+              ]
             },
             knownIssues: ['Local antivirus can slow first container startup.'],
             upgradeNotes: ['Re-run `docker-start.sh` when moving from pre-2026.07 builds.'],
@@ -181,12 +251,50 @@
               md5: 'e2e7995fe137b1f2a08bfb39cf5b16f1'
             },
             releaseNotes: {
-              newFeatures: ['Expanded control-plane orchestration support.'],
-              improvements: ['Improved model routing validation prompts.'],
-              bugFixes: ['Fixed release artifact metadata generation.'],
-              breakingChanges: ['No breaking changes.'],
-              securityUpdates: ['Dependency patch refresh for orchestration services.']
-            },
+                newFeatures: [
+                  "🤖 Introduced the BountyBreach AI Foundation platform for SecureOne AI-powered security workflows",
+                  "🧠 Added centralized AI prompt orchestration for all AI-assisted security operations",
+                  "🔗 Added secure integration APIs for SecureOne and Scan Agents",
+                  "💬 Introduced AI-powered vulnerability analysis and remediation services",
+                  "⚡ Added support for dynamic AI actions and extensible AI capabilities",
+                  "📚 Centralized prompt management for improved maintainability and consistency",
+                  "🔍 Added intelligent context-aware processing for security findings",
+                  "🌐 Introduced REST APIs for AI chat, remediation generation, and security analysis"
+                ],
+
+                improvements: [
+                  "⚡ Improved AI inference performance and response times",
+                  "🛠️ Enhanced prompt routing and orchestration engine",
+                  "📈 Improved scalability for concurrent AI requests",
+                  "🔄 Optimized communication between AI Foundation, SecureOne, and Scan Agents",
+                  "🧩 Improved modular architecture for future AI capability expansion",
+                  "📋 Enhanced logging, monitoring, and diagnostics for AI services"
+                ],
+
+                bugFixes: [
+                  "🐞 Fixed AI service initialization issues",
+                  "🐞 Resolved prompt execution edge cases",
+                  "🐞 Fixed API response validation inconsistencies",
+                  "🐞 Improved reliability of AI service communication",
+                  "🐞 Resolved stability issues during high-volume AI requests",
+                  "🐞 General bug fixes and platform stability improvements"
+                ],
+
+                breakingChanges: [
+                  "⚠️ AI prompt generation has been centralized within the AI Foundation platform",
+                  "⚠️ SecureOne v2026.07.02 or later is required for full AI integration",
+                  "⚠️ Legacy direct AI prompt handling from SecureOne has been deprecated"
+                ],
+
+                securityUpdates: [
+                  "🔒 Enhanced protection against prompt injection attacks",
+                  "🛡️ Improved AI request validation and sanitization",
+                  "🔐 Strengthened authentication and authorization for AI APIs",
+                  "🔍 Improved isolation between user prompts and system instructions",
+                  "📦 Updated AI platform dependencies with the latest security patches",
+                  "✅ Enhanced secure communication between AI Foundation and connected services"
+                ]
+              },
             knownIssues: ['Initial model cache download can take several minutes.'],
             upgradeNotes: ['Validate environment variables before upgrading shared stacks.'],
             docs: [
