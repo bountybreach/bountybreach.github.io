@@ -103,7 +103,8 @@
             scripts: [
               {
                 title: "deploy-ghcr-stack.sh",
-                path: "deploy-ghcr-stack.sh"
+                //path: "One-Step-Deployment/versions/2026.07.02/deploy-ghcr-stack.sh"
+                path: "deploy-ghcr-stack-v2026.07.02.sh"
               }
             ],
 
@@ -164,8 +165,122 @@
 
             dockerImage:
               "deploy-ghcr-stack.sh v2026.07.02"
-          }
+          },
+          "v3.0.6": { 
+              status: 'Stable',
+              releaseDate: 'May 2026',
+              dockerImage: 'deploy-ghcr-stack.sh v3.0.6',
+
+              requirements: [
+                  'Docker Engine ≥ 24.x',
+                  'Linux, macOS, or Windows with Docker Desktop',
+                  'Internet connection required to download container images'
+              ],
+
+              downloads: [
+                  {
+                      platform: 'Windows',
+                      type: 'bash ./deploy-ghcr-stack.sh v3.0.6',
+                      action: 'bash ./deploy-ghcr-stack.sh v3.0.6',
+                      mode: 'copy'
+                  },
+                  {
+                      platform: 'Linux / macOS',
+                      type: './deploy-ghcr-stack.sh v3.0.6',
+                      action: 'chmod +x deploy-ghcr-stack.sh\n./deploy-ghcr-stack.sh v3.0.6',
+                      mode: 'copy'
+                  }
+              ],
+
+              install: {
+                  windows: [
+                      'Open Windows PowerShell.',
+                      'Navigate to the folder containing deploy-ghcr-stack.sh.',
+                      'Run: bash ./deploy-ghcr-stack.sh v3.0.6'
+                  ],
+
+                  linux: [
+                      'Open Terminal.',
+                      'Navigate to the deployment folder.',
+                      'Run: chmod +x deploy-ghcr-stack.sh',
+                      'Run: ./deploy-ghcr-stack.sh v3.0.6'
+                  ],
+
+                  docker: [
+                      'Automatically downloads SecureOne v3.0.6.',
+                      'Automatically downloads SecureOne Scan Agent v3.0.6.',
+                      'Automatically downloads Jenkins image.',
+                      'Automatically downloads required security tool images.'
+                  ],
+
+                  macos: [
+                      'Follow the Linux installation steps.'
+                  ]
+              },
+
+              scripts: [
+                  {
+                      title: 'deploy-ghcr-stack.sh',
+                      //path: 'One-Step-Deployment/versions/3.0.6/deploy-ghcr-stack-v3.0.6.sh'
+                      path: 'deploy-ghcr-stack-v3.0.6.sh'
+                  }
+              ],
+
+              releaseNotes: {
+                  newFeatures: [
+                      'Introduced one-step deployment for the complete SecureOne platform.',
+                      'Downloads SecureOne Platform v3.0.6.',
+                      'Downloads SecureOne Scan Agent v3.0.6.',
+                      'Downloads Jenkins Docker image.',
+                      'Downloads commonly used security tool images.',
+                      'Single-command deployment for local and self-hosted environments.'
+                  ],
+
+                  improvements: [
+                      'Simplified deployment workflow.',
+                      'Reduced installation time.',
+                      'Consistent deployment across Windows, Linux, and macOS.',
+                      'Automated Docker image retrieval.'
+                  ],
+
+                  bugFixes: [
+                      'Improved deployment script reliability.',
+                      'Enhanced image download sequencing.'
+                  ],
+
+                  breakingChanges: [
+                      'None.'
+                  ],
+
+                  securityUpdates: [
+                      'Downloads the latest approved container images.',
+                      'Ensures consistent deployment across environments.'
+                  ]
+              },
+
+              knownIssues: [
+                  'Docker Desktop or Docker Engine must be installed before running the deployment script.',
+                  'Initial image download may take several minutes depending on network speed.'
+              ],
+
+              upgradeNotes: [
+                  'Recommended deployment method for new installations.',
+                  'Existing deployments can continue using individual startup scripts if preferred.'
+              ],
+
+              docs: [
+                  {
+                      label: 'Deployment Guide',
+                      href: 'deployment.html'
+                  },
+                  {
+                      label: 'User Manual',
+                      href: 'docs.html'
+                  }
+              ]
+           }
         }
+        
       },
       secureone: {
         label: 'SecureOne',
@@ -241,8 +356,108 @@
               { label: 'Deployment Guide', href: 'deployment.html' }
             ]
           },
+          
           //'v2026.06.15': { status: 'Stable', releaseDate: 'June 15, 2026' },
           //'v2026.05.01': { status: 'Stable', releaseDate: 'May 1, 2026' }
+            'v3.0.6': {
+              status: 'Stable',
+              releaseDate: 'May 2026',
+              dockerImage: 'ghcr.io/bountybreach/secureone:v3.0.6',
+
+              requirements: [
+                  'Docker Engine ≥ 24.x',
+                  'Linux, macOS, or Windows with Docker Desktop',
+                  '4 GB RAM recommended'
+              ],
+
+              downloads: [
+                  {
+                      platform: 'Docker',
+                      type: 'docker pull ghcr.io/bountybreach/secureone:v3.0.6',
+                      action: 'docker pull ghcr.io/bountybreach/secureone:v3.0.6',
+                      mode: 'copy'
+                  }
+              ],
+
+              install: {
+                  windows: [
+                      'Open Windows PowerShell.',
+                      'Run: bash ./docker-start.sh v3.0.6',
+                      'Run: bash ./docker-run-local.sh v3.0.6'
+                  ],
+                  linux: [
+                      'chmod +x docker-start.sh docker-run-local.sh',
+                      './docker-start.sh v3.0.6',
+                      './docker-run-local.sh v3.0.6'
+                  ],
+                  docker: [
+                      'docker pull ghcr.io/bountybreach/secureone:v3.0.6'
+                  ],
+                  macos: [
+                      'Use the Linux installation steps.'
+                  ]
+              },
+
+              scripts: [
+                  {
+                      title: 'secureone/docker-start.sh',
+                      path: 'secureone/docker-start.sh'
+                  },
+                  {
+                      title: 'secureone/docker-run-local.sh',
+                      path: 'secureone/docker-run-local.sh'
+                  }
+              ],
+
+              releaseNotes: {
+                  newFeatures: [
+                      'Initial SecureOne Platform v3.0.6 release.',
+                      'Docker-based deployment support.',
+                      'Self-hosted installation using startup scripts.',
+                      'Cross-platform deployment for Windows, Linux, and macOS.'
+                  ],
+
+                  improvements: [
+                      'Improved deployment workflow.',
+                      'Simplified Docker installation.',
+                      'Standardized startup scripts.'
+                  ],
+
+                  bugFixes: [
+                      'General stability improvements.',
+                      'Deployment packaging refinements.'
+                  ],
+
+                  breakingChanges: [
+                      'None.'
+                  ],
+
+                  securityUpdates: [
+                      'Updated platform dependencies.',
+                      'Container image hardening.'
+                  ]
+              },
+
+              knownIssues: [
+                  'Git Bash is required on Windows.',
+                  'Docker Desktop must be installed.'
+              ],
+
+              upgradeNotes: [
+                  'Fresh installation recommended.'
+              ],
+
+              docs: [
+                  {
+                      label: 'User Manual',
+                      href: 'docs.html'
+                  },
+                  {
+                      label: 'Deployment Guide',
+                      href: 'deployment.html'
+                  }
+              ]
+          }
         }
       },
       scanAgents: {
@@ -324,6 +539,104 @@
           },
           //'v2026.06.15': { status: 'Stable', releaseDate: 'June 15, 2026' },
           //'v2026.06.10': { status: 'Stable', releaseDate: 'June 10, 2026' }
+          'v3.0.6': {
+                  status: 'Stable',
+                  releaseDate: 'May 2026',
+                  dockerImage: 'ghcr.io/bountybreach/secureone_scan_agent:v3.0.6',
+
+                  requirements: [
+                      'Docker Engine ≥ 24.x',
+                      'Linux, macOS, or Windows with Docker Desktop',
+                      '2 GB RAM minimum'
+                  ],
+
+                  downloads: [
+                      {
+                          platform: 'Docker',
+                          type: 'docker pull ghcr.io/bountybreach/secureone_scan_agent:v3.0.6',
+                          action: 'docker pull ghcr.io/bountybreach/secureone_scan_agent:v3.0.6',
+                          mode: 'copy'
+                      }
+                  ],
+
+                  install: {
+                      windows: [
+                          'Run: bash ./docker-start.sh v3.0.6',
+                          'Run: bash ./docker-run-local.sh v3.0.6'
+                      ],
+                      linux: [
+                          'chmod +x docker-start.sh docker-run-local.sh',
+                          './docker-start.sh v3.0.6',
+                          './docker-run-local.sh v3.0.6'
+                      ],
+                      docker: [
+                          'docker pull ghcr.io/bountybreach/secureone_scan_agent:v3.0.6'
+                      ],
+                      macos: [
+                          'Use Linux installation steps.'
+                      ]
+                  },
+
+                  scripts: [
+                      {
+                          title: 'secureone_scan_agents/docker-start.sh',
+                          path: 'secureone_scan_agents/docker-start.sh'
+                      },
+                      {
+                          title: 'secureone_scan_agents/docker-run-local.sh',
+                          path: 'secureone_scan_agents/docker-run-local.sh'
+                      }
+                  ],
+
+                  releaseNotes: {
+                      newFeatures: [
+                          'Initial SecureOne Scan Agents release.',
+                          'Docker-based Scan Agent deployment.',
+                          'Cross-platform startup scripts.',
+                          'Support for local and self-hosted scanning.'
+                      ],
+
+                      improvements: [
+                          'Improved startup reliability.',
+                          'Standardized deployment workflow.',
+                          'Simplified agent installation.'
+                      ],
+
+                      bugFixes: [
+                          'General deployment fixes.',
+                          'Improved startup compatibility.'
+                      ],
+
+                      breakingChanges: [
+                          'None.'
+                      ],
+
+                      securityUpdates: [
+                          'Updated scanner container images.',
+                          'Dependency updates and security patches.'
+                      ]
+                  },
+
+                  knownIssues: [
+                      'Docker Desktop is required.',
+                      'First image download may take several minutes.'
+                  ],
+
+                  upgradeNotes: [
+                      'Fresh installation recommended.'
+                  ],
+
+                  docs: [
+                      {
+                          label: 'Scan Agent Guide',
+                          href: 'docs.html'
+                      },
+                      {
+                          label: 'Deployment Guide',
+                          href: 'deployment.html'
+                      }
+                  ]
+              }
         }
       },
       aiFoundation: {
