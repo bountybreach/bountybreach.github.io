@@ -51,3 +51,13 @@ Before publishing, update `window.BOUNTYBREACH_FOUNDATION_BOT_CONFIG` in `founda
 
 See `foundation-proxy/README.md` for deployment and hardening guidance.
 
+AI Foundation
+This release introduces the new BB AI Foundation experience.
+Highlights include:
+* AI Foundation product pages
+* AI Foundation deployment
+* SecureAI demonstrations
+* AI explanation videos
+* AI Foundation application and database setup
+* Docker deployment support
+* Initial authentication improvements
