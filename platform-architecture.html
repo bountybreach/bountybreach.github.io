@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BountyBreach | Platform Architecture</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    pre {
+      color:#c8d8ff;
+      background:#0b1220;
+      padding:20px;
+      border-radius:10px;
+      border:1px solid #1a2d58;
+      overflow-x:auto;
+      font-size:0.85rem;
+      line-height:1.6;
+    }
+
+    .node {
+      background:#0d1729;
+      border:1px solid #1a2d58;
+      padding:12px 16px;
+      border-radius:8px;
+      display:inline-block;
+      margin:6px;
+      color:#c8d8ff;
+    }
+
+    .flow-arrow {
+      color:#4ec9ff;
+      text-align:center;
+      margin:10px 0;
+      font-size:18px;
+    }
+
+    .highlight-box {
+      border-color:#4ec9ff !important;
+      box-shadow:0 0 12px rgba(78,201,255,0.2);
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="container topbar">
+    <a class="logo" href="index.html">
+      <img src="Bounty.jpg" alt="Bounty logo">
+    </a>
+
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="why-secureone.html">Why SecureOne</a>
+      <a href="features.html">Features</a>
+      <a href="compare.html">Compare</a>
+      <a href="integrations.html">Integrations</a>
+      <a href="deployment.html">Deployment</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="docs.html">Docs</a>
+      <a href="demo.html">Demo</a>
+      <a href="contact.html">Contact</a>
+      <a href="downloads.html">Downloads</a>
+    </nav>
+
+    <div style="display:flex;gap:8px;">
+      <a class="btn btn-secondary" href="docs.html#startup">Run Locally</a>
+      <a class="btn btn-primary" href="https://secureone.bountybreach.com/auth/login" target="_blank">Login →</a>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="container">
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <span class="tag">Platform Architecture</span>
+    <h1>How SecureOne, Scan Agents, and Secure AI work together.</h1>
+    <p>
+      BountyBreach is a unified application security system that connects scanning,
+      intelligence, and remediation into one continuous security pipeline.
+    </p>
+
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="docs.html">Setup Guide</a>
+      <a class="btn btn-secondary" href="integrations.html">View Integrations</a>
+    </div>
+  </section>
+
+  <!-- CORE ARCHITECTURE -->
+  <section>
+    <h2>Platform Architecture Overview</h2>
+
+    <div class="card" style="text-align:center;">
+
+      <div class="node highlight-box">BountyBreach Platform</div>
+
+      <div class="flow-arrow">│</div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>SecureOne Platform</h3>
+          <p>
+            Central control plane for repository scanning, policies, dashboards,
+            and security orchestration.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>SecureOne Scan Agents</h3>
+          <p>
+            Distributed execution layer running SAST, SCA, Secrets, and DAST scans
+            inside your environment.
+          </p>
+        </div>
+
+        <div class="card">
+          <h3>Secure AI Intelligence</h3>
+          <p>
+            AI engine for deduplication, severity scoring, risk prioritization,
+            and vulnerability clustering.
+          </p>
+        </div>
+      </div>
+
+      <div class="flow-arrow">│</div>
+
+      <div class="card">
+        <h3>SAST • DAST • SCA • Secrets Detection</h3>
+        <p>
+          Core scanning engines that analyze source code, dependencies,
+          runtime behavior, and exposed credentials.
+        </p>
+      </div>
+
+      <div class="flow-arrow">│</div>
+
+      <div class="card highlight-box">
+        <h3>AI Triage & Prioritization Engine</h3>
+        <p>
+          Automatically reduces false positives, groups findings,
+          and prioritizes real security risks.
+        </p>
+      </div>
+
+      <div class="flow-arrow">│</div>
+
+      <div class="card">
+        <h3>Developer Action Layer</h3>
+        <p>
+          Jira tickets, pull request comments, remediation guidance,
+          and security reports delivered directly to engineering workflows.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- DATA FLOW -->
+  <section>
+    <h2>End-to-End Security Data Flow</h2>
+
+    <div class="grid">
+
+      <div class="card">
+        <h3>1. Source Control</h3>
+        <p>GitHub, GitLab, Bitbucket trigger scans on commits and pull requests.</p>
+      </div>
+
+      <div class="card">
+        <h3>2. Scan Execution</h3>
+        <p>SecureOne Scan Agents execute SAST, SCA, Secrets, and DAST jobs.</p>
+      </div>
+
+      <div class="card">
+        <h3>3. Data Normalization</h3>
+        <p>All scan results are normalized into a unified security model.</p>
+      </div>
+
+      <div class="card">
+        <h3>4. AI Processing</h3>
+        <p>Secure AI performs severity scoring, grouping, and false-positive filtering.</p>
+      </div>
+
+      <div class="card">
+        <h3>5. Developer Delivery</h3>
+        <p>Findings are sent to Jira, PR comments, dashboards, and reports.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SYSTEM DESIGN DIAGRAM -->
+  <section>
+    <h2>System Design View</h2>
+
+    <div class="card">
+<pre>
+        BountyBreach Platform
+                 │
+     ┌───────────┼────────────┐
+     │           │            │
+ SecureOne   Scan Agents   Secure AI
+     │           │            │
+     └───────────┬────────────┘
+                 │
+     SAST • DAST • SCA • Secrets
+                 │
+        AI Triage Engine
+                 │
+   Jira • Reports • Developer Fixes
+</pre>
+    </div>
+
+  </section>
+
+  <!-- VALUE STATEMENT -->
+  <section>
+    <div class="highlight">
+      <h2>Why this architecture matters</h2>
+      <p>
+        Instead of disconnected scanners, BountyBreach creates a unified security pipeline
+        where detection, intelligence, and remediation are tightly connected.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="features.html">Explore Features</a>
+        <a class="btn btn-secondary" href="pricing.html">View Pricing</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  BountyBreach · Platform Architecture for Modern Application Security
+</footer>
+
+<script defer src="chatbase-loader.js"></script>
+<script defer src="foundation-bot-config.js"></script>
+<script defer src="foundation-bot.js"></script>
+
+</body>
+</html>
