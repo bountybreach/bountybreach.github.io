@@ -174,6 +174,119 @@ gap:10px;
 
 }
 
+.roadmap-visual {
+
+display:flex;
+align-items:stretch;
+justify-content:center;
+gap:12px;
+flex-wrap:nowrap;
+overflow-x:auto;
+padding:20px 5px;
+margin-top:40px;
+
+
+}
+
+
+.road-stage {
+
+width:260px;
+
+background:#0d1729;
+
+border:1px solid #1a2d58;
+
+border-radius:18px;
+
+padding:25px;
+
+text-align:center;
+
+transition:.3s;
+
+flex:0 0 260px;
+
+min-height:420px;
+
+}
+
+
+.road-stage:hover {
+
+transform:translateY(-10px);
+
+border-color:#4ec9ff;
+
+box-shadow:
+0 0 30px rgba(78,201,255,.25);
+
+}
+
+
+.road-icon {
+
+font-size:45px;
+
+margin-bottom:15px;
+
+}
+
+
+.road-stage h3 {
+
+color:#78c8ff;
+
+}
+
+
+.road-stage p {
+
+color:#c8d8ff;
+
+font-weight:bold;
+
+}
+
+
+.road-stage ul {
+
+text-align:left;
+
+color:#a9bddf;
+
+font-size:.9rem;
+
+}
+
+
+.road-arrow {
+
+display:flex;
+
+font-size:40px;
+
+color:#4ec9ff;
+
+align-items:center;
+
+justify-content:center;
+
+flex:0 0 35px;
+
+
+}
+
+
+@media(max-width:900px){
+
+.road-arrow{
+
+transform:rotate(90deg);
+
+}
+
+}
 
 </style>
 
@@ -341,7 +454,120 @@ Explore Features
 
 </section>
 
+<section>
 
+<h2>
+BountyBreach Security Evolution Roadmap
+</h2>
+
+<p class="section-subtitle">
+From Application Security Platform to AI-Native Security Operating System
+</p>
+
+
+<div class="roadmap-visual">
+
+
+<div class="road-stage current">
+
+<h3>
+Current Platform + AI Foundation
+</h3>
+
+<p>
+SecureOne AppSec Platform with
+AI-Powered Security Intelligence
+</p>
+
+<ul>
+<li>SAST</li>
+<li>SCA</li>
+<li>Secrets</li>
+<li>DAST</li>
+<li>SecureOne Scan Agents</li>
+<li>AI Triage</li>
+<li>AI Fix Generation</li>
+<li>Create Fix</li>
+<li>GitHub Pull Request Creation</li>
+<li>Local LLM Support</li>
+<li>Customer Managed LLM Configuration</li>
+<li>AI Foundation</li>
+<li>AI SDK Foundation</li>
+</ul>
+
+</div>
+
+
+
+<div class="road-arrow">
+→
+</div>
+
+
+
+<div class="road-stage automation">
+
+<h3>
+2026-2027
+</h3>
+
+<p>
+Autonomous Security Operations
+</p>
+
+<ul>
+<li>AI Security Agent Across SecureOne</li>
+<li>AI Powered Dashboard</li>
+<li>Natural Language Security Queries</li>
+<li>Custom Dashboard Generation Using SDK</li>
+<li>SCA AI Auto Fix</li>
+<li>Secret Remediation Workflow</li>
+<li>Vault Integration</li>
+<li>AI Security Workflows</li>
+<li>AI Pen Testing</li>
+<li>Agent Skills & Tool Integration</li>
+</ul>
+
+</div>
+
+
+
+<div class="road-arrow">
+→
+</div>
+
+
+
+<div class="road-stage enterprise">
+
+<h3>
+2027+
+</h3>
+
+<p>
+Enterprise Security Platform
+</p>
+
+<ul>
+<li>Cloud Security</li>
+<li>AWS Misconfiguration Detection</li>
+<li>Web Application Firewall (WAF)</li>
+<li>Kubernetes Security</li>
+<li>Calico Network Security</li>
+<li>Runtime Intelligence</li>
+<li>Runtime SAST</li>
+<li>Mobile Security</li>
+<li>Malware Detection</li>
+<li>Infrastructure as Code Security</li>
+</ul>
+
+</div>
+
+
+
+</div>
+
+</section>
 
 
 
