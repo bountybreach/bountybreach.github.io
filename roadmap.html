@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>BountyBreach Roadmap | AI Security Platform Evolution</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="description"
+content="BountyBreach product roadmap covering SecureOne, AI Foundation, AI Auto Fix, AI Security Agents, Enterprise Security, Cloud Security, and Autonomous AI Security capabilities.">
+
+<link rel="stylesheet" href="styles.css">
+
+<script defer src="marketing-cta.js"></script>
+
+
+<style>
+
+/* ==========================
+   ROADMAP COMPONENTS
+========================== */
+
+
+.roadmap-timeline {
+
+display:flex;
+flex-direction:column;
+gap:30px;
+
+}
+
+
+.roadmap-card {
+
+background:#0d1729;
+
+border:1px solid #1a2d58;
+
+border-radius:16px;
+
+padding:28px;
+
+transition:.3s;
+
+}
+
+
+.roadmap-card:hover {
+
+border-color:#4ec9ff;
+
+box-shadow:
+0 0 25px rgba(78,201,255,.2);
+
+transform:translateY(-5px);
+
+}
+
+
+
+.roadmap-header {
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:20px;
+
+}
+
+
+.phase {
+
+color:#4ec9ff;
+
+font-size:.85rem;
+
+letter-spacing:1px;
+
+text-transform:uppercase;
+
+}
+
+
+
+.badge {
+
+background:#12243f;
+
+color:#78c8ff;
+
+padding:6px 12px;
+
+border-radius:20px;
+
+font-size:.8rem;
+
+}
+
+
+
+.feature-grid {
+
+display:grid;
+
+grid-template-columns:
+repeat(auto-fit,minmax(230px,1fr));
+
+gap:18px;
+
+}
+
+
+
+.feature-item {
+
+background:#08101f;
+
+border:1px solid #1a2d58;
+
+padding:18px;
+
+border-radius:12px;
+
+}
+
+
+
+.feature-item h4 {
+
+color:#78c8ff;
+
+margin-bottom:8px;
+
+}
+
+
+
+.feature-item p {
+
+font-size:.9rem;
+
+color:#c8d8ff;
+
+}
+
+
+
+.ai-box {
+
+border-color:#4ec9ff;
+
+box-shadow:
+0 0 20px rgba(78,201,255,.15);
+
+}
+
+
+
+@media(max-width:768px){
+
+.roadmap-header{
+
+flex-direction:column;
+
+align-items:flex-start;
+
+gap:10px;
+
+}
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+<div class="container topbar">
+
+
+<a class="logo" href="index.html">
+
+<img src="Bounty.jpg" alt="Bounty logo">
+
+</a>
+
+
+
+<nav>
+
+<a href="index.html">
+Home
+</a>
+
+<a href="why-secureone.html">
+Why SecureOne
+</a>
+
+<a href="features.html">
+Features
+</a>
+
+
+<a href="platform-architecture.html">
+Architecture
+</a>
+
+
+<a class="active" href="roadmap.html">
+Roadmap
+</a>
+
+
+<a href="integrations.html">
+Integrations
+</a>
+
+
+<a href="deployment.html">
+Deployment
+</a>
+
+
+<a href="pricing.html">
+Pricing
+</a>
+
+
+<a href="docs.html">
+Docs
+</a>
+
+
+<a href="contact.html">
+Contact
+</a>
+
+
+</nav>
+
+
+
+<div style="display:flex;gap:8px;">
+
+
+<a class="btn btn-secondary"
+href="docs.html#startup">
+
+Run Locally
+
+</a>
+
+
+<a class="btn btn-primary"
+href="https://secureone.bountybreach.com/auth/login"
+target="_blank">
+
+Login →
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+</header>
+
+
+
+<main class="container">
+
+
+
+<!-- HERO -->
+
+
+<section class="page-hero">
+
+
+<span class="tag">
+Product Roadmap
+</span>
+
+
+
+<h1>
+Building the Future of AI-Powered Security
+</h1>
+
+
+
+<p>
+
+BountyBreach is evolving from an application security platform
+into an AI-native enterprise security ecosystem combining
+SecureOne, AI Foundation, autonomous agents, remediation,
+cloud security, and intelligent security operations.
+
+</p>
+
+
+
+<div class="hero-actions">
+
+
+<a class="btn btn-primary"
+href="platform-architecture.html">
+
+Platform Architecture
+
+</a>
+
+
+
+<a class="btn btn-secondary"
+href="features.html">
+
+Explore Features
+
+</a>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- VISION -->
+
+
+<section>
+
+
+<h2>
+Our Vision
+</h2>
+
+
+<div class="card">
+
+
+<p>
+
+Build an intelligent security platform where AI helps
+security teams discover, understand, prioritize, and
+remediate risks throughout the complete software
+development lifecycle.
+
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- CURRENT PLATFORM -->
+
+
+<section>
+
+
+<h2>
+Available Today
+</h2>
+
+
+
+<div class="roadmap-card">
+
+
+<div class="roadmap-header">
+
+<div class="phase">
+Current Platform
+</div>
+
+
+<div class="badge">
+Available
+</div>
+
+
+</div>
+
+
+
+<div class="feature-grid">
+
+
+<div class="feature-item">
+
+<h4>
+SecureOne Platform
+</h4>
+
+<p>
+SAST, SCA, Secrets, DAST, dashboards,
+findings management, integrations.
+</p>
+
+</div>
+
+
+
+<div class="feature-item">
+
+<h4>
+SecureOne Scan Agents
+</h4>
+
+<p>
+Self-hosted scanning agents running
+inside customer environments.
+</p>
+
+</div>
+
+
+
+<div class="feature-item">
+
+<h4>
+AI Triage
+</h4>
+
+<p>
+AI-based severity analysis,
+prioritization, and finding intelligence.
+</p>
+
+</div>
+
+
+
+
+<div class="feature-item">
+
+<h4>
+AI Auto Fix
+</h4>
+
+<p>
+Generate remediation guidance and
+code fixes for SAST vulnerabilities.
+</p>
+
+</div>
+
+
+<div class="feature-item">
+
+<h4>
+AI Foundation
+</h4>
+
+<p>
+Multi-LLM support including local LLM,
+Ollama, and customer-managed models.
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- PHASE 1 -->
+
+
+<section>
+
+
+<h2>
+Roadmap
+</h2>
+
+
+<div class="roadmap-timeline">
+
+
+
+<div class="roadmap-card ai-box">
+
+
+<div class="roadmap-header">
+
+
+<div class="phase">
+Phase 1 - AI Expansion
+</div>
+
+
+<div class="badge">
+2026
+</div>
+
+
+</div>
+
+
+
+<div class="feature-grid">
+
+
+<div class="feature-item">
+
+<h4>
+AI Security Agent
+</h4>
+
+<p>
+Interactive AI assistant available
+throughout SecureOne.
+</p>
+
+</div>
+
+
+
+<div class="feature-item">
+
+<h4>
+AI Dashboard
+</h4>
+
+<p>
+Users ask questions and generate
+security insights using natural language.
+</p>
+
+</div>
+
+
+
+
+<div class="feature-item">
+
+<h4>
+AI SDK
+</h4>
+
+<p>
+Create custom dashboards,
+widgets, reports, and integrations.
+</p>
+
+</div>
+
+
+
+
+<div class="feature-item">
+
+<h4>
+Generic AI Foundation
+</h4>
+
+<p>
+Standalone AI platform supporting
+any enterprise application.
+</p>
+
+</div>
+
+
+
+<div class="feature-item">
+
+<h4>
+AI File Scanner
+</h4>
+
+<p>
+Scan individual files without requiring
+full repository scanning.
+</p>
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+<!-- ================================
+     PHASE 2
+================================ -->
+
+
+<div class="roadmap-card">
+
+
+<div class="roadmap-header">
+
+
+<div class="phase">
+Phase 2 - Autonomous Security
+</div>
+
+
+<div class="badge">
+2026 - 2027
+</div>
+
+
+</div>
+
+
+
+<div class="feature-grid">
+
+
+
+<div class="feature-item">
+
+<h4>
+AI Auto Fix Expansion
+</h4>
+
+<p>
+
+Expand AI remediation beyond SAST
+to SCA, Secrets, and additional security
+domains.
+
+</p>
+
+<ul>
+
+<li>SAST Fix Generation</li>
+<li>SCA Dependency Upgrade</li>
+<li>Secret Remediation</li>
+<li>Pull Request Automation</li>
+
+</ul>
+
+</div>
+
+
+
+
+<div class="feature-item">
+
+<h4>
+AI Pull Request Generation
+</h4>
+
+<p>
+
+SecureOne AI will automatically generate
+code fixes and create GitHub pull requests.
+
+</p>
+
+
+<ul>
+
+<li>Generate remediation code</li>
+<li>Create branch</li>
+<li>Commit changes</li>
+<li>Create Pull Request</li>
+<li>Explain security changes</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Intelligent Secret Management
+</h4>
+
+
+<p>
+
+Move beyond masking secrets by securely
+migrating credentials into enterprise
+secret storage.
+
+</p>
+
+
+<ul>
+
+<li>Detect exposed credentials</li>
+<li>Integrate existing Vault</li>
+<li>Create secure references</li>
+<li>Update application configuration</li>
+<li>Support runtime secret retrieval</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Enterprise Secret Storage
+</h4>
+
+
+<p>
+
+Support customer-managed secret
+platforms or provide BountyBreach
+Secret Storage.
+
+</p>
+
+
+<ul>
+
+<li>HashiCorp Vault</li>
+<li>AWS Secrets Manager</li>
+<li>Azure Key Vault</li>
+<li>Google Secret Manager</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+AI Root Cause Analysis
+</h4>
+
+
+<p>
+
+AI analyzes vulnerabilities beyond
+detection by identifying why issues
+exist and how to prevent recurrence.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+AI Risk Prediction
+</h4>
+
+
+<p>
+
+Predict future security risks using
+historical findings, code changes,
+and security trends.
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- ================================
+     AI FOUNDATION EVOLUTION
+================================ -->
+
+
+<div class="roadmap-card ai-box">
+
+
+<div class="roadmap-header">
+
+
+<div class="phase">
+AI Foundation Evolution
+</div>
+
+
+<div class="badge">
+Long Term AI Platform
+</div>
+
+
+</div>
+
+
+
+
+<p>
+
+BountyBreach AI Foundation will evolve from a
+SecureOne intelligence layer into a generic enterprise
+AI platform capable of powering multiple applications.
+
+</p>
+
+
+
+
+<div class="feature-grid">
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Standalone AI Platform
+</h4>
+
+
+<p>
+
+Organizations can deploy AI Foundation
+independently and connect their own
+data sources and applications.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Multi-LLM Architecture
+</h4>
+
+
+<p>
+
+Support enterprise AI models through
+configuration-based integration.
+
+</p>
+
+
+<ul>
+
+<li>OpenAI</li>
+<li>Ollama</li>
+<li>Local Llama</li>
+<li>Customer Hosted LLM</li>
+<li>Future AI Providers</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+AI Agent Framework
+</h4>
+
+
+<p>
+
+Enable specialized AI agents that can
+perform security and business workflows.
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Agent Skills</h4>
+
+
+<p>
+
+Introduce reusable AI capabilities
+that agents can dynamically use.
+
+</p>
+
+
+<ul>
+
+<li>Security Analysis Skill</li>
+<li>Code Review Skill</li>
+<li>Report Generation Skill</li>
+<li>Jira Automation Skill</li>
+<li>Cloud Analysis Skill</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+AI Tool Integration</h4>
+
+
+<p>
+
+Expand AI interoperability through
+modern tool and protocol support.
+
+</p>
+
+
+<ul>
+
+<li>Tool Calling</li>
+<li>Agent Skills</li>
+<li>RTK Support</li>
+<li>Caveman Support</li>
+<li>External AI Plugins</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+AI Memory & Knowledge</h4>
+
+
+<p>
+
+Create enterprise knowledge-aware AI
+using secure data retrieval and context.
+
+</p>
+
+
+<ul>
+
+<li>Security Knowledge Base</li>
+<li>RAG Architecture</li>
+<li>Historical Findings</li>
+<li>Organization Knowledge</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<!-- ================================
+     AI SDK DASHBOARD PLATFORM
+================================ -->
+
+
+<div class="roadmap-card">
+
+
+<div class="roadmap-header">
+
+
+<div class="phase">
+AI SDK & Dashboard Platform
+</div>
+
+
+<div class="badge">
+Future Capability
+</div>
+
+
+</div>
+
+
+
+<p>
+
+Customers will be able to build custom
+security dashboards and applications using
+BountyBreach AI SDK.
+
+</p>
+
+
+
+
+<div class="feature-grid">
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Natural Language Dashboard Creation
+</h4>
+
+
+<p>
+
+Users describe what they need and AI
+generates dashboards automatically.
+
+</p>
+
+
+<p>
+
+Example:
+
+<br>
+
+"Create a dashboard showing critical
+vulnerabilities by application and team."
+
+</p>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Custom Widgets</h4>
+
+
+<p>
+
+SDK-generated widgets including:
+
+</p>
+
+
+<ul>
+
+<li>Charts</li>
+<li>Tables</li>
+<li>Risk Scores</li>
+<li>Compliance Metrics</li>
+<li>Security KPIs</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Structured AI Responses
+</h4>
+
+
+<p>
+
+Standardized SDK responses allow any
+application to consume AI output.
+
+</p>
+
+
+<pre>
+{
+ "finding_id":"SEC-12345",
+ "severity":"Critical",
+ "recommendation":{
+   "fix":"Upgrade package",
+   "confidence":95
+ }
+}
+</pre>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+<!-- ================================
+     PHASE 3
+================================ -->
+
+
+<div class="roadmap-card">
+
+
+<div class="roadmap-header">
+
+
+<div class="phase">
+Phase 3 - Enterprise Security Platform
+</div>
+
+
+<div class="badge">
+2027+
+</div>
+
+
+</div>
+
+
+
+<p>
+
+Expand BountyBreach beyond application security into
+a complete enterprise security platform covering cloud,
+network, infrastructure, and advanced offensive security.
+
+</p>
+
+
+
+<div class="feature-grid">
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+AI Penetration Testing
+</h4>
+
+
+<p>
+
+AI-assisted offensive security capabilities
+to continuously identify and validate security risks.
+
+</p>
+
+
+<ul>
+
+<li>AI reconnaissance</li>
+
+<li>API security testing</li>
+
+<li>Authentication testing</li>
+
+<li>Business logic testing</li>
+
+<li>AI application security testing</li>
+
+<li>Human-assisted validation</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Web Application Firewall (WAF)
+</h4>
+
+
+<p>
+
+Protect production applications from
+real-time attacks.
+
+</p>
+
+
+<ul>
+
+<li>SQL Injection protection</li>
+
+<li>XSS protection</li>
+
+<li>API abuse detection</li>
+
+<li>Bot protection</li>
+
+<li>Threat blocking</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Cloud Security</h4>
+
+
+<p>
+
+Identify cloud risks and security
+misconfigurations across enterprise
+cloud environments.
+
+</p>
+
+
+<ul>
+
+<li>AWS security assessment</li>
+
+<li>IAM analysis</li>
+
+<li>Public resource detection</li>
+
+<li>Network exposure analysis</li>
+
+<li>Cloud compliance checks</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Kubernetes & Network Security
+</h4>
+
+
+<p>
+
+Extend security visibility into
+containerized environments.
+
+</p>
+
+
+<ul>
+
+<li>Calico integration</li>
+
+<li>Network policy analysis</li>
+
+<li>Container security</li>
+
+<li>Runtime protection</li>
+
+<li>Namespace isolation</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Infrastructure as Code Security
+</h4>
+
+
+<p>
+
+Secure infrastructure before deployment.
+
+</p>
+
+
+<ul>
+
+<li>Terraform scanning</li>
+
+<li>CloudFormation scanning</li>
+
+<li>Kubernetes YAML analysis</li>
+
+<li>Docker configuration checks</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Mobile Application Security
+</h4>
+
+
+<p>
+
+Extend application security coverage
+to mobile applications.
+
+</p>
+
+
+<ul>
+
+<li>Android security testing</li>
+
+<li>iOS security testing</li>
+
+<li>API security validation</li>
+
+<li>Mobile secret detection</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+Malware Detection</h4>
+
+
+<p>
+
+Detect malicious content across
+software supply chains.
+
+</p>
+
+
+<ul>
+
+<li>Repository scanning</li>
+
+<li>Container scanning</li>
+
+<li>Artifact analysis</li>
+
+<li>Package validation</li>
+
+</ul>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ================================
+     SECUREONE AI EVOLUTION
+================================ -->
+
+
+<div class="roadmap-card ai-box">
+
+
+<div class="roadmap-header">
+
+
+<div class="phase">
+SecureOne AI Evolution
+</div>
+
+
+<div class="badge">
+Continuous Development
+</div>
+
+
+</div>
+
+
+
+<p>
+
+As AI Foundation expands, SecureOne will continuously
+adopt new AI capabilities and become an intelligent
+security operations assistant.
+
+</p>
+
+
+
+<div class="feature-grid">
+
+
+
+<div class="feature-item">
+
+
+<h4>
+AI Security Agent Everywhere
+</h4>
+
+
+<p>
+
+An interactive AI assistant available
+throughout SecureOne pages.
+
+</p>
+
+
+<ul>
+
+<li>Finding explanation</li>
+
+<li>Risk analysis</li>
+
+<li>Report generation</li>
+
+<li>Security recommendations</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+AI Powered Analytics</h4>
+
+
+<p>
+
+Users can ask security questions
+using natural language.
+
+</p>
+
+
+Examples:
+
+<ul>
+
+<li>
+Show critical findings this week
+</li>
+
+<li>
+Show security trends
+</li>
+
+<li>
+Compare application risk
+</li>
+
+<li>
+Find vulnerable teams
+</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+AI Developer Assistant</h4>
+
+
+<p>
+
+Help developers fix security issues
+without leaving their workflow.
+
+</p>
+
+
+<ul>
+
+<li>Explain vulnerability</li>
+
+<li>Generate fix</li>
+
+<li>Create PR</li>
+
+<li>Verify remediation</li>
+
+</ul>
+
+
+</div>
+
+
+
+
+
+
+<div class="feature-item">
+
+
+<h4>
+AI Compliance Assistant
+</h4>
+
+
+<p>
+
+Automatically generate security
+evidence and compliance reports.
+
+</p>
+
+
+<ul>
+
+<li>SOC 2</li>
+
+<li>PCI DSS</li>
+
+<li>ISO 27001</li>
+
+<li>OWASP</li>
+
+</ul>
+
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- ================================
+     FUTURE ARCHITECTURE
+================================ -->
+
+
+<section>
+
+
+<h2>
+Long-Term Vision
+</h2>
+
+
+
+<div class="card highlight">
+
+
+
+<h3>
+From Security Platform to AI Security Operating System
+</h3>
+
+
+
+<p>
+
+BountyBreach is building an AI-native security ecosystem
+where intelligent agents continuously monitor, analyze,
+and improve software security throughout the entire
+development lifecycle.
+
+</p>
+
+
+
+<div class="feature-grid">
+
+
+
+<div class="feature-item">
+
+<h4>
+Application Security
+</h4>
+
+<p>
+SAST • DAST • SCA • Secrets
+</p>
+
+</div>
+
+
+
+
+<div class="feature-item">
+
+<h4>
+AI Intelligence
+</h4>
+
+<p>
+AI Foundation • Agents • SDK • Automation
+</p>
+
+</div>
+
+
+
+
+<div class="feature-item">
+
+<h4>
+Enterprise Security
+</h4>
+
+<p>
+Cloud • Kubernetes • WAF • Network Security
+</p>
+
+</div>
+
+
+
+
+<div class="feature-item">
+
+<h4>
+Developer Security
+</h4>
+
+<p>
+AI Fix • Pull Requests • Jira • Reports
+</p>
+
+</div>
+
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+<!-- ================================
+     FINAL CTA
+================================ -->
+
+
+<section>
+
+
+<div class="highlight">
+
+
+<h2>
+The Future of Security is Intelligent and Automated
+</h2>
+
+
+
+<p>
+
+BountyBreach combines security scanning,
+AI intelligence, autonomous remediation,
+and enterprise security capabilities into
+one extensible platform.
+
+</p>
+
+
+
+<div class="hero-actions">
+
+
+<a class="btn btn-primary"
+href="platform-architecture.html">
+
+Explore Architecture
+
+</a>
+
+
+
+<a class="btn btn-secondary"
+href="features.html">
+
+Explore SecureOne
+
+</a>
+
+
+
+<a class="btn btn-secondary"
+href="contact.html">
+
+Contact Us
+
+</a>
+
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+</main>
+
+
+
+
+
+
+<!-- FOOTER -->
+
+
+<footer>
+
+
+<div class="container"
+style="
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:24px;
+padding:35px 0;">
+
+
+
+<div>
+
+<h4>
+Platform
+</h4>
+
+
+<a href="features.html">
+Features
+</a>
+
+<br>
+
+<a href="platform-architecture.html">
+Architecture
+</a>
+
+<br>
+
+<a href="roadmap.html">
+Roadmap
+</a>
+
+
+</div>
+
+
+
+
+
+<div>
+
+<h4>
+Products
+</h4>
+
+
+<a href="secureone-clarity.html">
+SecureOne
+</a>
+
+
+<br>
+
+
+<a href="platform-architecture.html">
+SecureOne Scan Agents
+</a>
+
+
+<br>
+
+
+<a href="#">
+AI Foundation
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div>
+
+<h4>
+Resources
+</h4>
+
+
+<a href="docs.html">
+Documentation
+</a>
+
+
+<br>
+
+
+<a href="guides.html">
+Guides
+</a>
+
+
+<br>
+
+
+<a href="security-insights.html">
+Security Insights
+</a>
+
+
+</div>
+
+
+
+
+
+
+
+<div>
+
+<h4>
+Company
+</h4>
+
+
+<a href="about.html">
+About BountyBreach
+</a>
+
+
+<br>
+
+
+<a href="contact.html">
+Contact
+</a>
+
+
+<br>
+
+
+<a href="legal.html">
+Legal
+</a>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+<div class="container"
+style="
+border-top:1px solid #1a2d58;
+padding:15px 0;">
+
+
+<span style="color:#6a80b0;font-size:.85rem;">
+
+
+© 2025–2026 BountyBreach.
+SecureOne · SecureOne Scan Agents · Secure AI Foundation
+
+
+</span>
+
+
+</div>
+
+
+</footer>
+
+
+
+
+
+<script defer src="chatbase-loader.js"></script>
+
+<script defer src="foundation-bot-config.js"></script>
+
+<script defer src="foundation-bot.js"></script>
+
+
+
+</body>
+
+</html>
