@@ -7,6 +7,410 @@
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="downloads.css">
   <script defer src="marketing-cta.js"></script>
+  <style>
+    /* ── Hero ── */
+.dl-hero {
+  padding: 44px 0 20px;
+}
+
+.dl-hero h1 {
+  margin: 0 0 8px;
+  color: var(--heading);
+  font-size: 1.95rem;
+  line-height: 1.2;
+}
+
+.dl-hero p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 900px;
+  font-size: 0.92rem;
+}
+
+/* ── Page Layout ── */
+.dl-page-wrap {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: start;
+  padding: 8px 0 64px;
+}
+
+.dl-sidebar {
+  position: sticky;
+  top: 84px;
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  background: rgba(10, 16, 34, 0.7);
+  padding: 14px;
+}
+
+.dl-sidebar-title {
+  margin: 0 0 12px;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.11em;
+  color: var(--muted);
+}
+
+.dl-product-group {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  background: rgba(4, 10, 24, 0.5);
+}
+
+.dl-product-group summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 10px 12px;
+  font-size: 0.88rem;
+  color: var(--heading);
+  font-weight: 700;
+}
+
+.dl-product-group summary::-webkit-details-marker {
+  display: none;
+}
+
+.dl-product-group summary::before {
+  content: "▶";
+  margin-right: 8px;
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+.dl-product-group[open] summary::before {
+  content: "▼";
+}
+
+.dl-version-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 8px 10px;
+}
+
+.dl-version-item {
+  width: 100%;
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--muted);
+  border-radius: 8px;
+  padding: 7px 9px;
+  text-align: left;
+  font-size: 0.83rem;
+  cursor: pointer;
+}
+
+.dl-version-item:hover {
+  border-color: var(--border);
+  background: rgba(78, 201, 255, 0.08);
+  color: var(--text);
+}
+
+.dl-version-item.is-active {
+  border-color: rgba(78, 201, 255, 0.6);
+  background: rgba(78, 201, 255, 0.14);
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.star {
+  color: #facc15;
+}
+
+/* ── Main content ── */
+.dl-releases-main {
+  min-width: 0;
+}
+
+.dl-release-card {
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  background: rgba(9, 17, 36, 0.68);
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.28);
+}
+
+.dl-release-header {
+  padding: 18px 22px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.dl-title-wrap h2 {
+  margin: 0;
+  color: var(--heading);
+  font-size: 1.2rem;
+}
+
+.dl-release-meta {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.83rem;
+}
+
+.badge {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 5px 10px;
+}
+
+.badge-stable {
+  background: #dcfce7;
+  color: #166534;
+}
+
+.badge-beta {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+.dl-release-body {
+  padding: 8px 18px 18px;
+}
+
+.dl-section {
+  border-bottom: 1px solid var(--border);
+  padding: 14px 4px 18px;
+}
+
+.dl-section:last-child {
+  border-bottom: none;
+  padding-bottom: 8px;
+}
+
+.dl-section h3 {
+  margin: 0 0 10px;
+  color: var(--heading);
+  font-size: 0.98rem;
+}
+
+.dl-section h4 {
+  margin: 0 0 8px;
+  color: var(--heading);
+  font-size: 0.9rem;
+}
+
+.dl-section p,
+.dl-section li {
+  color: var(--text);
+  font-size: 0.88rem;
+  line-height: 1.6;
+}
+
+.dl-section ul {
+  margin: 0;
+  padding-left: 18px;
+}
+
+.dl-section pre {
+  margin: 0;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(2, 10, 24, 0.7);
+  overflow: auto;
+  padding: 10px 12px;
+}
+
+.dl-section code {
+  font-family: "SF Mono", "Fira Code", monospace;
+  font-size: 0.8rem;
+  background: rgba(78, 201, 255, 0.08);
+  color: var(--accent);
+  padding: 1px 4px;
+  border-radius: 4px;
+}
+
+/* ── Download cards ── */
+.dl-platform-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.dl-platform-card {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(2, 10, 20, 0.52);
+  padding: 12px;
+  min-height: 118px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dl-platform-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  flex: 1;
+}
+
+/* ── Install + notes ── */
+.dl-install-grid,
+.dl-notes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.dl-install-card,
+.dl-note-section {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  background: rgba(2, 10, 20, 0.52);
+}
+
+/* ── Script viewer ── */
+.script-toggle {
+  margin: 10px 0;
+}
+
+.script-toggle summary {
+  cursor: pointer;
+  color: var(--accent);
+  font-size: 0.84rem;
+  list-style: none;
+}
+
+.script-toggle summary::-webkit-details-marker {
+  display: none;
+}
+
+.script-toggle summary::before {
+  content: "▶";
+  margin-right: 8px;
+  font-size: 0.66rem;
+}
+
+.script-toggle[open] summary::before {
+  content: "▼";
+}
+
+.script-viewer {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(8, 12, 28, 0.55);
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.script-viewer-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.18);
+}
+
+.script-viewer pre {
+  margin: 0;
+  max-height: 320px;
+  overflow: auto;
+  padding: 12px;
+}
+
+.script-status {
+  margin: 0;
+  padding: 0 12px 12px;
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+/* ── Tables + checksums ── */
+.dl-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.dl-history-table th,
+.dl-history-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  font-size: 0.84rem;
+}
+
+.dl-history-table th {
+  color: var(--muted);
+  background: rgba(2, 10, 20, 0.7);
+}
+
+.dl-checksum-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.dl-checksum-grid article {
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  background: rgba(2, 10, 20, 0.52);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dl-checksum-grid code {
+  display: block;
+  overflow-wrap: anywhere;
+  line-height: 1.5;
+}
+
+.dl-eula-note {
+  margin-top: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 10px;
+  font-size: 0.77rem;
+  color: var(--muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 1080px) {
+  .dl-page-wrap {
+    grid-template-columns: 1fr;
+  }
+
+  .dl-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 900px) {
+  .dl-platform-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dl-install-grid,
+  .dl-notes-grid,
+  .dl-checksum-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .dl-platform-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  </style>
 </head>
 <body>
 
