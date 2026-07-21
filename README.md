@@ -61,3 +61,11 @@ Highlights include:
 * AI Foundation application and database setup
 * Docker deployment support
 * Initial authentication improvements
+
+## Recent Updates
+
+### 2026-07-20
+
+- Documentation workflow aligned to repository guide.
+- Added `CHANGELOG.md` with an `Unreleased` section for ongoing release notes.
+- README updated to keep latest project updates grouped at the bottom.
