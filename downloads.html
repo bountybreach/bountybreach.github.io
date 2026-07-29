@@ -465,6 +465,109 @@
             oneStepDeployment: {
         label: "One-Step Deployment",
         versions: {
+          "v2026.07.27": {
+            status: "Stable",
+            releaseDate: "July 27, 2026",
+
+            downloads: [
+              {
+                platform: "Windows",
+                type: "bash ./deploy-ghcr-stack.sh v2026.07.27",
+                action: "bash ./deploy-ghcr-stack.sh v2026.07.27",
+                mode: "copy"
+              },
+              {
+                platform: "Linux / macOS",
+                type: "./deploy-ghcr-stack.sh v2026.07.27",
+                action: "chmod +x deploy-ghcr-stack.sh\n./deploy-ghcr-stack.sh v2026.07.27",
+                mode: "copy"
+              }
+            ],
+
+            install: {
+              windows: [
+                "Open Windows PowerShell.",
+                "Navigate to the folder containing deploy-ghcr-stack.sh.",
+                "Run using Git Bash:",
+                "bash ./deploy-ghcr-stack.sh v2026.07.27"
+              ],
+
+              linux: [
+                "Open Terminal.",
+                "Navigate to the deployment folder.",
+                "chmod +x deploy-ghcr-stack.sh",
+                "./deploy-ghcr-stack.sh v2026.07.27"
+              ],
+
+              docker: [
+                "Automatically pulls SecureOne, SecureOne Scan Agent, and AI Foundation images for v2026.07.27.",
+                "Creates the complete SecureOne stack deployment."
+              ],
+
+              macos: [
+                "Use the Linux installation steps.",
+                "./deploy-ghcr-stack.sh v2026.07.27"
+              ]
+            },
+
+            scripts: [],
+
+            requirements: [
+              "Docker Engine 24.x or later",
+              "Docker Compose",
+              "Git Bash (Windows)",
+              "Linux/macOS Terminal"
+            ],
+
+            releaseNotes: {
+
+              newFeatures: [
+                "One-step deployment support for the v2026.07.27 platform release set.",
+                "Includes SecureOne enterprise AI, authentication, and security enhancements.",
+                "Includes SecureOne Scan Agent secure console authentication and session security updates.",
+                "Includes AI Foundation enterprise authentication, deployment, and administration improvements."
+              ],
+
+              improvements: [
+                "Streamlines full stack rollout with a single deployment command.",
+                "Improves deployment consistency across Windows, Linux, and macOS.",
+                "Aligns stack deployment with secure authentication and session-oriented console access workflows."
+              ],
+
+              bugFixes: [
+                "Improves operational reliability by deploying aligned component versions in one flow."
+              ],
+
+              breakingChanges: [
+                "Deployment now supports release version v2026.07.27."
+              ],
+
+              securityUpdates: [
+                "Deploys the secure console authentication model and session hardening updates included in v2026.07.27 releases.",
+                "Reduces risk of version drift between platform components by deploying a coordinated release set."
+              ]
+            },
+
+            knownIssues: [
+              "Docker Desktop must already be running.",
+              "Internet connectivity is required during the initial deployment."
+            ],
+
+            upgradeNotes: [
+              "Use deploy-ghcr-stack.sh with v2026.07.27 to roll out the coordinated release set.",
+              "Review SecureOne, Scan Agent, and AI Foundation release notes for authentication and password policy changes before production rollout."
+            ],
+
+            docs: [
+              {
+                label: "Deployment Guide",
+                href: "deployment.html"
+              }
+            ],
+
+            dockerImage:
+              "deploy-ghcr-stack.sh v2026.07.27"
+          },
           "v2026.07.02": {
             status: "Stable",
             releaseDate: "July 2, 2026",
@@ -689,6 +792,67 @@
       secureone: {
         label: 'SecureOne',
         versions: {
+          'v2026.07.27': {
+            status: 'Stable',
+            releaseDate: 'July 27, 2026',
+            dockerImage: 'ghcr.io/bountybreach/secureone:v2026.07.27',
+            requirements: ['Docker Engine ≥ 24.x', 'Linux, macOS, or Windows with Docker Desktop', '4 GB RAM recommended'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Installer', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/secureone:v2026.07.27', action: 'docker pull ghcr.io/bountybreach/secureone:v2026.07.27', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Open PowerShell in your script folder.', 'Run: bash ./docker-start.sh v2026.07.27', 'Run: bash ./docker-run-local.sh v2026.07.27'],
+              linux: ['Open terminal in your script folder.', 'Run: chmod +x docker-start.sh docker-run-local.sh', 'Run: ./docker-start.sh v2026.07.27', 'Run: ./docker-run-local.sh v2026.07.27'],
+              docker: ['Pull image: docker pull ghcr.io/bountybreach/secureone:v2026.07.27', 'Run startup scripts for first-time setup.'],
+              macos: ['Follow Linux steps in Terminal.', 'If image exists locally, run only ./docker-run-local.sh v2026.07.27.']
+            },
+            scripts: [
+              { title: 'secureone/docker-start.sh', path: 'secureone/docker-start.sh' },
+              { title: 'secureone/docker-run-local.sh', path: 'secureone/docker-run-local.sh' }
+            ],
+            releaseNotes: {
+              newFeatures: [
+                'AI Gateway integration in the SecureOne UI with supporting router, model, and template management.',
+                'AI Assistant integration path through AI Gateway to AI Foundation and local Ollama actions.',
+                'Automatic provisioning of default SecureOne resources during Super Admin bootstrap.',
+                'Configurable password history and password reuse policy controls.',
+                'Enterprise authentication administration interface.',
+                'Group-based configurable user edit permissions.',
+                'Scan Agent console URL management.',
+                'Secure Scan Agent console authentication using short-lived token exchange.'
+              ],
+              improvements: [
+                'AI Gateway settings can be configured directly from the UI without editing environment configuration files or restarting the application.',
+                'Authentication and authorization architecture has been enhanced to better support enterprise SSO providers and RBAC.',
+                'Scan Agent console access workflow has been redesigned with a more secure session-oriented authentication model.',
+                'Documentation added for enterprise SSO architecture and maintenance guidelines for README and CHANGELOG workflows.'
+              ],
+              bugFixes: [
+                'Prevented reuse of the default password during the initial password change process.',
+                'Resolved Scan Agent online status detection issues during setup.',
+                'Fixed provider configuration save failures in enterprise authentication setup.',
+                'Addressed UI styling issues and provider form improvements within authentication management.'
+              ],
+              breakingChanges: [
+                'None.'
+              ],
+              securityUpdates: [
+                'Strengthened password policy enforcement with configurable password history and reuse restrictions.',
+                'Reduced authentication token exposure by introducing short-lived Scan Agent authentication flows.',
+                'Improved authorization controls through group-based user edit permissions and enhanced enterprise authentication administration.'
+              ]
+            },
+            knownIssues: ['Windows systems without Git Bash cannot run .sh scripts directly.', 'Some proxies may block GHCR pulls without authentication.'],
+            upgradeNotes: ['Review AI Gateway configuration, now managed directly from the SecureOne UI.', 'Review password policy settings for password history and reuse requirements.', 'Review enterprise authentication configuration if using SSO providers.', 'Update Scan Agent console access integrations to the secure short-lived authentication flow.'],
+            docs: [
+              { label: 'User Manual', href: 'docs.html' },
+              { label: 'Product Overview', href: 'features.html' },
+              { label: 'Deployment Guide', href: 'deployment.html' }
+            ]
+          },
           'v2026.07.02': {
             status: 'Stable',
             releaseDate: 'July 2, 2026',
@@ -867,6 +1031,62 @@
       scanAgents: {
         label: 'SecureOne Scan Agents',
         versions: {
+          'v2026.07.27': {
+            status: 'Stable',
+            releaseDate: 'July 27, 2026',
+            dockerImage: 'ghcr.io/bountybreach/secureone_scan_agent:v2026.07.27',
+            requirements: ['Docker Engine ≥ 24.x', 'Linux, macOS, or Windows with Docker Desktop', '2 GB RAM minimum'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Agent Bundle', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Agent Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/secureone_scan_agent:v2026.07.27', action: 'docker pull ghcr.io/bountybreach/secureone_scan_agent:v2026.07.27', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Run: bash ./docker-start.sh v2026.07.27', 'Run: bash ./docker-run-local.sh v2026.07.27'],
+              linux: ['Run: chmod +x docker-start.sh docker-run-local.sh', 'Run: ./docker-start.sh v2026.07.27', 'Run: ./docker-run-local.sh v2026.07.27'],
+              docker: ['Pull image and launch using local orchestrator scripts.'],
+              macos: ['Use Linux commands in macOS Terminal.']
+            },
+            scripts: [
+              { title: 'secureone_scan_agents/docker-start.sh', path: 'secureone_scan_agents/docker-start.sh' },
+              { title: 'secureone_scan_agents/docker-run-local.sh', path: 'secureone_scan_agents/docker-run-local.sh' }
+            ],
+            releaseNotes: {
+              newFeatures: [
+                'SecureOne Console authentication integration for Scan Agents.',
+                'Support for validating SecureOne short-lived console authentication tokens.',
+                'Secure console login exchange endpoint for authentication handoff.',
+                'Session cookie management for authenticated console access.',
+                'JWT validation for SecureOne-issued console access tokens.',
+                'Tenant-level and agent-level authorization checks.',
+                'Protected console routes requiring authenticated user sessions.'
+              ],
+              improvements: [
+                'Improved console session handling to align with SecureOne secure authentication architecture.',
+                'Added README and CHANGELOG update guidelines to standardize documentation maintenance and future release note generation.'
+              ],
+              bugFixes: [
+                'None.'
+              ],
+              breakingChanges: [
+                'Console authentication now uses secure token exchange and cookie-based sessions instead of URL-based JWT parameters.',
+                'Integrations using the previous URL-based JWT console flow must be updated to the new authentication process.'
+              ],
+              securityUpdates: [
+                'Replaced URL-based JWT authentication with a secure cookie-based session flow.',
+                'Strengthened console access by requiring authenticated sessions for protected routes.',
+                'Enforced scoped authorization using tenant-level and agent-level access validation.',
+                'Reduced authentication token exposure through short-lived token exchange and secure session cookies.'
+              ]
+            },
+            knownIssues: ['Local antivirus can slow first container startup.'],
+            upgradeNotes: ['Update any automation or integrations that rely on URL-based JWT authentication for console access.', 'Existing authorization policies still apply, with additional tenant-level and agent-level validation during console access.'],
+            docs: [
+              { label: 'Agent Docs', href: 'docs.html' },
+              { label: 'Integrations', href: 'integrations.html' }
+            ]
+          },
           'v2026.07.02': {
             status: 'Stable',
             releaseDate: 'July 2, 2026',
@@ -1046,6 +1266,62 @@
       aiFoundation: {
         label: 'BountyBreach AI Foundation',
         versions: {
+          'v2026.07.27': {
+            status: 'Stable',
+            releaseDate: 'July 27, 2026',
+            dockerImage: 'ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.07.27',
+            requirements: ['Docker Engine ≥ 24.x', 'Linux, macOS, or Windows with Docker Desktop', '8 GB RAM recommended for local AI workflows'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Foundation Bundle', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.07.27', action: 'docker pull ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.07.27', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Install Docker Desktop and run project startup scripts from PowerShell + Git Bash.'],
+              linux: ['Use compose or startup scripts from project root.'],
+              docker: ['Pull and run the foundation image with required environment variables.'],
+              macos: ['Use Linux install flow in Terminal.']
+            },
+            scripts: [
+              { title: 'bountybreach-ai-foundation/docker-start.sh', path: 'bountybreach-ai-foundation/docker-start.sh' },
+              { title: 'bountybreach-ai-foundation/docker-run-local.sh', path: 'bountybreach-ai-foundation/docker-run-local.sh' }
+            ],
+            releaseNotes: {
+              newFeatures: [
+                'Enterprise authentication administration UI.',
+                'Audit and Password Policy management sections with navigation toggles.',
+                'Ollama Docker URL configuration support for container-based AI integration.',
+                'Local Docker build and run workflow scripts.',
+                'Docker image lifecycle automation for build, push, pull, and run workflows.'
+              ],
+              improvements: [
+                'Improved AI Foundation integration alignment for proxy and foundation base URL workflows.',
+                'Standardized localhost and Docker host port configuration to reduce environment-specific inconsistencies.',
+                'Enhanced deployment workflows for more predictable local and containerized environments.',
+                'Added README and CHANGELOG update guidelines to standardize documentation and ongoing maintenance.'
+              ],
+              bugFixes: [
+                'Fixed an issue where the default administrator password could be restored after a service restart even after being changed.',
+                'Fixed handling of unsaved password changes on the Edit User page.',
+                'Resolved a database-related runtime error that impacted application stability.'
+              ],
+              breakingChanges: [
+                'None.'
+              ],
+              securityUpdates: [
+                'Improved credential security by preserving administrator password changes across service restarts.',
+                'Strengthened administrator password management during user update workflows.',
+                'Enhanced overall password handling to reduce the risk of unintended credential resets.'
+              ]
+            },
+            knownIssues: ['Initial model cache download can take several minutes.'],
+            upgradeNotes: ['Configure the Ollama Docker URL when deploying in containerized environments.', 'Review proxy and AI Foundation base URL settings for aligned integration behavior.', 'Update local Docker workflows to use build, push, pull, and run automation scripts.', 'No manual action is required for existing administrator passwords; changed passwords now persist across restarts.'],
+            docs: [
+              { label: 'Foundation Docs', href: 'docs.html' },
+              { label: 'Admin Panel Guide', href: 'ADMIN_PANEL_QUICKSTART.md' }
+            ]
+          },
           'v2026.07.02': {
             status: 'Stable',
             releaseDate: 'July 2, 2026',
@@ -1128,7 +1404,7 @@
     };
 
     var selectedProduct = 'secureone';
-    var selectedVersion = 'v2026.07.02';
+    var selectedVersion = 'v2026.07.27';
     var navRoot = document.getElementById('releaseNav');
     var contentRoot = document.getElementById('releaseContent');
 
@@ -1140,15 +1416,36 @@
       return status === 'Beta' ? '<span class="badge badge-beta">Beta</span>' : '<span class="badge badge-stable">Stable</span>';
     }
 
+    function versionSortValue(version) {
+      var dateMatch = /^v(\d{4})\.(\d{2})\.(\d{2})$/.exec(version);
+      if (dateMatch) {
+        return parseInt(dateMatch[1] + dateMatch[2] + dateMatch[3], 10);
+      }
+
+      var semverMatch = /^v(\d+)\.(\d+)\.(\d+)$/.exec(version);
+      if (semverMatch) {
+        return (parseInt(semverMatch[1], 10) * 1000000) + (parseInt(semverMatch[2], 10) * 1000) + parseInt(semverMatch[3], 10);
+      }
+
+      return 0;
+    }
+
+    function getLatestVersionKey(versionKeys) {
+      return versionKeys.slice().sort(function (a, b) {
+        return versionSortValue(b) - versionSortValue(a);
+      })[0];
+    }
+
     function renderNav() {
       var html = Object.keys(releaseData).map(function (productKey) {
         var product = releaseData[productKey];
         var versionKeys = Object.keys(product.versions);
+        var latestVersion = getLatestVersionKey(versionKeys);
         var isOpen = productKey === selectedProduct;
 
         var items = versionKeys.map(function (version) {
           var activeClass = productKey === selectedProduct && version === selectedVersion ? 'is-active' : '';
-          var isLatest = version === 'v2026.07.02' ? '<span class="star">★</span>' : '';
+          var isLatest = version === latestVersion ? '<span class="star">★</span>' : '';
           return '<button class="dl-version-item ' + activeClass + '" data-product="' + productKey + '" data-version="' + version + '">' + version + ' ' + isLatest + '</button>';
         }).join('');
 
