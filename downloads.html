@@ -465,6 +465,115 @@
             oneStepDeployment: {
         label: "One-Step Deployment",
         versions: {
+          "v2026.08.18": {
+            status: "Stable",
+            releaseDate: "August 18, 2026",
+
+            downloads: [
+              {
+                platform: "Shell Script",
+                type: "deploy-ghcr-stack-v2026.08.18.sh",
+                action: "deploy-ghcr-stack-v2026.08.18.sh",
+                mode: "download"
+              },
+              {
+                platform: "Windows",
+                type: "bash ./deploy-ghcr-stack.sh v2026.08.18",
+                action: "bash ./deploy-ghcr-stack.sh v2026.08.18",
+                mode: "copy"
+              },
+              {
+                platform: "Linux / macOS",
+                type: "./deploy-ghcr-stack.sh v2026.08.18",
+                action: "chmod +x deploy-ghcr-stack.sh\n./deploy-ghcr-stack.sh v2026.08.18",
+                mode: "copy"
+              }
+            ],
+
+            install: {
+              windows: [
+                "Open Windows PowerShell.",
+                "Navigate to the folder containing deploy-ghcr-stack.sh.",
+                "Run using Git Bash:",
+                "bash ./deploy-ghcr-stack.sh v2026.08.18"
+              ],
+
+              linux: [
+                "Open Terminal.",
+                "Navigate to the deployment folder.",
+                "chmod +x deploy-ghcr-stack.sh",
+                "./deploy-ghcr-stack.sh v2026.08.18"
+              ],
+
+              docker: [
+                "Automatically pulls SecureOne, SecureOne Scan Agent, and AI Foundation images for v2026.08.18.",
+                "Creates the complete SecureOne stack deployment."
+              ],
+
+              macos: [
+                "Use the Linux installation steps.",
+                "./deploy-ghcr-stack.sh v2026.08.18"
+              ]
+            },
+
+            scripts: [],
+
+            requirements: [
+              "Docker Engine 24.x or later",
+              "Docker Compose",
+              "Git Bash (Windows)",
+              "Linux/macOS Terminal"
+            ],
+
+            releaseNotes: {
+              newFeatures: [
+                "One-step deployment support for the v2026.08.18 platform release set.",
+                "Includes SecureOne AI resource planning, campaign, and business bucket workflows.",
+                "Includes SecureOne Scan Agent secure console authentication and session security updates.",
+                "Includes AI Foundation enterprise authentication, deployment, and administration improvements."
+              ],
+
+              improvements: [
+                "Streamlines full stack rollout with a single deployment command.",
+                "Improves deployment consistency across Windows, Linux, and macOS.",
+                "Aligns stack deployment with secure authentication, campaign planning, and repository metadata inspection workflows."
+              ],
+
+              bugFixes: [
+                "Improves operational reliability by deploying aligned component versions in one flow.",
+                "Refines deployment consistency for the latest SecureOne release set."
+              ],
+
+              breakingChanges: [
+                "Deployment now supports release version v2026.08.18."
+              ],
+
+              securityUpdates: [
+                "Deploys the secure console authentication model and session hardening updates included in v2026.08.18 releases.",
+                "Reduces risk of version drift between platform components by deploying a coordinated release set."
+              ]
+            },
+
+            knownIssues: [
+              "Docker Desktop must already be running.",
+              "Internet connectivity is required during the initial deployment."
+            ],
+
+            upgradeNotes: [
+              "Use deploy-ghcr-stack.sh with v2026.08.18 to roll out the coordinated release set.",
+              "Review SecureOne, Scan Agent, and AI Foundation release notes for authentication, campaign, and password policy changes before production rollout."
+            ],
+
+            docs: [
+              {
+                label: "Deployment Guide",
+                href: "deployment.html"
+              }
+            ],
+
+            dockerImage:
+              "deploy-ghcr-stack.sh v2026.08.18"
+          },
           "v2026.07.27": {
             status: "Stable",
             releaseDate: "July 27, 2026",
@@ -804,6 +913,68 @@
       secureone: {
         label: 'SecureOne',
         versions: {
+          'v2026.08.18': {
+            status: 'Stable',
+            releaseDate: 'August 18, 2026',
+            dockerImage: 'ghcr.io/bountybreach/secureone:v2026.08.18',
+            requirements: ['Docker Engine ≥ 24.x', 'Linux, macOS, or Windows with Docker Desktop', '4 GB RAM recommended'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Installer', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/secureone:v2026.08.18', action: 'docker pull ghcr.io/bountybreach/secureone:v2026.08.18', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Open PowerShell in your script folder.', 'Run: bash ./docker-start.sh v2026.08.18', 'Run: bash ./docker-run-local.sh v2026.08.18'],
+              linux: ['Open terminal in your script folder.', 'Run: chmod +x docker-start.sh docker-run-local.sh', 'Run: ./docker-start.sh v2026.08.18', 'Run: ./docker-run-local.sh v2026.08.18'],
+              docker: ['Pull image: docker pull ghcr.io/bountybreach/secureone:v2026.08.18', 'Run startup scripts for first-time setup.'],
+              macos: ['Follow Linux steps in Terminal.', 'If image exists locally, run only ./docker-run-local.sh v2026.08.18.']
+            },
+            scripts: [
+              { title: 'secureone/docker-start.sh', path: 'secureone/docker-start.sh' },
+              { title: 'secureone/docker-run-local.sh', path: 'secureone/docker-run-local.sh' }
+            ],
+            releaseNotes: {
+              newFeatures: [
+                'Added a default 90-day trial license for SecureOne.',
+                'Added AI Scan Resource Planner support for repository-level resource planning.',
+                'Added repository metadata collection and inspection support for AI-based recommendations.',
+                'Added metadata source support for repository information.',
+                'Added campaign scan execution plan support for AI-assisted campaign planning.',
+                'Added Organization Campaign CRUD functionality with RBAC support.',
+                'Added Business Bucket management UI and GitHub repository picker workflows.',
+                'Added AI execution plan management directly from View Metadata.'
+              ],
+              improvements: [
+                'Improved repository metadata inspection and planner workflows in the SecureOne UI.',
+                'Added validation to ensure only valid repositories are selected before submitting a resource-planning request.',
+                'Enhanced campaign and business bucket integration across the platform.',
+                'Improved navigation with hierarchical scan menus, organization navigation, and campaign-aware flows.',
+                'Strengthened AI execution-plan generation, tenant-aware payload handling, and user feedback.',
+                'Updated SecureOne documentation for console URL management, permissions, audit logging, and environment-aware validation.'
+              ],
+              bugFixes: [
+                'Resolved UI issues in the resource-planning and execution-plan workflows.',
+                'Improved handling of invalid or incomplete repository selections during AI planning.',
+                'Improved campaign modal behavior and Generate Plan workflow reliability.'
+              ],
+              breakingChanges: [
+                'None.'
+              ],
+              securityUpdates: [
+                'Continued secure console access and authentication/session handling improvements.',
+                'Added secure console URL management and environment-aware validation.',
+                'Improved permissions and audit logging documentation for console access operations.'
+              ]
+            },
+            knownIssues: ['Windows systems without Git Bash cannot run .sh scripts directly.', 'Some proxies may block GHCR pulls without authentication.'],
+            upgradeNotes: ['Review AI Resource Planner configuration and repository metadata collection before generating plans.', 'Review campaign and business bucket mappings for new organization-level scanning workflows.', 'Validate any enterprise authentication and console access integrations after upgrading.', 'The 90-day trial license is enabled by default for evaluation use.'],
+            docs: [
+              { label: 'User Manual', href: 'docs.html' },
+              { label: 'Product Overview', href: 'features.html' },
+              { label: 'Deployment Guide', href: 'deployment.html' }
+            ]
+          },
           'v2026.07.27': {
             status: 'Stable',
             releaseDate: 'July 27, 2026',
@@ -1043,6 +1214,55 @@
       scanAgents: {
         label: 'SecureOne Scan Agents',
         versions: {
+          'v2026.08.18': {
+            status: 'Stable',
+            releaseDate: 'August 18, 2026',
+            dockerImage: 'ghcr.io/bountybreach/secureone_scan_agent:v2026.08.18',
+            requirements: ['Docker Engine ≥ 24.x', 'Linux, macOS, or Windows with Docker Desktop', '2 GB RAM minimum'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Agent Bundle', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Agent Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/secureone_scan_agent:v2026.08.18', action: 'docker pull ghcr.io/bountybreach/secureone_scan_agent:v2026.08.18', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Run: bash ./docker-start.sh v2026.08.18', 'Run: bash ./docker-run-local.sh v2026.08.18'],
+              linux: ['Run: chmod +x docker-start.sh docker-run-local.sh', 'Run: ./docker-start.sh v2026.08.18', 'Run: ./docker-run-local.sh v2026.08.18'],
+              docker: ['Pull image and launch using local orchestrator scripts.'],
+              macos: ['Use Linux commands in macOS Terminal.']
+            },
+            scripts: [
+              { title: 'secureone_scan_agents/docker-start.sh', path: 'secureone_scan_agents/docker-start.sh' },
+              { title: 'secureone_scan_agents/docker-run-local.sh', path: 'secureone_scan_agents/docker-run-local.sh' }
+            ],
+            releaseNotes: {
+              newFeatures: [
+                'Added 90-day trial licenses for AI Foundation and Scan Agents, along with the other SecureOne applications.',
+                'Users can now evaluate these components for 90 days before upgrading to a paid license.',
+                'Provides a consistent trial experience across the SecureOne platform.'
+              ],
+              improvements: [
+                'Improved platform-wide licensing consistency for SecureOne components.',
+                'Aligns trial and evaluation flows with the broader SecureOne licensing experience.'
+              ],
+              bugFixes: [
+                'None.'
+              ],
+              breakingChanges: [
+                'None.'
+              ],
+              securityUpdates: [
+                'Maintains the same licensing and evaluation safeguards across SecureOne applications.',
+                'Improves consistency for trial-based product onboarding and upgrade transitions.'
+              ]
+            },
+            knownIssues: ['Local antivirus can slow first container startup.'],
+            upgradeNotes: ['Review licensing and trial behavior before production rollout.', 'Existing SecureOne deployments can continue using current settings while evaluating the new trial experience.'],
+            docs: [
+              { label: 'Agent Docs', href: 'docs.html' },
+              { label: 'Integrations', href: 'integrations.html' }
+            ]
+          },
           'v2026.07.27': {
             status: 'Stable',
             releaseDate: 'July 27, 2026',
@@ -1278,6 +1498,66 @@
       aiFoundation: {
         label: 'BountyBreach AI Foundation',
         versions: {
+          'v2026.08.18': {
+            status: 'Stable',
+            releaseDate: 'August 18, 2026',
+            dockerImage: 'ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.08.18',
+            requirements: ['Docker Engine ≥ 24.x', 'Linux, macOS, or Windows with Docker Desktop', '8 GB RAM recommended for local AI workflows'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Foundation Bundle', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.08.18', action: 'docker pull ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.08.18', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Install Docker Desktop and run project startup scripts from PowerShell + Git Bash.'],
+              linux: ['Use compose or startup scripts from project root.'],
+              docker: ['Pull and run the foundation image with required environment variables.'],
+              macos: ['Use Linux install flow in Terminal.']
+            },
+            scripts: [
+              { title: 'bountybreach-ai-foundation/docker-start.sh', path: 'bountybreach-ai-foundation/docker-start.sh' },
+              { title: 'bountybreach-ai-foundation/docker-run-local.sh', path: 'bountybreach-ai-foundation/docker-run-local.sh' }
+            ],
+            releaseNotes: {
+              newFeatures: [
+                'Added a default 3-month (90-day) trial license for AI Foundation.',
+                'Added dedicated Campaign Scan Execution Plan models to support AI-driven resource planning.',
+                'Stores aggregated AI requests and execution plan responses for campaign planning workflows.',
+                'Supports association of execution plans with campaigns and business buckets.',
+                'Added repository mappings to track repositories included in each AI execution plan.',
+                'Kept AI execution planning separate from existing Repository Intelligence data.',
+                'Added dedicated request and response models for execution-plan workflows.',
+                'Introduced the /ai/execution-plan API endpoint.',
+                'Preserved complete execution-plan context during AI prompt construction.',
+                'Added the SecureOne AI Execution Plan design documentation to define architecture and workflow.'
+              ],
+              improvements: [
+                'Improved AI execution plan payload structure for more reliable planning workflows.',
+                'Enhanced campaign and business bucket association logic for execution plan storage.',
+                'Better separated execution-plan data from repository intelligence to reduce cross-context contamination.',
+                'Improved AI prompt construction to preserve execution-plan context with structured payloads.'
+              ],
+              bugFixes: [
+                'Improved validation and stability for execution plan persistence and association workflows.',
+                'Resolved data separation issues between execution-plan records and repository intelligence records.'
+              ],
+              breakingChanges: [
+                'None.'
+              ],
+              securityUpdates: [
+                'Strengthened execution-plan data isolation to keep planning context separate from repository metadata records.',
+                'Improved tenant-aware and campaign-aware handling for AI execution-plan operations.',
+                'Enhanced auditing and data traceability for campaign-based AI planning workflows.'
+              ]
+            },
+            knownIssues: ['Initial model cache download can take several minutes.'],
+            upgradeNotes: ['Review the new execution-plan design documentation before deploying campaign-based AI planning workflows.', 'Validate any custom integrations using the /ai/execution-plan endpoint.', 'Review campaign and business bucket mappings for execution-plan association and repository tracking.'],
+            docs: [
+              { label: 'Foundation Docs', href: 'docs.html' },
+              { label: 'Admin Panel Guide', href: 'ADMIN_PANEL_QUICKSTART.md' }
+            ]
+          },
           'v2026.07.27': {
             status: 'Stable',
             releaseDate: 'July 27, 2026',
@@ -1416,7 +1696,7 @@
     };
 
     var selectedProduct = 'secureone';
-    var selectedVersion = 'v2026.07.27';
+    var selectedVersion = 'v2026.08.18';
     var navRoot = document.getElementById('releaseNav');
     var contentRoot = document.getElementById('releaseContent');
 
