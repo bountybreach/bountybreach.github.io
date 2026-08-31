@@ -465,6 +465,121 @@
             oneStepDeployment: {
         label: "One-Step Deployment",
         versions: {
+          "v2026.08.27": {
+            status: "Stable",
+            releaseDate: "August 27, 2026",
+
+            downloads: [
+              {
+                platform: "Shell Script",
+                type: "deploy-ghcr-stack-v2026.08.27.sh",
+                action: "deploy-ghcr-stack-v2026.08.27.sh",
+                mode: "download"
+              },
+              {
+                platform: "Windows",
+                type: "bash ./deploy-ghcr-stack.sh v2026.08.27",
+                action: "bash ./deploy-ghcr-stack.sh v2026.08.27",
+                mode: "copy"
+              },
+              {
+                platform: "Linux / macOS",
+                type: "./deploy-ghcr-stack.sh v2026.08.27",
+                action: "chmod +x deploy-ghcr-stack.sh\n./deploy-ghcr-stack.sh v2026.08.27",
+                mode: "copy"
+              }
+            ],
+
+            install: {
+              windows: [
+                "Open Windows PowerShell.",
+                "Navigate to the folder containing deploy-ghcr-stack.sh.",
+                "Run using Git Bash:",
+                "bash ./deploy-ghcr-stack.sh v2026.08.27"
+              ],
+
+              linux: [
+                "Open Terminal.",
+                "Navigate to the deployment folder.",
+                "chmod +x deploy-ghcr-stack.sh",
+                "./deploy-ghcr-stack.sh v2026.08.27"
+              ],
+
+              docker: [
+                "Automatically pulls SecureOne, SecureOne Scan Agents, and AI Foundation images for v2026.08.27.",
+                "Creates the complete SecureOne stack deployment."
+              ],
+
+              macos: [
+                "Use the Linux installation steps.",
+                "./deploy-ghcr-stack.sh v2026.08.27"
+              ]
+            },
+
+            scripts: [],
+
+            requirements: [
+              "Docker Engine 24.x or later",
+              "Docker Compose",
+              "Git Bash (Windows)",
+              "Linux/macOS Terminal"
+            ],
+
+            releaseNotes: {
+              newFeatures: [
+                "One-step deployment support for the v2026.08.27 platform release set.",
+                "Includes the Existing AI Execution Plans workflow where admins can review and manage previously generated AI execution plans.",
+                "Includes AI Input and AI Output review support for each execution plan.",
+                "Includes AI Input Review tool selection for All, Semgrep, Snyk, GitLeaks, and other supported scanning tools.",
+                "Includes AI execution-plan prompt workflows for selecting all repositories or specific repositories.",
+                "Includes AI-generated Scan Agent hardware recommendations (CPU, processor, RAM, and related resources).",
+                "Includes input-versus-output comparison views so users can validate how each AI recommendation was generated.",
+                "Includes scripts that automatically bundle license files during Docker and binary build processes.",
+                "Includes a default 365-day trial license across platform components."
+              ],
+
+              improvements: [
+                "Streamlines full stack rollout with a single deployment command.",
+                "Improves execution-plan governance by supporting review, edit, delete, and recreation workflows.",
+                "Improves release packaging consistency by excluding .md files from release/update artifacts.",
+                "Aligns stack deployment with the latest AI execution planning and licensing workflows."
+              ],
+
+              bugFixes: [
+                "Improves reliability of cross-component version alignment during deployment.",
+                "Reduces configuration drift for license paths and runtime startup checks."
+              ],
+
+              breakingChanges: [
+                "Deployment now supports release version v2026.08.27."
+              ],
+
+              securityUpdates: [
+                "Improves license-file handling consistency across containerized deployments.",
+                "Reduces operational risk by shipping coordinated, validated platform components in one deployment flow."
+              ]
+            },
+
+            knownIssues: [
+              "Docker Desktop must already be running.",
+              "Internet connectivity is required during the initial deployment."
+            ],
+
+            upgradeNotes: [
+              "Use deploy-ghcr-stack.sh with v2026.08.27 to roll out the coordinated release set.",
+              "Review SecureOne, Scan Agents, and AI Foundation release notes for AI execution-plan and licensing updates before production rollout."
+            ],
+
+            docs: [
+              {
+                label: "Deployment Guide",
+                href: "deployment.html"
+              }
+            ],
+
+            dockerImage:
+              "deploy-ghcr-stack.sh v2026.08.27"
+          },
           "v2026.08.18": {
             status: "Stable",
             releaseDate: "August 18, 2026",
@@ -913,6 +1028,65 @@
       secureone: {
         label: 'SecureOne',
         versions: {
+          'v2026.08.27': {
+            status: 'Stable',
+            releaseDate: 'August 27, 2026',
+            dockerImage: 'ghcr.io/bountybreach/secureone:v2026.08.27',
+            requirements: ['Docker Engine ≥ 24.x', 'Linux, macOS, or Windows with Docker Desktop', '4 GB RAM recommended'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Installer', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/secureone:v2026.08.27', action: 'docker pull ghcr.io/bountybreach/secureone:v2026.08.27', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Open PowerShell in your script folder.', 'Run: bash ./docker-start.sh v2026.08.27', 'Run: bash ./docker-run-local.sh v2026.08.27'],
+              linux: ['Open terminal in your script folder.', 'Run: chmod +x docker-start.sh docker-run-local.sh', 'Run: ./docker-start.sh v2026.08.27', 'Run: ./docker-run-local.sh v2026.08.27'],
+              docker: ['Pull image: docker pull ghcr.io/bountybreach/secureone:v2026.08.27', 'Run startup scripts for first-time setup.'],
+              macos: ['Follow Linux steps in Terminal.', 'If image exists locally, run only ./docker-run-local.sh v2026.08.27.']
+            },
+            scripts: [
+              { title: 'secureone/docker-start.sh', path: 'secureone/docker-start.sh' },
+              { title: 'secureone/docker-run-local.sh', path: 'secureone/docker-run-local.sh' }
+            ],
+            releaseNotes: {
+              newFeatures: [
+                'Added an Existing AI Execution Plans section where admins can view and manage previously generated AI execution plans.',
+                'Added AI Input and AI Output review support for each AI execution plan.',
+                'Added AI Input Review tool selection support for All, Semgrep, Snyk, GitLeaks, and other supported scan tools.',
+                'Added AI execution-plan prompts that let admins select all repositories or specific repositories for AI analysis.',
+                'Added AI-driven Scan Agent hardware recommendations, including CPU, processor, RAM, and related resource guidance.',
+                'Added compare views for SecureOne input, AI output, and the final AI execution plan to improve recommendation traceability.',
+                'Added support for reviewing, editing, deleting, and recreating stored AI execution plans.',
+                'Added scripts to automatically include license files during Docker and binary build workflows.',
+                'Added a default 365-day trial license.'
+              ],
+              improvements: [
+                'Improved AI execution-plan UX with clearer review and management flows for existing plans.',
+                'Improved recommendation accuracy by allowing admins to select scan tools during AI Input Review.',
+                'Improved release/update packaging by excluding .md files from release artifacts.',
+                'Improved Docker and local-run validation for license path consistency under /app/data/license.'
+              ],
+              bugFixes: [
+                'Fixed deployment issues where host mounts could hide image-baked license files.',
+                'Fixed build-stage selection to ensure runtime images include expected licensing artifacts.'
+              ],
+              breakingChanges: [
+                'None.'
+              ],
+              securityUpdates: [
+                'Strengthened license-file delivery and runtime verification in container startup workflows.',
+                'Improved consistency of trial-license activation and validation behavior.'
+              ]
+            },
+            knownIssues: ['Windows systems without Git Bash cannot run .sh scripts directly.', 'Some proxies may block GHCR pulls without authentication.'],
+            upgradeNotes: ['Review AI execution-plan and repository-selection workflows before production rollout.', 'Validate license handling and trial activation behavior in containerized environments.'],
+            docs: [
+              { label: 'User Manual', href: 'docs.html' },
+              { label: 'Product Overview', href: 'features.html' },
+              { label: 'Deployment Guide', href: 'deployment.html' }
+            ]
+          },
           'v2026.08.18': {
             status: 'Stable',
             releaseDate: 'August 18, 2026',
@@ -1214,6 +1388,57 @@
       scanAgents: {
         label: 'SecureOne Scan Agents',
         versions: {
+          'v2026.08.27': {
+            status: 'Stable',
+            releaseDate: 'August 27, 2026',
+            dockerImage: 'ghcr.io/bountybreach/secureone_scan_agent:v2026.08.27',
+            requirements: ['Docker Engine ≥ 24.x', 'Linux, macOS, or Windows with Docker Desktop', '2 GB RAM minimum'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Agent Bundle', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Agent Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/secureone_scan_agent:v2026.08.27', action: 'docker pull ghcr.io/bountybreach/secureone_scan_agent:v2026.08.27', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Run: bash ./docker-start.sh v2026.08.27', 'Run: bash ./docker-run-local.sh v2026.08.27'],
+              linux: ['Run: chmod +x docker-start.sh docker-run-local.sh', 'Run: ./docker-start.sh v2026.08.27', 'Run: ./docker-run-local.sh v2026.08.27'],
+              docker: ['Pull image and launch using local orchestrator scripts.'],
+              macos: ['Use Linux commands in macOS Terminal.']
+            },
+            scripts: [
+              { title: 'secureone_scan_agents/docker-start.sh', path: 'secureone_scan_agents/docker-start.sh' },
+              { title: 'secureone_scan_agents/docker-run-local.sh', path: 'secureone_scan_agents/docker-run-local.sh' }
+            ],
+            releaseNotes: {
+              newFeatures: [
+                'Added support for AI execution-plan resource recommendations consumed from AI Foundation workflows.',
+                'Added scripts to automatically include license files in Docker and binary build outputs.',
+                'Added a default 365-day trial license for Scan Agents.'
+              ],
+              improvements: [
+                'Improved startup and runtime verification to ensure /app/data/license/license.json is present when containers start.',
+                'Improved release/update packaging by excluding .md files from release artifacts.',
+                'Improved alignment between orchestrator scripts and runtime license handling paths.'
+              ],
+              bugFixes: [
+                'Fixed host mount scenarios that could override image-baked license files.',
+                'Fixed runtime-target build selection for local container builds.'
+              ],
+              breakingChanges: [
+                'None.'
+              ],
+              securityUpdates: [
+                'Improved reliability of trial-license file availability at container runtime.',
+                'Strengthened license-path validation during local startup workflows.'
+              ]
+            },
+            knownIssues: ['Local antivirus can slow first container startup.'],
+            upgradeNotes: ['Rebuild local images using the updated runtime target before rollout.', 'Validate license and trial behavior after startup using runtime verification output.'],
+            docs: [
+              { label: 'Agent Docs', href: 'docs.html' },
+              { label: 'Integrations', href: 'integrations.html' }
+            ]
+          },
           'v2026.08.18': {
             status: 'Stable',
             releaseDate: 'August 18, 2026',
@@ -1498,6 +1723,64 @@
       aiFoundation: {
         label: 'BountyBreach AI Foundation',
         versions: {
+          'v2026.08.27': {
+            status: 'Stable',
+            releaseDate: 'August 27, 2026',
+            dockerImage: 'ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.08.27',
+            requirements: ['Docker Engine ≥ 24.x', 'Linux, macOS, or Windows with Docker Desktop', '8 GB RAM recommended for local AI workflows'],
+            downloads: [
+              { platform: 'Windows', type: 'Download Foundation Bundle', action: '#', mode: 'download' },
+              { platform: 'Linux', type: 'Download Package', action: '#', mode: 'download' },
+              { platform: 'Docker', type: 'docker pull ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.08.27', action: 'docker pull ghcr.io/bountybreach/bountybreach-ai-foundation:v2026.08.27', mode: 'copy' },
+              { platform: 'macOS', type: 'Download', action: '#', mode: 'download' }
+            ],
+            install: {
+              windows: ['Install Docker Desktop and run project startup scripts from PowerShell + Git Bash.'],
+              linux: ['Use compose or startup scripts from project root.'],
+              docker: ['Pull and run the foundation image with required environment variables.'],
+              macos: ['Use Linux install flow in Terminal.']
+            },
+            scripts: [
+              { title: 'bountybreach-ai-foundation/docker-start.sh', path: 'bountybreach-ai-foundation/docker-start.sh' },
+              { title: 'bountybreach-ai-foundation/docker-run-local.sh', path: 'bountybreach-ai-foundation/docker-run-local.sh' }
+            ],
+            releaseNotes: {
+              newFeatures: [
+                'Added an Existing AI Execution Plans experience so admins can view and manage previously generated plans.',
+                'Added AI Input and AI Output review support for each saved execution plan.',
+                'Added AI Input Review tool selection for All, Semgrep, Snyk, GitLeaks, and other supported scan tools.',
+                'Added AI execution-plan prompt support for all-repository and specific-repository analysis requests from SecureOne admins.',
+                'Added AI resource recommendation outputs for Scan Agent capacity planning, including CPU, processor, RAM, and related requirements.',
+                'Added input-versus-output comparison support so users can understand how each AI execution plan recommendation was generated.',
+                'Added recommendation lifecycle support so users can review recommendations before saving and later review, edit, delete, or recreate stored recommendations.',
+                'Added scripts to automatically include license files in Docker and binary build pipelines.',
+                'Added a default 365-day trial license for AI Foundation.'
+              ],
+              improvements: [
+                'Improved AI recommendation response structure for clearer operational capacity planning.',
+                'Improved plan management workflows for reviewing, editing, deleting, and recreating existing AI execution plans.',
+                'Improved release/update packaging by excluding .md files from release artifacts.',
+                'Improved local runtime verification of baked license files under /app/data/license.'
+              ],
+              bugFixes: [
+                'Fixed local build behavior by targeting the runtime stage explicitly for Docker image creation.',
+                'Fixed startup path consistency for license file availability checks.'
+              ],
+              breakingChanges: [
+                'None.'
+              ],
+              securityUpdates: [
+                'Improved consistency of trial-license provisioning and runtime availability checks.',
+                'Strengthened deployment reliability by validating in-image licensing artifacts before startup.'
+              ]
+            },
+            knownIssues: ['Initial model cache download can take several minutes.'],
+            upgradeNotes: ['Validate AI execution-plan workflows and resource recommendations after upgrade.', 'Rebuild local images using the runtime target before deployment.'],
+            docs: [
+              { label: 'Foundation Docs', href: 'docs.html' },
+              { label: 'Admin Panel Guide', href: 'ADMIN_PANEL_QUICKSTART.md' }
+            ]
+          },
           'v2026.08.18': {
             status: 'Stable',
             releaseDate: 'August 18, 2026',
@@ -1696,7 +1979,7 @@
     };
 
     var selectedProduct = 'secureone';
-    var selectedVersion = 'v2026.08.18';
+    var selectedVersion = 'v2026.08.27';
     var navRoot = document.getElementById('releaseNav');
     var contentRoot = document.getElementById('releaseContent');
 
